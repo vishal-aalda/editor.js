@@ -1,12 +1,12 @@
-var Rt = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
-function Pe(s) {
+var Pt = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
+function Fe(s) {
   return s && s.__esModule && Object.prototype.hasOwnProperty.call(s, "default") ? s.default : s;
 }
-function Ce() {
+function Se() {
 }
-Object.assign(Ce, {
-  default: Ce,
-  register: Ce,
+Object.assign(Se, {
+  default: Se,
+  register: Se,
   revert: function() {
   },
   __esModule: !0
@@ -55,9 +55,9 @@ window.requestIdleCallback = window.requestIdleCallback || function(s) {
 window.cancelIdleCallback = window.cancelIdleCallback || function(s) {
   clearTimeout(s);
 };
-let Dt = (s = 21) => crypto.getRandomValues(new Uint8Array(s)).reduce((e, t) => (t &= 63, t < 36 ? e += t.toString(36) : t < 62 ? e += (t - 26).toString(36).toUpperCase() : t > 62 ? e += "-" : e += "_", e), "");
-var at = /* @__PURE__ */ ((s) => (s.VERBOSE = "VERBOSE", s.INFO = "INFO", s.WARN = "WARN", s.ERROR = "ERROR", s))(at || {});
-const k = {
+let Ft = (s = 21) => crypto.getRandomValues(new Uint8Array(s)).reduce((e, t) => (t &= 63, t < 36 ? e += t.toString(36) : t < 62 ? e += (t - 26).toString(36).toUpperCase() : t > 62 ? e += "-" : e += "_", e), "");
+var dt = /* @__PURE__ */ ((s) => (s.VERBOSE = "VERBOSE", s.INFO = "INFO", s.WARN = "WARN", s.ERROR = "ERROR", s))(dt || {});
+const v = {
   BACKSPACE: 8,
   TAB: 9,
   ENTER: 13,
@@ -73,7 +73,7 @@ const k = {
   DELETE: 46,
   META: 91,
   SLASH: 191
-}, Pt = {
+}, Ht = {
   LEFT: 0,
   WHEEL: 1,
   RIGHT: 2,
@@ -99,7 +99,7 @@ function me(s, e, t = "log", o, i = "color: inherit") {
       break;
   }
   o && r.push(o);
-  const a = "Editor.js 2.29.0", l = `line-height: 1em;
+  const a = "Editor.js 2.30.0-rc.2", l = `line-height: 1em;
             color: #006FEA;
             display: inline-block;
             font-size: 11px;
@@ -116,10 +116,10 @@ function me(s, e, t = "log", o, i = "color: inherit") {
   }
 }
 me.logLevel = "VERBOSE";
-function Ft(s) {
+function zt(s) {
   me.logLevel = s;
 }
-const C = me.bind(window, !1), W = me.bind(window, !0);
+const T = me.bind(window, !1), W = me.bind(window, !0);
 function oe(s) {
   return Object.prototype.toString.call(s).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
 }
@@ -129,22 +129,22 @@ function M(s) {
 function D(s) {
   return oe(s) === "object";
 }
-function G(s) {
+function q(s) {
   return oe(s) === "string";
 }
-function Ht(s) {
+function Ut(s) {
   return oe(s) === "boolean";
 }
-function Je(s) {
+function et(s) {
   return oe(s) === "number";
 }
-function Qe(s) {
+function tt(s) {
   return oe(s) === "undefined";
 }
 function K(s) {
   return s ? Object.keys(s).length === 0 && s.constructor === Object : !0;
 }
-function lt(s) {
+function ht(s) {
   return s > 47 && s < 58 || // number keys
   s === 32 || s === 13 || // Space bar & return key(s)
   s === 229 || // processing key input for certain languages — Chinese, Japanese, etc.
@@ -153,19 +153,19 @@ function lt(s) {
   s > 185 && s < 193 || // ;=,-./` (in order)
   s > 218 && s < 223;
 }
-async function zt(s, e = () => {
+async function jt(s, e = () => {
 }, t = () => {
 }) {
   async function o(i, n, r) {
     try {
-      await i.function(i.data), await n(Qe(i.data) ? {} : i.data);
+      await i.function(i.data), await n(tt(i.data) ? {} : i.data);
     } catch {
-      r(Qe(i.data) ? {} : i.data);
+      r(tt(i.data) ? {} : i.data);
     }
   }
   return s.reduce(async (i, n) => (await i, o(n, e, t)), Promise.resolve());
 }
-function ct(s) {
+function ut(s) {
   return Array.prototype.slice.call(s);
 }
 function xe(s, e) {
@@ -174,13 +174,13 @@ function xe(s, e) {
     window.setTimeout(() => s.apply(t, o), e);
   };
 }
-function Ut(s) {
+function $t(s) {
   return s.name.split(".").pop();
 }
-function jt(s) {
+function Wt(s) {
   return /^[-\w]+\/([-+\w]+|\*)$/.test(s);
 }
-function et(s, e, t) {
+function ot(s, e, t) {
   let o;
   return (...i) => {
     const n = this, r = () => {
@@ -189,7 +189,7 @@ function et(s, e, t) {
     window.clearTimeout(o), o = window.setTimeout(r, e), a && s.apply(n, i);
   };
 }
-function Ie(s, e, t = void 0) {
+function Me(s, e, t = void 0) {
   let o, i, n, r = null, a = 0;
   t || (t = {});
   const l = function() {
@@ -202,7 +202,7 @@ function Ie(s, e, t = void 0) {
     return o = this, i = arguments, u <= 0 || u > e ? (r && (clearTimeout(r), r = null), a = d, n = s.apply(o, i), r || (o = i = null)) : !r && t.trailing !== !1 && (r = setTimeout(l, u)), n;
   };
 }
-function $t() {
+function Yt() {
   const s = {
     win: !1,
     mac: !1,
@@ -214,36 +214,36 @@ function $t() {
 function re(s) {
   return s[0].toUpperCase() + s.slice(1);
 }
-function Me(s, ...e) {
+function Ae(s, ...e) {
   if (!e.length)
     return s;
   const t = e.shift();
   if (D(s) && D(t))
     for (const o in t)
-      D(t[o]) ? (s[o] || Object.assign(s, { [o]: {} }), Me(s[o], t[o])) : Object.assign(s, { [o]: t[o] });
-  return Me(s, ...e);
+      D(t[o]) ? (s[o] || Object.assign(s, { [o]: {} }), Ae(s[o], t[o])) : Object.assign(s, { [o]: t[o] });
+  return Ae(s, ...e);
 }
-function ye(s) {
-  const e = $t();
+function Ee(s) {
+  const e = Yt();
   return s = s.replace(/shift/gi, "⇧").replace(/backspace/gi, "⌫").replace(/enter/gi, "⏎").replace(/up/gi, "↑").replace(/left/gi, "→").replace(/down/gi, "↓").replace(/right/gi, "←").replace(/escape/gi, "⎋").replace(/insert/gi, "Ins").replace(/delete/gi, "␡").replace(/\+/gi, " + "), e.mac ? s = s.replace(/ctrl|cmd/gi, "⌘").replace(/alt/gi, "⌥") : s = s.replace(/cmd/gi, "Ctrl").replace(/windows/gi, "WIN"), s;
 }
-function Wt(s) {
+function Kt(s) {
   try {
     return new URL(s).href;
   } catch {
   }
   return s.substring(0, 2) === "//" ? window.location.protocol + s : window.location.origin + s;
 }
-function Yt() {
-  return Dt(10);
+function Vt() {
+  return Ft(10);
 }
-function Kt(s) {
+function Xt(s) {
   window.open(s, "_blank");
 }
-function Vt(s = "") {
+function qt(s = "") {
   return `${s}${Math.floor(Math.random() * 1e8).toString(16)}`;
 }
-function Ae(s, e, t) {
+function Le(s, e, t) {
   const o = `«${e}» is deprecated and will be removed in the next major release. Please use the «${t}» instead.`;
   s && W(o, "warn");
 }
@@ -259,12 +259,12 @@ function le(s, e, t) {
   }
   return t;
 }
-const dt = 650;
+const pt = 650;
 function te() {
-  return window.matchMedia(`(max-width: ${dt}px)`).matches;
+  return window.matchMedia(`(max-width: ${pt}px)`).matches;
 }
-const tt = typeof window < "u" && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
-function Xt(s, e) {
+const it = typeof window < "u" && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1);
+function Zt(s, e) {
   const t = Array.isArray(s) || D(s), o = Array.isArray(e) || D(e);
   return t || o ? JSON.stringify(s) === JSON.stringify(e) : s === e;
 }
@@ -405,7 +405,7 @@ class c {
    * @param holder - element where to find inputs
    */
   static findAllInputs(e) {
-    return ct(e.querySelectorAll(c.allInputsSelector)).reduce((t, o) => c.isNativeInput(o) || c.containsOnlyInlineElements(o) ? [...t, o] : [...t, ...c.getDeepestBlockElements(o)], []);
+    return ut(e.querySelectorAll(c.allInputsSelector)).reduce((t, o) => c.isNativeInput(o) || c.containsOnlyInlineElements(o) ? [...t, o] : [...t, ...c.getDeepestBlockElements(o)], []);
   }
   /**
    * Search for deepest node which is Leaf.
@@ -440,7 +440,7 @@ class c {
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static isElement(e) {
-    return Je(e) ? !1 : e && e.nodeType && e.nodeType === Node.ELEMENT_NODE;
+    return et(e) ? !1 : e && e.nodeType && e.nodeType === Node.ELEMENT_NODE;
   }
   /**
    * Check if object is DocumentFragment node
@@ -450,7 +450,7 @@ class c {
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static isFragment(e) {
-    return Je(e) ? !1 : e && e.nodeType && e.nodeType === Node.DOCUMENT_FRAGMENT_NODE;
+    return et(e) ? !1 : e && e.nodeType && e.nodeType === Node.DOCUMENT_FRAGMENT_NODE;
   }
   /**
    * Check if passed element is contenteditable
@@ -617,7 +617,7 @@ class c {
    */
   static containsOnlyInlineElements(e) {
     let t;
-    G(e) ? (t = document.createElement("div"), t.innerHTML = e) : t = e;
+    q(e) ? (t = document.createElement("div"), t.innerHTML = e) : t = e;
     const o = (i) => !c.blockElements.includes(i.tagName.toLowerCase()) && Array.from(i.children).every(o);
     return Array.from(t.children).every(o);
   }
@@ -637,7 +637,7 @@ class c {
    * @returns {HTMLElement}
    */
   static getHolder(e) {
-    return G(e) ? document.getElementById(e) : e;
+    return q(e) ? document.getElementById(e) : e;
   }
   /**
    * Returns true if element is anchor (is A tag)
@@ -664,7 +664,7 @@ class c {
     };
   }
 }
-const qt = {
+const Gt = {
   blockTunes: {
     toggler: {
       "Click to tune": "",
@@ -685,19 +685,19 @@ const qt = {
     Filter: "",
     "Nothing found": ""
   }
-}, Zt = {
+}, Jt = {
   Text: "",
   Link: "",
   Bold: "",
   Italic: ""
-}, Gt = {
+}, Qt = {
   link: {
     "Add a link": ""
   },
   stub: {
     "The block can not be displayed correctly.": ""
   }
-}, Jt = {
+}, eo = {
   delete: {
     Delete: "",
     "Click to delete": ""
@@ -708,11 +708,11 @@ const qt = {
   moveDown: {
     "Move down": ""
   }
-}, ht = {
-  ui: qt,
-  toolNames: Zt,
-  tools: Gt,
-  blockTunes: Jt
+}, ft = {
+  ui: Gt,
+  toolNames: Jt,
+  tools: Qt,
+  blockTunes: eo
 }, ie = class {
   /**
    * Type-safe translation for internal UI texts:
@@ -764,10 +764,10 @@ const qt = {
   }
 };
 let F = ie;
-F.currentDictionary = ht;
-class ut extends Error {
+F.currentDictionary = ft;
+class gt extends Error {
 }
-class Ee {
+class Be {
   constructor() {
     this.subscribers = {};
   }
@@ -939,7 +939,7 @@ function ee(s) {
     }
   });
 }
-class Fe {
+class He {
   constructor() {
     this.allListeners = [];
   }
@@ -952,7 +952,7 @@ class Fe {
    * @param {boolean|AddEventListenerOptions} options - useCapture or {capture, passive, once}
    */
   on(e, t, o, i = !1) {
-    const n = Vt("l"), r = {
+    const n = qt("l"), r = {
       id: n,
       element: e,
       eventType: t,
@@ -1079,7 +1079,7 @@ class y {
    * @param options.eventsDispatcher - Common event bus
    */
   constructor({ config: e, eventsDispatcher: t }) {
-    if (this.nodes = {}, this.listeners = new Fe(), this.readOnlyMutableListeners = {
+    if (this.nodes = {}, this.listeners = new He(), this.readOnlyMutableListeners = {
       /**
        * Assigns event listener on DOM element and pushes into special array that might be removed
        *
@@ -1256,9 +1256,9 @@ class b {
     if (e && e.type !== "Control")
       return e = e, t = e.createRange(), o.x = t.boundingLeft, o.y = t.boundingTop, o.width = t.boundingWidth, o.height = t.boundingHeight, o;
     if (!window.getSelection)
-      return C("Method window.getSelection is not supported", "warn"), o;
+      return T("Method window.getSelection is not supported", "warn"), o;
     if (e = window.getSelection(), e.rangeCount === null || isNaN(e.rangeCount))
-      return C("Method SelectionUtils.rangeCount is not supported", "warn"), o;
+      return T("Method SelectionUtils.rangeCount is not supported", "warn"), o;
     if (e.rangeCount === 0)
       return o;
     if (t = e.getRangeAt(0).cloneRange(), t.getBoundingClientRect && (o = t.getBoundingClientRect()), o.x === 0 && o.y === 0) {
@@ -1408,33 +1408,32 @@ class b {
     o.selectNodeContents(e), t.addRange(o);
   }
 }
-function Qt(s, e) {
-  const { type: t, target: o, addedNodes: i, removedNodes: n } = s;
-  if (o === e)
-    return !0;
-  if (["characterData", "attributes"].includes(t)) {
-    const l = o.nodeType === Node.TEXT_NODE ? o.parentNode : o;
-    return e.contains(l);
-  }
-  const r = Array.from(i).some((l) => e.contains(l)), a = Array.from(n).some((l) => e.contains(l));
-  return r || a;
-}
-const Le = "redactor dom changed", pt = "block changed", ft = "fake cursor is about to be toggled", gt = "fake cursor have been set";
-function ot(s, e) {
-  return s.mergeable && s.name === e.name;
-}
-function eo(s, e) {
-  const t = e == null ? void 0 : e.export;
-  return M(t) ? t(s) : G(t) ? s[t] : (t !== void 0 && C("Conversion «export» property must be a string or function. String means key of saved data object to export. Function should export processed string to export."), "");
-}
 function to(s, e) {
-  const t = e == null ? void 0 : e.import;
-  return M(t) ? t(s) : G(t) ? {
-    [t]: s
-  } : (t !== void 0 && C("Conversion «import» property must be a string or function. String means key of tool data to import. Function accepts a imported string and return composed tool data."), {});
+  const { type: t, target: o, addedNodes: i, removedNodes: n } = s;
+  return !!(e.contains(o) || t === "childList" && (Array.from(i).some((l) => l === e) || Array.from(n).some((l) => l === e)));
 }
-var V = /* @__PURE__ */ ((s) => (s.APPEND_CALLBACK = "appendCallback", s.RENDERED = "rendered", s.MOVED = "moved", s.UPDATED = "updated", s.REMOVED = "removed", s.ON_PASTE = "onPaste", s))(V || {});
-class R extends Ee {
+const Oe = "redactor dom changed", bt = "block changed", mt = "fake cursor is about to be toggled", kt = "fake cursor have been set";
+function we(s, e) {
+  if (!s.tool.conversionConfig)
+    return !1;
+  const t = s.tool.conversionConfig[e];
+  return M(t) || q(t);
+}
+function nt(s, e) {
+  return s.mergeable ? s.name === e.name ? !0 : we(e, "export") && we(s, "import") : !1;
+}
+function oo(s, e) {
+  const t = e == null ? void 0 : e.export;
+  return M(t) ? t(s) : q(t) ? s[t] : (t !== void 0 && T("Conversion «export» property must be a string or function. String means key of saved data object to export. Function should export processed string to export."), "");
+}
+function st(s, e) {
+  const t = e == null ? void 0 : e.import;
+  return M(t) ? t(s) : q(t) ? {
+    [t]: s
+  } : (t !== void 0 && T("Conversion «import» property must be a string or function. String means key of tool data to import. Function accepts a imported string and return composed tool data."), {});
+}
+var X = /* @__PURE__ */ ((s) => (s.APPEND_CALLBACK = "appendCallback", s.RENDERED = "rendered", s.MOVED = "moved", s.UPDATED = "updated", s.REMOVED = "removed", s.ON_PASTE = "onPaste", s))(X || {});
+class R extends Be {
   /**
    * @param options - block constructor options
    * @param [options.id] - block's id. Will be generated if omitted.
@@ -1445,7 +1444,7 @@ class R extends Ee {
    * @param [eventBus] - Editor common event bus. Allows to subscribe on some Editor events. Could be omitted when "virtual" Block is created. See BlocksAPI@composeBlockData.
    */
   constructor({
-    id: e = Yt(),
+    id: e = Vt(),
     data: t,
     tool: o,
     api: i,
@@ -1616,7 +1615,7 @@ class R extends Ee {
     var i, n;
     this.holder.classList.toggle(R.CSS.selected, e);
     const t = e === !0 && b.isRangeInsideContainer(this.holder), o = e === !1 && b.isFakeCursorInsideContainer(this.holder);
-    (t || o) && ((i = this.editorEventBus) == null || i.emit(ft, { state: e }), t ? b.addFakeCursor() : b.removeFakeCursor(this.holder), (n = this.editorEventBus) == null || n.emit(gt, { state: e }));
+    (t || o) && ((i = this.editorEventBus) == null || i.emit(mt, { state: e }), t ? b.addFakeCursor() : b.removeFakeCursor(this.holder), (n = this.editorEventBus) == null || n.emit(kt, { state: e }));
   }
   /**
    * Returns True if it is Selected
@@ -1668,14 +1667,14 @@ class R extends Ee {
    */
   call(e, t) {
     if (M(this.toolInstance[e])) {
-      e === "appendCallback" && C(
+      e === "appendCallback" && T(
         "`appendCallback` hook is deprecated and will be removed in the next major release. Use `rendered` hook instead",
         "warn"
       );
       try {
         this.toolInstance[e].call(this.toolInstance, t);
       } catch (o) {
-        C(`Error during '${e}' call: ${o.message}`, "error");
+        T(`Error during '${e}' call: ${o.message}`, "error");
       }
     }
   }
@@ -1703,7 +1702,7 @@ class R extends Ee {
         try {
           t[n] = r.save();
         } catch (a) {
-          C(`Tune ${r.constructor.name} save method throws an Error %o`, "warn", a);
+          T(`Tune ${r.constructor.name} save method throws an Error %o`, "warn", a);
         }
     });
     const o = window.performance.now();
@@ -1715,7 +1714,7 @@ class R extends Ee {
       tunes: t,
       time: i - o
     })).catch((n) => {
-      C(`Saving process for ${this.name} tool failed due to the ${n}`, "log", "red");
+      T(`Saving process for ${this.name} tool failed due to the ${n}`, "log", "red");
     });
   }
   /**
@@ -1771,14 +1770,14 @@ class R extends Ee {
     if (e.length === 1)
       return Promise.resolve(this.tool.toolbox[0]);
     const t = await this.data;
-    return e.find((i) => Object.entries(i.data).some(([n, r]) => t[n] && Xt(t[n], r)));
+    return e.find((i) => Object.entries(i.data).some(([n, r]) => t[n] && Zt(t[n], r)));
   }
   /**
    * Exports Block data as string using conversion config
    */
   async exportDataAsString() {
     const e = await this.data;
-    return eo(e, this.tool.conversionConfig);
+    return oo(e, this.tool.conversionConfig);
   }
   /**
    * Make default Block wrappers and put Tool`s content there
@@ -1794,7 +1793,7 @@ class R extends Ee {
         try {
           i = n.wrap(i);
         } catch (r) {
-          C(`Tune ${n.constructor.name} wrap method throws an Error %o`, "warn", r);
+          T(`Tune ${n.constructor.name} wrap method throws an Error %o`, "warn", r);
         }
     }), e.appendChild(i), e;
   }
@@ -1834,15 +1833,15 @@ class R extends Ee {
     var e;
     this.redactorDomChangedCallback = (t) => {
       const { mutations: o } = t;
-      o.some((n) => Qt(n, this.toolRenderedElement)) && this.didMutated(o);
-    }, (e = this.editorEventBus) == null || e.on(Le, this.redactorDomChangedCallback);
+      o.some((n) => to(n, this.toolRenderedElement)) && this.didMutated(o);
+    }, (e = this.editorEventBus) == null || e.on(Oe, this.redactorDomChangedCallback);
   }
   /**
    * Remove redactor dom change event listener
    */
   unwatchBlockMutations() {
     var e;
-    (e = this.editorEventBus) == null || e.off(Le, this.redactorDomChangedCallback);
+    (e = this.editorEventBus) == null || e.off(Oe, this.redactorDomChangedCallback);
   }
   /**
    * Sometimes Tool can replace own main element, for example H2 -> H4 or UL -> OL
@@ -1865,7 +1864,7 @@ class R extends Ee {
     this.cachedInputs = [];
   }
 }
-class oo extends y {
+class io extends y {
   constructor() {
     super(...arguments), this.insert = (e = this.config.defaultBlock, t = {}, o = {}, i, n, r, a) => {
       const l = this.Editor.BlockManager.insert({
@@ -2006,7 +2005,7 @@ class oo extends y {
    * @deprecated — use 'move' instead
    */
   swap(e, t) {
-    C(
+    T(
       "`blocks.swap()` method is deprecated and will be removed in the next major release. Use `block.move()` method instead",
       "info"
     ), this.Editor.BlockManager.swap(e, t);
@@ -2068,7 +2067,7 @@ class oo extends y {
    * @deprecated Use BlockAPI interface to stretch Blocks
    */
   stretchBlock(e, t = !0) {
-    Ae(
+    Le(
       !0,
       "blocks.stretchBlock()",
       "BlockAPI"
@@ -2084,7 +2083,7 @@ class oo extends y {
    * @deprecated with insert() method
    */
   insertNewBlock() {
-    C("Method blocks.insertNewBlock() is deprecated and it will be removed in the next major release. Use blocks.insert() instead.", "warn"), this.insert();
+    T("Method blocks.insertNewBlock() is deprecated and it will be removed in the next major release. Use blocks.insert() instead.", "warn"), this.insert();
   }
   /**
    * Validated block index and throws an error if it's invalid
@@ -2100,7 +2099,7 @@ class oo extends y {
       throw new Error("Index should be greater than or equal to 0");
   }
 }
-class io extends y {
+class no extends y {
   constructor() {
     super(...arguments), this.setToFirstBlock = (e = this.Editor.Caret.positions.DEFAULT, t = 0) => this.Editor.BlockManager.firstBlock ? (this.Editor.Caret.setToBlock(this.Editor.BlockManager.firstBlock, e, t), !0) : !1, this.setToLastBlock = (e = this.Editor.Caret.positions.DEFAULT, t = 0) => this.Editor.BlockManager.lastBlock ? (this.Editor.Caret.setToBlock(this.Editor.BlockManager.lastBlock, e, t), !0) : !1, this.setToPreviousBlock = (e = this.Editor.Caret.positions.DEFAULT, t = 0) => this.Editor.BlockManager.previousBlock ? (this.Editor.Caret.setToBlock(this.Editor.BlockManager.previousBlock, e, t), !0) : !1, this.setToNextBlock = (e = this.Editor.Caret.positions.DEFAULT, t = 0) => this.Editor.BlockManager.nextBlock ? (this.Editor.Caret.setToBlock(this.Editor.BlockManager.nextBlock, e, t), !0) : !1, this.setToBlock = (e, t = this.Editor.Caret.positions.DEFAULT, o = 0) => this.Editor.BlockManager.blocks[e] ? (this.Editor.Caret.setToBlock(this.Editor.BlockManager.blocks[e], t, o), !0) : !1, this.focus = (e = !1) => e ? this.setToLastBlock(this.Editor.Caret.positions.END) : this.setToFirstBlock(this.Editor.Caret.positions.START);
   }
@@ -2120,7 +2119,7 @@ class io extends y {
     };
   }
 }
-class no extends y {
+class so extends y {
   /**
    * Available methods
    *
@@ -2161,7 +2160,7 @@ class no extends y {
     this.eventsDispatcher.off(e, t);
   }
 }
-class He extends y {
+class ze extends y {
   /**
    * Return namespace section for tool or block tune
    *
@@ -2189,12 +2188,12 @@ class He extends y {
     return Object.assign(
       this.methods,
       {
-        t: (t) => F.t(He.getNamespace(e), t)
+        t: (t) => F.t(ze.getNamespace(e), t)
       }
     );
   }
 }
-class so extends y {
+class ro extends y {
   /**
    * Editor.js Core API modules
    */
@@ -2231,7 +2230,7 @@ class so extends y {
     );
   }
 }
-class ro extends y {
+class ao extends y {
   /**
    * Available methods
    *
@@ -2256,7 +2255,7 @@ class ro extends y {
     this.Editor.InlineToolbar.close();
   }
 }
-class ao extends y {
+class lo extends y {
   /**
    * Available methods
    *
@@ -2300,12 +2299,12 @@ class ao extends y {
     this.listeners.offById(e);
   }
 }
-var Oe = {}, lo = {
+var _e = {}, co = {
   get exports() {
-    return Oe;
+    return _e;
   },
   set exports(s) {
-    Oe = s;
+    _e = s;
   }
 };
 (function(s, e) {
@@ -2421,7 +2420,7 @@ var Oe = {}, lo = {
         return window && document && document.all && !window.atob;
       }, function() {
         return r === void 0 && (r = n.apply(this, arguments)), r;
-      }), d = function(v) {
+      }), d = function(k) {
         var g = {};
         return function(w) {
           if (typeof w == "function")
@@ -2441,88 +2440,88 @@ var Oe = {}, lo = {
           return g[w];
         };
       }(), u = null, h = 0, f = [], x = i(5);
-      function p(v, g) {
-        for (var w = 0; w < v.length; w++) {
-          var E = v[w], I = a[E.id];
+      function p(k, g) {
+        for (var w = 0; w < k.length; w++) {
+          var E = k[w], I = a[E.id];
           if (I) {
             I.refs++;
-            for (var T = 0; T < I.parts.length; T++)
-              I.parts[T](E.parts[T]);
-            for (; T < E.parts.length; T++)
-              I.parts.push(z(E.parts[T], g));
+            for (var C = 0; C < I.parts.length; C++)
+              I.parts[C](E.parts[C]);
+            for (; C < E.parts.length; C++)
+              I.parts.push(z(E.parts[C], g));
           } else {
             var _ = [];
-            for (T = 0; T < E.parts.length; T++)
-              _.push(z(E.parts[T], g));
+            for (C = 0; C < E.parts.length; C++)
+              _.push(z(E.parts[C], g));
             a[E.id] = { id: E.id, refs: 1, parts: _ };
           }
         }
       }
-      function m(v, g) {
-        for (var w = [], E = {}, I = 0; I < v.length; I++) {
-          var T = v[I], _ = g.base ? T[0] + g.base : T[0], B = { css: T[1], media: T[2], sourceMap: T[3] };
+      function m(k, g) {
+        for (var w = [], E = {}, I = 0; I < k.length; I++) {
+          var C = k[I], _ = g.base ? C[0] + g.base : C[0], B = { css: C[1], media: C[2], sourceMap: C[3] };
           E[_] ? E[_].parts.push(B) : w.push(E[_] = { id: _, parts: [B] });
         }
         return w;
       }
-      function L(v, g) {
-        var w = d(v.insertInto);
+      function L(k, g) {
+        var w = d(k.insertInto);
         if (!w)
           throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
         var E = f[f.length - 1];
-        if (v.insertAt === "top")
+        if (k.insertAt === "top")
           E ? E.nextSibling ? w.insertBefore(g, E.nextSibling) : w.appendChild(g) : w.insertBefore(g, w.firstChild), f.push(g);
-        else if (v.insertAt === "bottom")
+        else if (k.insertAt === "bottom")
           w.appendChild(g);
         else {
-          if (typeof v.insertAt != "object" || !v.insertAt.before)
+          if (typeof k.insertAt != "object" || !k.insertAt.before)
             throw new Error(`[Style Loader]
 
  Invalid value for parameter 'insertAt' ('options.insertAt') found.
  Must be 'top', 'bottom', or Object.
  (https://github.com/webpack-contrib/style-loader#insertat)
 `);
-          var I = d(v.insertInto + " " + v.insertAt.before);
+          var I = d(k.insertInto + " " + k.insertAt.before);
           w.insertBefore(g, I);
         }
       }
-      function O(v) {
-        if (v.parentNode === null)
+      function O(k) {
+        if (k.parentNode === null)
           return !1;
-        v.parentNode.removeChild(v);
-        var g = f.indexOf(v);
+        k.parentNode.removeChild(k);
+        var g = f.indexOf(k);
         g >= 0 && f.splice(g, 1);
       }
-      function S(v) {
+      function S(k) {
         var g = document.createElement("style");
-        return v.attrs.type === void 0 && (v.attrs.type = "text/css"), Z(g, v.attrs), L(v, g), g;
+        return k.attrs.type === void 0 && (k.attrs.type = "text/css"), G(g, k.attrs), L(k, g), g;
       }
-      function Z(v, g) {
+      function G(k, g) {
         Object.keys(g).forEach(function(w) {
-          v.setAttribute(w, g[w]);
+          k.setAttribute(w, g[w]);
         });
       }
-      function z(v, g) {
-        var w, E, I, T;
-        if (g.transform && v.css) {
-          if (!(T = g.transform(v.css)))
+      function z(k, g) {
+        var w, E, I, C;
+        if (g.transform && k.css) {
+          if (!(C = g.transform(k.css)))
             return function() {
             };
-          v.css = T;
+          k.css = C;
         }
         if (g.singleton) {
           var _ = h++;
           w = u || (u = S(g)), E = ce.bind(null, w, _, !1), I = ce.bind(null, w, _, !0);
         } else
-          v.sourceMap && typeof URL == "function" && typeof URL.createObjectURL == "function" && typeof URL.revokeObjectURL == "function" && typeof Blob == "function" && typeof btoa == "function" ? (w = function(B) {
+          k.sourceMap && typeof URL == "function" && typeof URL.createObjectURL == "function" && typeof URL.revokeObjectURL == "function" && typeof Blob == "function" && typeof btoa == "function" ? (w = function(B) {
             var j = document.createElement("link");
-            return B.attrs.type === void 0 && (B.attrs.type = "text/css"), B.attrs.rel = "stylesheet", Z(j, B.attrs), L(B, j), j;
+            return B.attrs.type === void 0 && (B.attrs.type = "text/css"), B.attrs.rel = "stylesheet", G(j, B.attrs), L(B, j), j;
           }(g), E = function(B, j, de) {
-            var Q = de.css, Te = de.sourceMap, _t = j.convertToAbsoluteUrls === void 0 && Te;
-            (j.convertToAbsoluteUrls || _t) && (Q = x(Q)), Te && (Q += `
+            var Q = de.css, Te = de.sourceMap, Rt = j.convertToAbsoluteUrls === void 0 && Te;
+            (j.convertToAbsoluteUrls || Rt) && (Q = x(Q)), Te && (Q += `
 /*# sourceMappingURL=data:application/json;base64,` + btoa(unescape(encodeURIComponent(JSON.stringify(Te)))) + " */");
-            var Nt = new Blob([Q], { type: "text/css" }), Ge = B.href;
-            B.href = URL.createObjectURL(Nt), Ge && URL.revokeObjectURL(Ge);
+            var Dt = new Blob([Q], { type: "text/css" }), Qe = B.href;
+            B.href = URL.createObjectURL(Dt), Qe && URL.revokeObjectURL(Qe);
           }.bind(null, w, g), I = function() {
             O(w), w.href && URL.revokeObjectURL(w.href);
           }) : (w = S(g), E = function(B, j) {
@@ -2537,28 +2536,28 @@ var Oe = {}, lo = {
           }.bind(null, w), I = function() {
             O(w);
           });
-        return E(v), function(B) {
+        return E(k), function(B) {
           if (B) {
-            if (B.css === v.css && B.media === v.media && B.sourceMap === v.sourceMap)
+            if (B.css === k.css && B.media === k.media && B.sourceMap === k.sourceMap)
               return;
-            E(v = B);
+            E(k = B);
           } else
             I();
         };
       }
-      t.exports = function(v, g) {
+      t.exports = function(k, g) {
         if (typeof DEBUG < "u" && DEBUG && typeof document != "object")
           throw new Error("The style-loader cannot be used in a non-browser environment");
         (g = g || {}).attrs = typeof g.attrs == "object" ? g.attrs : {}, g.singleton || typeof g.singleton == "boolean" || (g.singleton = l()), g.insertInto || (g.insertInto = "head"), g.insertAt || (g.insertAt = "bottom");
-        var w = m(v, g);
+        var w = m(k, g);
         return p(w, g), function(E) {
-          for (var I = [], T = 0; T < w.length; T++) {
-            var _ = w[T];
+          for (var I = [], C = 0; C < w.length; C++) {
+            var _ = w[C];
             (B = a[_.id]).refs--, I.push(B);
           }
-          for (E && p(m(E, g), g), T = 0; T < I.length; T++) {
+          for (E && p(m(E, g), g), C = 0; C < I.length; C++) {
             var B;
-            if ((B = I[T]).refs === 0) {
+            if ((B = I[C]).refs === 0) {
               for (var j = 0; j < B.parts.length; j++)
                 B.parts[j]();
               delete a[B.id];
@@ -2566,17 +2565,17 @@ var Oe = {}, lo = {
           }
         };
       };
-      var U, J = (U = [], function(v, g) {
-        return U[v] = g, U.filter(Boolean).join(`
+      var U, J = (U = [], function(k, g) {
+        return U[k] = g, U.filter(Boolean).join(`
 `);
       });
-      function ce(v, g, w, E) {
+      function ce(k, g, w, E) {
         var I = w ? "" : E.css;
-        if (v.styleSheet)
-          v.styleSheet.cssText = J(g, I);
+        if (k.styleSheet)
+          k.styleSheet.cssText = J(g, I);
         else {
-          var T = document.createTextNode(I), _ = v.childNodes;
-          _[g] && v.removeChild(_[g]), _.length ? v.insertBefore(T, _[g]) : v.appendChild(T);
+          var C = document.createTextNode(I), _ = k.childNodes;
+          _[g] && k.removeChild(_[g]), _.length ? k.insertBefore(C, _[g]) : k.appendChild(C);
         }
       }
     }, function(t, o) {
@@ -2602,11 +2601,11 @@ var Oe = {}, lo = {
         var m = document.createElement("DIV"), L = document.createElement("DIV"), O = p.message, S = p.style;
         return m.classList.add(r), S && m.classList.add(r + "--" + S), m.innerHTML = O, L.classList.add(a), L.addEventListener("click", m.remove.bind(m)), m.appendChild(L), m;
       }, confirm: function(p) {
-        var m = x(p), L = document.createElement("div"), O = document.createElement("button"), S = document.createElement("button"), Z = m.querySelector("." + a), z = p.cancelHandler, U = p.okHandler;
-        return L.classList.add(f), O.innerHTML = p.okText || "Confirm", S.innerHTML = p.cancelText || "Cancel", O.classList.add(h), S.classList.add(h), O.classList.add(l), S.classList.add(d), z && typeof z == "function" && (S.addEventListener("click", z), Z.addEventListener("click", z)), U && typeof U == "function" && O.addEventListener("click", U), O.addEventListener("click", m.remove.bind(m)), S.addEventListener("click", m.remove.bind(m)), L.appendChild(O), L.appendChild(S), m.appendChild(L), m;
+        var m = x(p), L = document.createElement("div"), O = document.createElement("button"), S = document.createElement("button"), G = m.querySelector("." + a), z = p.cancelHandler, U = p.okHandler;
+        return L.classList.add(f), O.innerHTML = p.okText || "Confirm", S.innerHTML = p.cancelText || "Cancel", O.classList.add(h), S.classList.add(h), O.classList.add(l), S.classList.add(d), z && typeof z == "function" && (S.addEventListener("click", z), G.addEventListener("click", z)), U && typeof U == "function" && O.addEventListener("click", U), O.addEventListener("click", m.remove.bind(m)), S.addEventListener("click", m.remove.bind(m)), L.appendChild(O), L.appendChild(S), m.appendChild(L), m;
       }, prompt: function(p) {
-        var m = x(p), L = document.createElement("div"), O = document.createElement("button"), S = document.createElement("input"), Z = m.querySelector("." + a), z = p.cancelHandler, U = p.okHandler;
-        return L.classList.add(f), O.innerHTML = p.okText || "Ok", O.classList.add(h), O.classList.add(l), S.classList.add(u), p.placeholder && S.setAttribute("placeholder", p.placeholder), p.default && (S.value = p.default), p.inputType && (S.type = p.inputType), z && typeof z == "function" && Z.addEventListener("click", z), U && typeof U == "function" && O.addEventListener("click", function() {
+        var m = x(p), L = document.createElement("div"), O = document.createElement("button"), S = document.createElement("input"), G = m.querySelector("." + a), z = p.cancelHandler, U = p.okHandler;
+        return L.classList.add(f), O.innerHTML = p.okText || "Ok", O.classList.add(h), O.classList.add(l), S.classList.add(u), p.placeholder && S.setAttribute("placeholder", p.placeholder), p.default && (S.value = p.default), p.inputType && (S.type = p.inputType), z && typeof z == "function" && G.addEventListener("click", z), U && typeof U == "function" && O.addEventListener("click", function() {
           U(S.value);
         }), O.addEventListener("click", m.remove.bind(m)), L.appendChild(S), L.appendChild(O), m.appendChild(L), m;
       }, getWrapper: function() {
@@ -2615,19 +2614,19 @@ var Oe = {}, lo = {
       } });
     }]);
   });
-})(lo);
-const co = /* @__PURE__ */ Pe(Oe);
-class ho {
+})(co);
+const ho = /* @__PURE__ */ Fe(_e);
+class uo {
   /**
    * Show web notification
    *
    * @param {NotifierOptions | ConfirmNotifierOptions | PromptNotifierOptions} options - notification options
    */
   show(e) {
-    co.show(e);
+    ho.show(e);
   }
 }
-class uo extends y {
+class po extends y {
   /**
    * @param moduleConfiguration - Module Configuration
    * @param moduleConfiguration.config - Editor's config
@@ -2637,7 +2636,7 @@ class uo extends y {
     super({
       config: e,
       eventsDispatcher: t
-    }), this.notifier = new ho();
+    }), this.notifier = new uo();
   }
   /**
    * Available methods
@@ -2656,7 +2655,7 @@ class uo extends y {
     return this.notifier.show(e);
   }
 }
-class po extends y {
+class fo extends y {
   /**
    * Available methods
    */
@@ -2685,18 +2684,18 @@ class po extends y {
     return this.Editor.ReadOnly.isEnabled;
   }
 }
-var _e = {}, fo = {
+var Ne = {}, go = {
   get exports() {
-    return _e;
+    return Ne;
   },
   set exports(s) {
-    _e = s;
+    Ne = s;
   }
 };
 (function(s, e) {
   (function(t, o) {
     s.exports = o();
-  })(Rt, function() {
+  })(Pt, function() {
     function t(h) {
       var f = h.tags, x = Object.keys(f), p = x.map(function(m) {
         return typeof f[m];
@@ -2734,7 +2733,7 @@ var _e = {}, fo = {
           }
           var m = r(p), L;
           m && (L = Array.prototype.some.call(p.childNodes, i));
-          var O = !!f.parentNode, S = i(f) && i(p) && O, Z = p.nodeName.toLowerCase(), z = l(this.config, Z, p), U = m && L;
+          var O = !!f.parentNode, S = i(f) && i(p) && O, G = p.nodeName.toLowerCase(), z = l(this.config, G, p), U = m && L;
           if (U || d(p, z) || !this.config.keepNestedBlockElements && S) {
             if (!(p.nodeName === "SCRIPT" || p.nodeName === "STYLE"))
               for (; p.childNodes.length > 0; )
@@ -2769,43 +2768,43 @@ var _e = {}, fo = {
     }
     return t;
   });
-})(fo);
-const go = _e;
-function bt(s, e) {
+})(go);
+const bo = Ne;
+function Ue(s, e) {
   return s.map((t) => {
     const o = M(e) ? e(t.tool) : e;
-    return K(o) || (t.data = ze(t.data, o)), t;
+    return K(o) || (t.data = je(t.data, o)), t;
   });
 }
-function X(s, e = {}) {
+function V(s, e = {}) {
   const t = {
     tags: e
   };
-  return new go(t).clean(s);
+  return new bo(t).clean(s);
 }
-function ze(s, e) {
-  return Array.isArray(s) ? bo(s, e) : D(s) ? mo(s, e) : G(s) ? ko(s, e) : s;
-}
-function bo(s, e) {
-  return s.map((t) => ze(t, e));
+function je(s, e) {
+  return Array.isArray(s) ? mo(s, e) : D(s) ? ko(s, e) : q(s) ? vo(s, e) : s;
 }
 function mo(s, e) {
+  return s.map((t) => je(t, e));
+}
+function ko(s, e) {
   const t = {};
   for (const o in s) {
     if (!Object.prototype.hasOwnProperty.call(s, o))
       continue;
-    const i = s[o], n = vo(e[o]) ? e[o] : e;
-    t[o] = ze(i, n);
+    const i = s[o], n = xo(e[o]) ? e[o] : e;
+    t[o] = je(i, n);
   }
   return t;
 }
-function ko(s, e) {
-  return D(e) ? X(s, e) : e === !1 ? X(s, {}) : s;
+function vo(s, e) {
+  return D(e) ? V(s, e) : e === !1 ? V(s, {}) : s;
 }
-function vo(s) {
-  return D(s) || Ht(s) || M(s);
+function xo(s) {
+  return D(s) || Ut(s) || M(s);
 }
-class xo extends y {
+class wo extends y {
   /**
    * Available methods
    *
@@ -2824,10 +2823,10 @@ class xo extends y {
    * @returns {string}
    */
   clean(e, t) {
-    return X(e, t);
+    return V(e, t);
   }
 }
-class wo extends y {
+class yo extends y {
   /**
    * Available methods
    *
@@ -2848,7 +2847,7 @@ class wo extends y {
     return this.Editor.ReadOnly.isEnabled ? (W(e, "warn"), Promise.reject(new Error(e))) : this.Editor.Saver.save();
   }
 }
-class yo extends y {
+class Eo extends y {
   /**
    * Available methods
    *
@@ -2879,7 +2878,7 @@ class yo extends y {
     new b().expandToTag(e);
   }
 }
-class Eo extends y {
+class Bo extends y {
   /**
    * Exported classes
    */
@@ -2908,7 +2907,7 @@ class Eo extends y {
     };
   }
 }
-class Bo extends y {
+class Co extends y {
   /**
    * Available methods
    *
@@ -2977,12 +2976,12 @@ class Bo extends y {
     e ?? !this.Editor.Toolbar.toolbox.opened ? (this.Editor.Toolbar.moveAndOpen(), this.Editor.Toolbar.toolbox.open()) : this.Editor.Toolbar.toolbox.close();
   }
 }
-var Ne = {}, To = {
+var Re = {}, To = {
   get exports() {
-    return Ne;
+    return Re;
   },
   set exports(s) {
-    Ne = s;
+    Re = s;
   }
 };
 /*!
@@ -3139,24 +3138,24 @@ var Ne = {}, To = {
     }]).default;
   });
 })(To);
-const Co = /* @__PURE__ */ Pe(Ne);
+const So = /* @__PURE__ */ Fe(Re);
 let H = null;
-function Ue() {
-  H || (H = new Co());
+function $e() {
+  H || (H = new So());
 }
-function So(s, e, t) {
-  Ue(), H == null || H.show(s, e, t);
+function Io(s, e, t) {
+  $e(), H == null || H.show(s, e, t);
 }
-function Re(s = !1) {
-  Ue(), H == null || H.hide(s);
+function De(s = !1) {
+  $e(), H == null || H.hide(s);
 }
 function ge(s, e, t) {
-  Ue(), H == null || H.onHover(s, e, t);
+  $e(), H == null || H.onHover(s, e, t);
 }
-function Io() {
+function Mo() {
   H == null || H.destroy(), H = null;
 }
-class Mo extends y {
+class Ao extends y {
   /**
    * @class
    * @param moduleConfiguration - Module Configuration
@@ -3187,13 +3186,13 @@ class Mo extends y {
    * @param {TooltipOptions} options - tooltip options
    */
   show(e, t, o) {
-    So(e, t, o);
+    Io(e, t, o);
   }
   /**
    * Method hides tooltip on HTML page
    */
   hide() {
-    Re();
+    De();
   }
   /**
    * Decorator for showing Tooltip by mouseenter/mouseleave
@@ -3206,7 +3205,7 @@ class Mo extends y {
     ge(e, t, o);
   }
 }
-class Ao extends y {
+class Lo extends y {
   /**
    * Available methods / getters
    */
@@ -3234,26 +3233,26 @@ class Ao extends y {
     };
   }
 }
-function mt(s, e) {
+function vt(s, e) {
   const t = {};
   return Object.entries(s).forEach(([o, i]) => {
     if (D(i)) {
       const n = e ? `${e}.${o}` : o;
-      Object.values(i).every((a) => G(a)) ? t[o] = n : t[o] = mt(i, n);
+      Object.values(i).every((a) => q(a)) ? t[o] = n : t[o] = vt(i, n);
       return;
     }
     t[o] = i;
   }), t;
 }
-const Y = mt(ht);
-function Lo(s, e) {
+const Y = vt(ft);
+function Oo(s, e) {
   const t = {};
   return Object.keys(s).forEach((o) => {
     const i = e[o];
     i !== void 0 ? t[i] = s[o] : t[o] = s[o];
   }), t;
 }
-const Oo = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 12L9 7.1C9 7.04477 9.04477 7 9.1 7H10.4C11.5 7 14 7.1 14 9.5C14 9.5 14 12 11 12M9 12V16.8C9 16.9105 9.08954 17 9.2 17H12.5C14 17 15 16 15 14.5C15 11.7046 11 12 11 12M9 12H11"/></svg>', kt = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7 10L11.8586 14.8586C11.9367 14.9367 12.0633 14.9367 12.1414 14.8586L17 10"/></svg>', _o = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7 15L11.8586 10.1414C11.9367 10.0633 12.0633 10.0633 12.1414 10.1414L17 15"/></svg>', No = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 8L12 12M12 12L16 16M12 12L16 8M12 12L8 16"/></svg>', Ro = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/></svg>', Do = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M13.34 10C12.4223 12.7337 11 17 11 17"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M14.21 7H14.2"/></svg>', it = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7.69998 12.6L7.67896 12.62C6.53993 13.7048 6.52012 15.5155 7.63516 16.625V16.625C8.72293 17.7073 10.4799 17.7102 11.5712 16.6314L13.0263 15.193C14.0703 14.1609 14.2141 12.525 13.3662 11.3266L13.22 11.12"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16.22 11.12L16.3564 10.9805C17.2895 10.0265 17.3478 8.5207 16.4914 7.49733V7.49733C15.5691 6.39509 13.9269 6.25143 12.8271 7.17675L11.3901 8.38588C10.0935 9.47674 9.95706 11.4241 11.0888 12.6852L11.12 12.72"/></svg>', Po = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M9.40999 7.29999H9.4"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M14.6 7.29999H14.59"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M9.30999 12H9.3"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M14.6 12H14.59"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M9.40999 16.7H9.4"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M14.6 16.7H14.59"/></svg>', Fo = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M12 7V12M12 17V12M17 12H12M12 12H7"/></svg>', Ho = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5" stroke="currentColor" stroke-width="2"/><line x1="15.4142" x2="19" y1="15" y2="18.5858" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>', zo = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M15.7795 11.5C15.7795 11.5 16.053 11.1962 16.5497 10.6722C17.4442 9.72856 17.4701 8.2475 16.5781 7.30145V7.30145C15.6482 6.31522 14.0873 6.29227 13.1288 7.25073L11.8796 8.49999"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8.24517 12.3883C8.24517 12.3883 7.97171 12.6922 7.47504 13.2161C6.58051 14.1598 6.55467 15.6408 7.44666 16.5869V16.5869C8.37653 17.5731 9.93744 17.5961 10.8959 16.6376L12.1452 15.3883"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M17.7802 15.1032L16.597 14.9422C16.0109 14.8624 15.4841 15.3059 15.4627 15.8969L15.4199 17.0818"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M6.39064 9.03238L7.58432 9.06668C8.17551 9.08366 8.6522 8.58665 8.61056 7.99669L8.5271 6.81397"/><line x1="12.1142" x2="11.7" y1="12.2" y2="11.7858" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>', Uo = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="14" height="14" x="5" y="5" stroke="currentColor" stroke-width="2" rx="4"/><line x1="12" x2="12" y1="9" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M12 15.02V15.01"/></svg>';
+const _o = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 12L9 7.1C9 7.04477 9.04477 7 9.1 7H10.4C11.5 7 14 7.1 14 9.5C14 9.5 14 12 11 12M9 12V16.8C9 16.9105 9.08954 17 9.2 17H12.5C14 17 15 16 15 14.5C15 11.7046 11 12 11 12M9 12H11"/></svg>', xt = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7 10L11.8586 14.8586C11.9367 14.9367 12.0633 14.9367 12.1414 14.8586L17 10"/></svg>', No = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7 15L11.8586 10.1414C11.9367 10.0633 12.0633 10.0633 12.1414 10.1414L17 15"/></svg>', Ro = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 8L12 12M12 12L16 16M12 12L16 8M12 12L8 16"/></svg>', Do = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/></svg>', Po = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M13.34 10C12.4223 12.7337 11 17 11 17"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M14.21 7H14.2"/></svg>', rt = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7.69998 12.6L7.67896 12.62C6.53993 13.7048 6.52012 15.5155 7.63516 16.625V16.625C8.72293 17.7073 10.4799 17.7102 11.5712 16.6314L13.0263 15.193C14.0703 14.1609 14.2141 12.525 13.3662 11.3266L13.22 11.12"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16.22 11.12L16.3564 10.9805C17.2895 10.0265 17.3478 8.5207 16.4914 7.49733V7.49733C15.5691 6.39509 13.9269 6.25143 12.8271 7.17675L11.3901 8.38588C10.0935 9.47674 9.95706 11.4241 11.0888 12.6852L11.12 12.72"/></svg>', Fo = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M9.40999 7.29999H9.4"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M14.6 7.29999H14.59"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M9.30999 12H9.3"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M14.6 12H14.59"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M9.40999 16.7H9.4"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2.6" d="M14.6 16.7H14.59"/></svg>', Ho = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M12 7V12M12 17V12M17 12H12M12 12H7"/></svg>', zo = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5" stroke="currentColor" stroke-width="2"/><line x1="15.4142" x2="19" y1="15" y2="18.5858" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>', Uo = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M15.7795 11.5C15.7795 11.5 16.053 11.1962 16.5497 10.6722C17.4442 9.72856 17.4701 8.2475 16.5781 7.30145V7.30145C15.6482 6.31522 14.0873 6.29227 13.1288 7.25073L11.8796 8.49999"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8.24517 12.3883C8.24517 12.3883 7.97171 12.6922 7.47504 13.2161C6.58051 14.1598 6.55467 15.6408 7.44666 16.5869V16.5869C8.37653 17.5731 9.93744 17.5961 10.8959 16.6376L12.1452 15.3883"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M17.7802 15.1032L16.597 14.9422C16.0109 14.8624 15.4841 15.3059 15.4627 15.8969L15.4199 17.0818"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M6.39064 9.03238L7.58432 9.06668C8.17551 9.08366 8.6522 8.58665 8.61056 7.99669L8.5271 6.81397"/><line x1="12.1142" x2="11.7" y1="12.2" y2="11.7858" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg>', jo = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="14" height="14" x="5" y="5" stroke="currentColor" stroke-width="2" rx="4"/><line x1="12" x2="12" y1="9" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M12 15.02V15.01"/></svg>';
 class A {
   /**
    * Constructs popover item instance
@@ -3379,7 +3378,7 @@ class A {
   make(e) {
     const t = c.make("div", A.CSS.container);
     return e.name && (t.dataset.itemName = e.name), e != null && e.icon && (this.nodes.icon = c.make("div", A.CSS.icon, {
-      innerHTML: e.icon || Ro
+      innerHTML: e.icon || Do
     }), t.appendChild(this.nodes.icon)), t.appendChild(c.make("div", A.CSS.title, {
       innerHTML: e.title || ""
     })), e.secondaryLabel && t.appendChild(c.make("div", A.CSS.secondaryTitle, {
@@ -3509,30 +3508,30 @@ ne.directions = {
   RIGHT: "right",
   LEFT: "left"
 };
-class q {
+class Z {
   /**
    * @param {FlipperOptions} options - different constructing settings
    */
   constructor(e) {
     this.iterator = null, this.activated = !1, this.flipCallbacks = [], this.onKeyDown = (t) => {
       if (this.isEventReadyForHandling(t))
-        switch (q.usedKeys.includes(t.keyCode) && t.preventDefault(), t.keyCode) {
-          case k.TAB:
+        switch (Z.usedKeys.includes(t.keyCode) && t.preventDefault(), t.keyCode) {
+          case v.TAB:
             this.handleTabPress(t);
             break;
-          case k.LEFT:
-          case k.UP:
+          case v.LEFT:
+          case v.UP:
             this.flipLeft();
             break;
-          case k.RIGHT:
-          case k.DOWN:
+          case v.RIGHT:
+          case v.DOWN:
             this.flipRight();
             break;
-          case k.ENTER:
+          case v.ENTER:
             this.handleEnterPress(t);
             break;
         }
-    }, this.iterator = new ne(e.items, e.focusedItemClass), this.activateCallback = e.activateCallback, this.allowedKeys = e.allowedKeys || q.usedKeys;
+    }, this.iterator = new ne(e.items, e.focusedItemClass), this.activateCallback = e.activateCallback, this.allowedKeys = e.allowedKeys || Z.usedKeys;
   }
   /**
    * True if flipper is currently activated
@@ -3548,12 +3547,12 @@ class q {
    */
   static get usedKeys() {
     return [
-      k.TAB,
-      k.LEFT,
-      k.RIGHT,
-      k.ENTER,
-      k.UP,
-      k.DOWN
+      v.TAB,
+      v.LEFT,
+      v.RIGHT,
+      v.ENTER,
+      v.UP,
+      v.DOWN
     ];
   }
   /**
@@ -3677,7 +3676,7 @@ class pe {
    * @param options.placeholder - input placeholder
    */
   constructor({ items: e, onSearch: t, placeholder: o }) {
-    this.listeners = new Fe(), this.items = e, this.onSearch = t, this.render(o);
+    this.listeners = new He(), this.items = e, this.onSearch = t, this.render(o);
   }
   /**
    * Returns search field element
@@ -3711,7 +3710,7 @@ class pe {
   render(e) {
     this.wrapper = c.make("div", pe.CSS.wrapper);
     const t = c.make("div", pe.CSS.icon, {
-      innerHTML: Ho
+      innerHTML: zo
     });
     this.input = c.make("input", pe.CSS.input, {
       placeholder: e,
@@ -3747,13 +3746,13 @@ const ue = class {
    * Locks body element scroll
    */
   lock() {
-    tt ? this.lockHard() : document.body.classList.add(ue.CSS.scrollLocked);
+    it ? this.lockHard() : document.body.classList.add(ue.CSS.scrollLocked);
   }
   /**
    * Unlocks body element scroll
    */
   unlock() {
-    tt ? this.unlockHard() : document.body.classList.remove(ue.CSS.scrollLocked);
+    it ? this.unlockHard() : document.body.classList.remove(ue.CSS.scrollLocked);
   }
   /**
    * Locks scroll in a hard way (via setting fixed position to body element)
@@ -3771,17 +3770,17 @@ const ue = class {
     document.body.classList.remove(ue.CSS.scrollLockedHard), this.scrollPosition !== null && window.scrollTo(0, this.scrollPosition), this.scrollPosition = null;
   }
 };
-let vt = ue;
-vt.CSS = {
+let wt = ue;
+wt.CSS = {
   scrollLocked: "ce-scroll-locked",
   scrollLockedHard: "ce-scroll-locked--hard"
 };
-var jo = Object.defineProperty, $o = Object.getOwnPropertyDescriptor, Wo = (s, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? $o(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+var $o = Object.defineProperty, Wo = Object.getOwnPropertyDescriptor, Yo = (s, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Wo(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && jo(e, t, i), i;
+  return o && i && $o(e, t, i), i;
 }, be = /* @__PURE__ */ ((s) => (s.Close = "close", s))(be || {});
-const N = class extends Ee {
+const N = class extends Be {
   /**
    * Constructs the instance
    *
@@ -3789,7 +3788,7 @@ const N = class extends Ee {
    */
   constructor(s) {
     var n, r;
-    super(), this.scopeElement = document.body, this.listeners = new Fe(), this.scrollLocker = new vt(), this.nodes = {
+    super(), this.scopeElement = document.body, this.listeners = new He(), this.scrollLocker = new wt(), this.nodes = {
       wrapper: null,
       popover: null,
       nothingFoundMessage: null,
@@ -3868,10 +3867,8 @@ const N = class extends Ee {
    * Open popover
    */
   show() {
-    this.shouldOpenBottom || (this.nodes.popover.style.setProperty("--popover-height", this.height + "px"), this.nodes.popover.classList.add(N.CSS.popoverOpenTop)), this.nodes.overlay.classList.remove(N.CSS.overlayHidden), this.nodes.popover.classList.add(N.CSS.popoverOpened), this.flipper.activate(this.flippableElements), this.search !== void 0 && requestAnimationFrame(() => {
-      var s;
-      (s = this.search) == null || s.focus();
-    }), te() && this.scrollLocker.lock();
+    var s;
+    this.shouldOpenBottom || (this.nodes.popover.style.setProperty("--popover-height", this.height + "px"), this.nodes.popover.classList.add(N.CSS.popoverOpenTop)), this.nodes.overlay.classList.remove(N.CSS.overlayHidden), this.nodes.popover.classList.add(N.CSS.popoverOpened), this.flipper.activate(this.flippableElements), this.search !== void 0 && ((s = this.search) == null || s.focus()), te() && this.scrollLocker.lock();
   }
   /**
    * Closes popover
@@ -3950,14 +3947,14 @@ const N = class extends Ee {
    * Creates Flipper instance which allows to navigate between popover items via keyboard
    */
   initializeFlipper() {
-    this.flipper = new q({
+    this.flipper = new Z({
       items: this.flippableElements,
       focusedItemClass: A.CSS.focused,
       allowedKeys: [
-        k.TAB,
-        k.UP,
-        k.DOWN,
-        k.ENTER
+        v.TAB,
+        v.UP,
+        v.DOWN,
+        v.ENTER
       ]
     }), this.flipper.onFlip(this.onFlip);
   }
@@ -4026,11 +4023,11 @@ const N = class extends Ee {
     }
   }
 };
-let je = N;
-Wo([
+let We = N;
+Yo([
   le
-], je.prototype, "height", 1);
-class Yo extends y {
+], We.prototype, "height", 1);
+class Ko extends y {
   constructor() {
     super(...arguments), this.opened = !1, this.selection = new b(), this.onPopoverClose = () => {
       this.close();
@@ -4086,7 +4083,7 @@ class Yo extends y {
   open(e = this.Editor.BlockManager.currentBlock) {
     this.opened = !0, this.selection.save(), this.Editor.BlockSelection.selectBlock(e), this.Editor.BlockSelection.clearCache();
     const [t, o] = e.getTunes();
-    this.eventsDispatcher.emit(this.events.opened), this.popover = new je({
+    this.eventsDispatcher.emit(this.events.opened), this.popover = new We({
       searchable: !0,
       items: t.map((i) => this.resolveTuneAliases(i)),
       customContent: o,
@@ -4127,7 +4124,7 @@ class Yo extends y {
    * @param item - item with resolved aliases
    */
   resolveTuneAliases(e) {
-    const t = Lo(e, { label: "title" });
+    const t = Oo(e, { label: "title" });
     return e.confirmation && (t.confirmation = this.resolveTuneAliases(e.confirmation)), t;
   }
 }
@@ -4248,7 +4245,7 @@ class $ extends y {
     const n = (r = this.Editor.Tools.blockTools.get(e)) == null ? void 0 : r.shortcut;
     if (n) {
       const a = c.make("span", $.CSS.conversionToolSecondaryLabel, {
-        innerText: ye(n)
+        innerText: Ee(n)
       });
       c.append(o, a);
     }
@@ -4281,17 +4278,17 @@ class $ extends y {
    * Prepare Flipper to be able to leaf tools by arrows/tab
    */
   enableFlipper() {
-    this.flipper = new q({
+    this.flipper = new Z({
       focusedItemClass: $.CSS.conversionToolFocused
     });
   }
 }
-var De = {}, Ko = {
+var Pe = {}, Vo = {
   get exports() {
-    return De;
+    return Pe;
   },
   set exports(s) {
-    De = s;
+    Pe = s;
   }
 };
 /*!
@@ -4391,9 +4388,9 @@ var De = {}, Ko = {
       o.default = a;
     }]).default;
   });
-})(Ko);
-const Vo = /* @__PURE__ */ Pe(De);
-class Xo {
+})(Vo);
+const Xo = /* @__PURE__ */ Fe(Pe);
+class qo {
   constructor() {
     this.registeredShortcuts = /* @__PURE__ */ new Map();
   }
@@ -4407,7 +4404,7 @@ class Xo {
       throw Error(
         `Shortcut ${e.name} is already registered for ${e.on}. Please remove it before add a new handler.`
       );
-    const o = new Vo({
+    const o = new Xo({
       name: e.name,
       on: e.on,
       callback: e.handler
@@ -4439,13 +4436,13 @@ class Xo {
     return (this.registeredShortcuts.get(e) || []).find(({ name: i }) => i === t);
   }
 }
-const ae = new Xo();
-var qo = Object.defineProperty, Zo = Object.getOwnPropertyDescriptor, xt = (s, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? Zo(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+const ae = new qo();
+var Zo = Object.defineProperty, Go = Object.getOwnPropertyDescriptor, yt = (s, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? Go(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && qo(e, t, i), i;
+  return o && i && Zo(e, t, i), i;
 }, ke = /* @__PURE__ */ ((s) => (s.Opened = "toolbox-opened", s.Closed = "toolbox-closed", s.BlockAdded = "toolbox-block-added", s))(ke || {});
-const wt = class extends Ee {
+const Et = class extends Be {
   /**
    * Toolbox constructor
    *
@@ -4473,8 +4470,6 @@ const wt = class extends Ee {
   }
   /**
    * CSS styles
-   *
-   * @returns {Object<string, string>}
    */
   static get CSS() {
     return {
@@ -4485,7 +4480,7 @@ const wt = class extends Ee {
    * Makes the Toolbox
    */
   make() {
-    return this.popover = new je({
+    return this.popover = new We({
       scopeElement: this.api.ui.nodes.redactor,
       searchable: !0,
       messages: {
@@ -4493,7 +4488,7 @@ const wt = class extends Ee {
         search: this.i18nLabels.filter
       },
       items: this.toolboxItemsToBeDisplayed
-    }), this.popover.on(be.Close, this.onPopoverClose), this.enableShortcuts(), this.nodes.toolbox = this.popover.getElement(), this.nodes.toolbox.classList.add(wt.CSS.toolbox), this.nodes.toolbox;
+    }), this.popover.on(be.Close, this.onPopoverClose), this.enableShortcuts(), this.nodes.toolbox = this.popover.getElement(), this.nodes.toolbox.classList.add(Et.CSS.toolbox), this.nodes.toolbox;
   }
   /**
    * Returns true if the Toolbox has the Flipper activated and the Flipper has selected button
@@ -4559,7 +4554,7 @@ const wt = class extends Ee {
         this.toolButtonActivated(t.name, e.data);
       },
       type: t.type,
-      secondaryLabel: t.shortcut ? ye(t.shortcut) : ""
+      secondaryLabel: t.shortcut ? Ee(t.shortcut) : ""
     });
     return this.toolsToBeDisplayed.reduce((e, t) => (Array.isArray(t.toolbox) ? t.toolbox.forEach((o) => {
       e.push(s(o, t));
@@ -4634,20 +4629,24 @@ const wt = class extends Ee {
       void 0,
       o.isEmpty
     );
-    r.call(V.APPEND_CALLBACK), this.api.caret.setToBlock(i), this.emit("toolbox-block-added", {
+    r.call(X.APPEND_CALLBACK), this.api.caret.setToBlock(i), this.emit("toolbox-block-added", {
       block: r
     }), this.api.toolbar.close();
   }
 };
-let $e = wt;
-xt([
+let Ye = Et;
+yt([
   le
-], $e.prototype, "toolsToBeDisplayed", 1);
-xt([
+], Ye.prototype, "toolsToBeDisplayed", 1);
+yt([
   le
-], $e.prototype, "toolboxItemsToBeDisplayed", 1);
-const yt = "block hovered";
-class Go extends y {
+], Ye.prototype, "toolboxItemsToBeDisplayed", 1);
+const Bt = "block hovered";
+async function Jo(s, e) {
+  const t = navigator.keyboard;
+  return t && (await t.getLayoutMap()).get(s) || e;
+}
+class Qo extends y {
   /**
    * @class
    * @param moduleConfiguration - Module Configuration
@@ -4700,14 +4699,14 @@ class Go extends y {
       },
       open: () => {
         if (this.toolboxInstance === null) {
-          C("toolbox.open() called before initialization is finished", "warn");
+          T("toolbox.open() called before initialization is finished", "warn");
           return;
         }
         this.Editor.BlockManager.currentBlock = this.hoveredBlock, this.toolboxInstance.open();
       },
       toggle: () => {
         if (this.toolboxInstance === null) {
-          C("toolbox.toggle() called before initialization is finished", "warn");
+          T("toolbox.toggle() called before initialization is finished", "warn");
           return;
         }
         this.toolboxInstance.toggle();
@@ -4757,7 +4756,7 @@ class Go extends y {
    */
   moveAndOpen(e = this.Editor.BlockManager.currentBlock) {
     if (this.toolboxInstance === null) {
-      C("Can't open Toolbar since Editor initialization is not finished yet", "warn");
+      T("Can't open Toolbar since Editor initialization is not finished yet", "warn");
       return;
     }
     if (this.toolboxInstance.opened && this.toolboxInstance.close(), this.Editor.BlockSettings.opened && this.Editor.BlockSettings.close(), !e)
@@ -4792,13 +4791,13 @@ class Go extends y {
   /**
    * Draws Toolbar elements
    */
-  make() {
-    this.nodes.wrapper = c.make("div", this.CSS.toolbar), ["content", "actions"].forEach((i) => {
-      this.nodes[i] = c.make("div", this.CSS[i]);
+  async make() {
+    this.nodes.wrapper = c.make("div", this.CSS.toolbar), ["content", "actions"].forEach((n) => {
+      this.nodes[n] = c.make("div", this.CSS[n]);
     }), c.append(this.nodes.wrapper, this.nodes.content), c.append(this.nodes.content, this.nodes.actions), this.nodes.plusButton = c.make("div", this.CSS.plusButton, {
-      innerHTML: Fo
+      innerHTML: Ho
     }), c.append(this.nodes.actions, this.nodes.plusButton), this.readOnlyMutableListeners.on(this.nodes.plusButton, "click", () => {
-      Re(!0), this.plusButtonClicked();
+      De(!0), this.plusButtonClicked();
     }, !1);
     const e = c.make("div");
     e.appendChild(document.createTextNode(F.ui(Y.ui.toolbar.toolbox, "Add"))), e.appendChild(c.make("div", this.CSS.plusButtonShortcut, {
@@ -4806,11 +4805,11 @@ class Go extends y {
     })), ge(this.nodes.plusButton, e, {
       hidingDelay: 400
     }), this.nodes.settingsToggler = c.make("span", this.CSS.settingsToggler, {
-      innerHTML: Po
+      innerHTML: Fo
     }), c.append(this.nodes.actions, this.nodes.settingsToggler);
-    const t = c.make("div"), o = c.text(F.ui(Y.ui.blockTunes.toggler, "Click to tune"));
+    const t = c.make("div"), o = c.text(F.ui(Y.ui.blockTunes.toggler, "Click to tune")), i = await Jo("Slash", "/");
     t.appendChild(o), t.appendChild(c.make("div", this.CSS.plusButtonShortcut, {
-      textContent: ye("CMD + /")
+      textContent: Ee(`CMD + ${i}`)
     })), ge(this.nodes.settingsToggler, t, {
       hidingDelay: 400
     }), c.append(this.nodes.actions, this.makeToolbox()), c.append(this.nodes.actions, this.Editor.BlockSettings.getElement()), c.append(this.Editor.UI.nodes.wrapper, this.nodes.wrapper);
@@ -4819,7 +4818,7 @@ class Go extends y {
    * Creates the Toolbox instance and return it's rendered element
    */
   makeToolbox() {
-    return this.toolboxInstance = new $e({
+    return this.toolboxInstance = new Ye({
       api: this.Editor.API.methods,
       tools: this.Editor.Tools.blockTools,
       i18nLabels: {
@@ -4848,8 +4847,8 @@ class Go extends y {
   enableModuleBindings() {
     this.readOnlyMutableListeners.on(this.nodes.settingsToggler, "mousedown", (e) => {
       var t;
-      e.stopPropagation(), this.settingsTogglerClicked(), (t = this.toolboxInstance) != null && t.opened && this.toolboxInstance.close(), Re(!0);
-    }, !0), te() || this.eventsDispatcher.on(yt, (e) => {
+      e.stopPropagation(), this.settingsTogglerClicked(), (t = this.toolboxInstance) != null && t.opened && this.toolboxInstance.close(), De(!0);
+    }, !0), te() || this.eventsDispatcher.on(Bt, (e) => {
       var t;
       this.Editor.BlockSettings.opened || (t = this.toolboxInstance) != null && t.opened || this.moveAndOpen(e.block);
     });
@@ -4888,8 +4887,8 @@ class Go extends y {
     this.removeAllNodes(), this.toolboxInstance && this.toolboxInstance.destroy();
   }
 }
-var Be = /* @__PURE__ */ ((s) => (s[s.Block = 0] = "Block", s[s.Inline = 1] = "Inline", s[s.Tune = 2] = "Tune", s))(Be || {}), ve = /* @__PURE__ */ ((s) => (s.Shortcut = "shortcut", s.Toolbox = "toolbox", s.EnabledInlineTools = "inlineToolbar", s.EnabledBlockTunes = "tunes", s.Config = "config", s))(ve || {}), Et = /* @__PURE__ */ ((s) => (s.Shortcut = "shortcut", s.SanitizeConfig = "sanitize", s))(Et || {}), se = /* @__PURE__ */ ((s) => (s.IsEnabledLineBreaks = "enableLineBreaks", s.Toolbox = "toolbox", s.ConversionConfig = "conversionConfig", s.IsReadOnlySupported = "isReadOnlySupported", s.PasteConfig = "pasteConfig", s))(se || {}), We = /* @__PURE__ */ ((s) => (s.IsInline = "isInline", s.Title = "title", s))(We || {}), Bt = /* @__PURE__ */ ((s) => (s.IsTune = "isTune", s))(Bt || {});
-class Ye {
+var Ce = /* @__PURE__ */ ((s) => (s[s.Block = 0] = "Block", s[s.Inline = 1] = "Inline", s[s.Tune = 2] = "Tune", s))(Ce || {}), ve = /* @__PURE__ */ ((s) => (s.Shortcut = "shortcut", s.Toolbox = "toolbox", s.EnabledInlineTools = "inlineToolbar", s.EnabledBlockTunes = "tunes", s.Config = "config", s))(ve || {}), Ct = /* @__PURE__ */ ((s) => (s.Shortcut = "shortcut", s.SanitizeConfig = "sanitize", s))(Ct || {}), se = /* @__PURE__ */ ((s) => (s.IsEnabledLineBreaks = "enableLineBreaks", s.Toolbox = "toolbox", s.ConversionConfig = "conversionConfig", s.IsReadOnlySupported = "isReadOnlySupported", s.PasteConfig = "pasteConfig", s))(se || {}), Ke = /* @__PURE__ */ ((s) => (s.IsInline = "isInline", s.Title = "title", s))(Ke || {}), Tt = /* @__PURE__ */ ((s) => (s.IsTune = "isTune", s))(Tt || {});
+class Ve {
   /**
    * @class
    * @param {ConstructorOptions} options - Constructor options
@@ -4961,7 +4960,7 @@ class Ye {
     return this.type === 2;
   }
 }
-class Jo extends y {
+class ei extends y {
   /**
    * @class
    * @param moduleConfiguration - Module Configuration
@@ -5106,7 +5105,7 @@ class Jo extends y {
   addConversionToggler() {
     this.nodes.conversionToggler = c.make("div", this.CSS.conversionToggler), this.nodes.conversionTogglerContent = c.make("div", this.CSS.conversionTogglerContent);
     const e = c.make("div", this.CSS.conversionTogglerArrow, {
-      innerHTML: kt
+      innerHTML: xt
     });
     this.nodes.conversionToggler.appendChild(this.nodes.conversionTogglerContent), this.nodes.conversionToggler.appendChild(e), this.nodes.togglerAndButtonsWrapper.appendChild(this.nodes.conversionToggler), this.listeners.on(this.nodes.conversionToggler, "click", () => {
       this.Editor.ConversionToolbar.toggle((t) => {
@@ -5156,7 +5155,7 @@ class Jo extends y {
   addTool(e) {
     const t = e.create(), o = t.render();
     if (!o) {
-      C("Render method must return an instance of Node", "warn", e.name);
+      T("Render method must return an instance of Node", "warn", e.name);
       return;
     }
     if (o.dataset.tool = e.name, this.nodes.buttons.appendChild(o), this.toolsInstances.set(e.name, t), M(t.renderActions)) {
@@ -5177,7 +5176,7 @@ class Jo extends y {
       e.title || re(e.name)
     );
     n.appendChild(c.text(r)), i && n.appendChild(c.make("div", this.CSS.inlineToolbarShortcut, {
-      textContent: ye(i)
+      textContent: Ee(i)
     })), te() === !1 && ge(o, n, {
       placement: "top",
       hidingDelay: 100
@@ -5190,7 +5189,7 @@ class Jo extends y {
    */
   getToolShortcut(e) {
     const { Tools: t } = this.Editor, o = t.inlineTools.get(e), i = t.internal.inlineTools;
-    return Array.from(i.keys()).includes(e) ? this.inlineTools[e][Et.Shortcut] : o.shortcut;
+    return Array.from(i.keys()).includes(e) ? this.inlineTools[e][Ct.Shortcut] : o.shortcut;
   }
   /**
    * Enable Tool shortcut with Editor Shortcuts Module
@@ -5240,16 +5239,16 @@ class Jo extends y {
    * Buttons will be filled on opening
    */
   enableFlipper() {
-    this.flipper = new q({
+    this.flipper = new Z({
       focusedItemClass: this.CSS.focusedButton,
       allowedKeys: [
-        k.ENTER,
-        k.TAB
+        v.ENTER,
+        v.TAB
       ]
     });
   }
 }
-class Qo extends y {
+class ti extends y {
   /**
    * All keydowns on Block
    *
@@ -5257,30 +5256,28 @@ class Qo extends y {
    */
   keydown(e) {
     switch (this.beforeKeydownProcessing(e), e.keyCode) {
-      case k.BACKSPACE:
+      case v.BACKSPACE:
         this.backspace(e);
         break;
-      case k.DELETE:
+      case v.DELETE:
         this.delete(e);
         break;
-      case k.ENTER:
+      case v.ENTER:
         this.enter(e);
         break;
-      case k.DOWN:
-      case k.RIGHT:
+      case v.DOWN:
+      case v.RIGHT:
         this.arrowRightAndDown(e);
         break;
-      case k.UP:
-      case k.LEFT:
+      case v.UP:
+      case v.LEFT:
         this.arrowLeftAndUp(e);
         break;
-      case k.TAB:
+      case v.TAB:
         this.tabPressed(e);
         break;
-      case k.SLASH:
-        e.ctrlKey || e.metaKey ? this.commandSlashPressed() : this.slashPressed();
-        break;
     }
+    e.key === "/" && !e.ctrlKey && !e.metaKey && this.slashPressed(), e.code === "Slash" && (e.ctrlKey || e.metaKey) && (e.preventDefault(), this.commandSlashPressed());
   }
   /**
    * Fires on keydown before event processing
@@ -5288,7 +5285,7 @@ class Qo extends y {
    * @param {KeyboardEvent} event - keydown
    */
   beforeKeydownProcessing(e) {
-    this.needToolbarClosing(e) && lt(e.keyCode) && (this.Editor.Toolbar.close(), this.Editor.ConversionToolbar.close(), e.ctrlKey || e.metaKey || e.altKey || e.shiftKey || this.Editor.BlockSelection.clearSelection(e));
+    this.needToolbarClosing(e) && ht(e.keyCode) && (this.Editor.Toolbar.close(), this.Editor.ConversionToolbar.close(), e.ctrlKey || e.metaKey || e.altKey || e.shiftKey || this.Editor.BlockSelection.clearSelection(e));
   }
   /**
    * Key up on Block:
@@ -5400,7 +5397,7 @@ class Qo extends y {
       o.setToBlock(l, o.positions.END);
       return;
     }
-    ot(i, n) ? this.mergeBlocks(n, i) : o.setToBlock(n, o.positions.END);
+    nt(i, n) ? this.mergeBlocks(n, i) : o.setToBlock(n, o.positions.END);
   }
   /**
    * Handles delete keydown on Block
@@ -5427,7 +5424,7 @@ class Qo extends y {
       t.removeBlock(i), o.setToBlock(n, o.positions.START);
       return;
     }
-    ot(i, n) ? this.mergeBlocks(i, n) : o.setToBlock(n, o.positions.START);
+    nt(i, n) ? this.mergeBlocks(i, n) : o.setToBlock(n, o.positions.START);
   }
   /**
    * Merge passed Blocks
@@ -5438,9 +5435,7 @@ class Qo extends y {
   mergeBlocks(e, t) {
     const { BlockManager: o, Caret: i, Toolbar: n } = this.Editor;
     i.createShadow(e.pluginsContent), o.mergeBlocks(e, t).then(() => {
-      window.requestAnimationFrame(() => {
-        i.restoreCaret(e.pluginsContent), e.pluginsContent.normalize(), n.close();
-      });
+      i.restoreCaret(e.pluginsContent), n.close();
     });
   }
   /**
@@ -5449,16 +5444,16 @@ class Qo extends y {
    * @param {KeyboardEvent} event - keyboard event
    */
   arrowRightAndDown(e) {
-    const t = q.usedKeys.includes(e.keyCode) && (!e.shiftKey || e.keyCode === k.TAB);
+    const t = Z.usedKeys.includes(e.keyCode) && (!e.shiftKey || e.keyCode === v.TAB);
     if (this.Editor.UI.someToolbarOpened && t)
       return;
     this.Editor.Toolbar.close();
     const o = this.Editor.Caret.isAtEnd || this.Editor.BlockSelection.anyBlockSelected;
-    if (e.shiftKey && e.keyCode === k.DOWN && o) {
+    if (e.shiftKey && e.keyCode === v.DOWN && o) {
       this.Editor.CrossBlockSelection.toggleBlockSelectedState();
       return;
     }
-    if (e.keyCode === k.DOWN || e.keyCode === k.RIGHT && !this.isRtl ? this.Editor.Caret.navigateNext() : this.Editor.Caret.navigatePrevious()) {
+    if (e.keyCode === v.DOWN || e.keyCode === v.RIGHT && !this.isRtl ? this.Editor.Caret.navigateNext() : this.Editor.Caret.navigatePrevious()) {
       e.preventDefault();
       return;
     }
@@ -5473,17 +5468,17 @@ class Qo extends y {
    */
   arrowLeftAndUp(e) {
     if (this.Editor.UI.someToolbarOpened) {
-      if (q.usedKeys.includes(e.keyCode) && (!e.shiftKey || e.keyCode === k.TAB))
+      if (Z.usedKeys.includes(e.keyCode) && (!e.shiftKey || e.keyCode === v.TAB))
         return;
       this.Editor.UI.closeAllToolbars();
     }
     this.Editor.Toolbar.close();
     const t = this.Editor.Caret.isAtStart || this.Editor.BlockSelection.anyBlockSelected;
-    if (e.shiftKey && e.keyCode === k.UP && t) {
+    if (e.shiftKey && e.keyCode === v.UP && t) {
       this.Editor.CrossBlockSelection.toggleBlockSelectedState(!1);
       return;
     }
-    if (e.keyCode === k.UP || e.keyCode === k.LEFT && !this.isRtl ? this.Editor.Caret.navigatePrevious() : this.Editor.Caret.navigateNext()) {
+    if (e.keyCode === v.UP || e.keyCode === v.LEFT && !this.isRtl ? this.Editor.Caret.navigatePrevious() : this.Editor.Caret.navigateNext()) {
       e.preventDefault();
       return;
     }
@@ -5497,7 +5492,7 @@ class Qo extends y {
    * @param {KeyboardEvent} event - keyboard event
    */
   needToolbarClosing(e) {
-    const t = e.keyCode === k.ENTER && this.Editor.Toolbar.toolbox.opened, o = e.keyCode === k.ENTER && this.Editor.BlockSettings.opened, i = e.keyCode === k.ENTER && this.Editor.InlineToolbar.opened, n = e.keyCode === k.ENTER && this.Editor.ConversionToolbar.opened, r = e.keyCode === k.TAB;
+    const t = e.keyCode === v.ENTER && this.Editor.Toolbar.toolbox.opened, o = e.keyCode === v.ENTER && this.Editor.BlockSettings.opened, i = e.keyCode === v.ENTER && this.Editor.InlineToolbar.opened, n = e.keyCode === v.ENTER && this.Editor.ConversionToolbar.opened, r = e.keyCode === v.TAB;
     return !(e.shiftKey || r || t || o || i || n);
   }
   /**
@@ -5513,7 +5508,7 @@ class Qo extends y {
     this.Editor.Toolbar.opened || this.Editor.Toolbar.moveAndOpen(), this.Editor.BlockSettings.opened || this.Editor.BlockSettings.open();
   }
 }
-class Se {
+class Ie {
   /**
    * @class
    * @param {HTMLElement} workingArea — editor`s working node
@@ -5543,7 +5538,7 @@ class Se {
    * @returns {HTMLElement[]}
    */
   get nodes() {
-    return ct(this.workingArea.children);
+    return ut(this.workingArea.children);
   }
   /**
    * Proxy trap to implement array-like setter
@@ -5600,7 +5595,7 @@ class Se {
       fromIndex: t,
       toIndex: e
     });
-    o.call(V.MOVED, a);
+    o.call(X.MOVED, a);
   }
   /**
    * Insert new Block at passed index
@@ -5614,7 +5609,7 @@ class Se {
       this.push(t);
       return;
     }
-    e > this.length && (e = this.length), o && (this.blocks[e].holder.remove(), this.blocks[e].call(V.REMOVED));
+    e > this.length && (e = this.length), o && (this.blocks[e].holder.remove(), this.blocks[e].call(X.REMOVED));
     const i = o ? 1 : 0;
     if (this.blocks.splice(e, i, t), e > 0) {
       const n = this.blocks[e - 1];
@@ -5654,7 +5649,7 @@ class Se {
       this.blocks.splice(t, 0, ...e);
     } else
       this.blocks.push(...e), this.workingArea.appendChild(o);
-    e.forEach((i) => i.call(V.RENDERED));
+    e.forEach((i) => i.call(X.RENDERED));
   }
   /**
    * Remove block
@@ -5662,13 +5657,13 @@ class Se {
    * @param {number} index - index of Block to remove
    */
   remove(e) {
-    isNaN(e) && (e = this.length - 1), this.blocks[e].holder.remove(), this.blocks[e].call(V.REMOVED), this.blocks.splice(e, 1);
+    isNaN(e) && (e = this.length - 1), this.blocks[e].holder.remove(), this.blocks[e].call(X.REMOVED), this.blocks.splice(e, 1);
   }
   /**
    * Remove all blocks
    */
   removeAll() {
-    this.workingArea.innerHTML = "", this.blocks.forEach((e) => e.call(V.REMOVED)), this.blocks.length = 0;
+    this.workingArea.innerHTML = "", this.blocks.forEach((e) => e.call(X.REMOVED)), this.blocks.length = 0;
   }
   /**
    * Insert Block after passed target
@@ -5707,7 +5702,7 @@ class Se {
    * @param {Block} target — Block related to position
    */
   insertToDOM(e, t, o) {
-    t ? o.holder.insertAdjacentElement(t, e.holder) : this.workingArea.appendChild(e.holder), e.call(V.RENDERED);
+    t ? o.holder.insertAdjacentElement(t, e.holder) : this.workingArea.appendChild(e.holder), e.call(X.RENDERED);
   }
   /**
    * Composes Block event with passed type and details
@@ -5721,8 +5716,8 @@ class Se {
     });
   }
 }
-const nt = "block-removed", st = "block-added", ei = "block-moved", rt = "block-changed";
-class ti {
+const at = "block-removed", lt = "block-added", oi = "block-moved", ct = "block-changed";
+class ii {
   constructor() {
     this.completed = Promise.resolve();
   }
@@ -5737,7 +5732,7 @@ class ti {
     });
   }
 }
-class oi extends y {
+class ni extends y {
   constructor() {
     super(...arguments), this._currentBlockIndex = -1, this._blocks = null;
   }
@@ -5842,10 +5837,10 @@ class oi extends y {
    * Define this._blocks property
    */
   prepare() {
-    const e = new Se(this.Editor.UI.nodes.redactor);
+    const e = new Ie(this.Editor.UI.nodes.redactor);
     this._blocks = new Proxy(e, {
-      set: Se.set,
-      get: Se.get
+      set: Ie.set,
+      get: Ie.get
     }), this.listeners.on(
       document,
       "copy",
@@ -5922,9 +5917,9 @@ class oi extends y {
       data: o,
       tunes: a
     });
-    return r && this.blockDidMutated(nt, this.getBlockByIndex(l), {
+    return r && this.blockDidMutated(at, this.getBlockByIndex(l), {
       index: l
-    }), this._blocks.insert(l, d, r), this.blockDidMutated(st, d, {
+    }), this._blocks.insert(l, d, r), this.blockDidMutated(lt, d, {
       index: l
     }), n ? this.currentBlockIndex = l : l <= this.currentBlockIndex && this.currentBlockIndex++, d;
   }
@@ -5953,7 +5948,7 @@ class oi extends y {
       data: Object.assign({}, o, t),
       tunes: e.tunes
     }), n = this.getBlockIndex(e);
-    return this._blocks.replace(n, i), this.blockDidMutated(rt, i, {
+    return this._blocks.replace(n, i), this.blockDidMutated(ct, i, {
       index: n
     }), i;
   }
@@ -5987,10 +5982,10 @@ class oi extends y {
     });
     try {
       window.requestIdleCallback(() => {
-        i.call(V.ON_PASTE, t);
+        i.call(X.ON_PASTE, t);
       });
     } catch (n) {
-      C(`${e}: onPaste callback call is failed`, "error", n);
+      T(`${e}: onPaste callback call is failed`, "error", n);
     }
     return i;
   }
@@ -6005,7 +6000,7 @@ class oi extends y {
    */
   insertDefaultBlockAtIndex(e, t = !1) {
     const o = this.composeBlock({ tool: this.config.defaultBlock });
-    return this._blocks[e] = o, this.blockDidMutated(st, o, {
+    return this._blocks[e] = o, this.blockDidMutated(lt, o, {
       index: e
     }), t ? this.currentBlockIndex = e : e <= this.currentBlockIndex && this.currentBlockIndex++, o;
   }
@@ -6025,8 +6020,20 @@ class oi extends y {
    * @returns {Promise} - the sequence that can be continued
    */
   async mergeBlocks(e, t) {
-    const o = await t.data;
-    K(o) || await e.mergeWith(o), this.removeBlock(t), this.currentBlockIndex = this._blocks.indexOf(e);
+    let o;
+    if (e.name === t.name && e.mergeable) {
+      const i = await t.data;
+      if (K(i)) {
+        console.error("Could not merge Block. Failed to extract original Block data.");
+        return;
+      }
+      const [n] = Ue([i], e.tool.sanitizeConfig);
+      o = n;
+    } else if (e.mergeable && we(t, "export") && we(e, "import")) {
+      const i = await t.exportDataAsString(), n = V(i, e.tool.sanitizeConfig);
+      o = st(n, e.tool.conversionConfig);
+    }
+    o !== void 0 && (await e.mergeWith(o), this.removeBlock(t), this.currentBlockIndex = this._blocks.indexOf(e));
   }
   /**
    * Remove passed Block
@@ -6039,7 +6046,7 @@ class oi extends y {
       const i = this._blocks.indexOf(e);
       if (!this.validateIndex(i))
         throw new Error("Can't find a Block to remove");
-      e.destroy(), this._blocks.remove(i), this.blockDidMutated(nt, e, {
+      e.destroy(), this._blocks.remove(i), this.blockDidMutated(at, e, {
         index: i
       }), this.currentBlockIndex >= i && this.currentBlockIndex--, this.blocks.length ? i === 0 && (this.currentBlockIndex = 0) : (this.currentBlockIndex = -1, t && this.insert()), o();
     });
@@ -6165,14 +6172,14 @@ class oi extends y {
    */
   move(e, t = this.currentBlockIndex) {
     if (isNaN(e) || isNaN(t)) {
-      C("Warning during 'move' call: incorrect indices provided.", "warn");
+      T("Warning during 'move' call: incorrect indices provided.", "warn");
       return;
     }
     if (!this.validateIndex(e) || !this.validateIndex(t)) {
-      C("Warning during 'move' call: indices cannot be lower than 0 or greater than the amount of blocks.", "warn");
+      T("Warning during 'move' call: indices cannot be lower than 0 or greater than the amount of blocks.", "warn");
       return;
     }
-    this._blocks.move(e, t), this.currentBlockIndex = e, this.blockDidMutated(ei, this.currentBlock, {
+    this._blocks.move(e, t), this.currentBlockIndex = e, this.blockDidMutated(oi, this.currentBlock, {
       fromIndex: t,
       toIndex: e
     });
@@ -6191,11 +6198,11 @@ class oi extends y {
     const n = this.Editor.Tools.blockTools.get(t);
     if (!n)
       throw new Error(`Could not convert Block. Tool «${t}» not found.`);
-    const r = await e.exportDataAsString(), a = X(
+    const r = await e.exportDataAsString(), a = V(
       r,
       n.sanitizeConfig
     );
-    let l = to(a, n.conversionConfig);
+    let l = st(a, n.conversionConfig);
     o && (l = Object.assign(l, o)), this.replace(e, n.name, l);
   }
   /**
@@ -6213,7 +6220,7 @@ class oi extends y {
    *                                        2) in api.blocks.clear we should add empty block
    */
   async clear(e = !1) {
-    const t = new ti();
+    const t = new ii();
     this.blocks.forEach((o) => {
       t.add(async () => {
         await this.removeBlock(o, !1);
@@ -6242,7 +6249,7 @@ class oi extends y {
       t.dragOver(o);
     }), this.readOnlyMutableListeners.on(e.holder, "dragleave", (o) => {
       t.dragLeave(o);
-    }), e.on("didMutated", (o) => this.blockDidMutated(rt, o, {
+    }), e.on("didMutated", (o) => this.blockDidMutated(ct, o, {
       index: this.getBlockIndex(o)
     }));
   }
@@ -6287,12 +6294,12 @@ class oi extends y {
         ...o
       }
     });
-    return this.eventsDispatcher.emit(pt, {
+    return this.eventsDispatcher.emit(bt, {
       event: i
     }), t;
   }
 }
-class ii extends y {
+class si extends y {
   constructor() {
     super(...arguments), this.anyBlockSelectedCache = null, this.needToSelectAll = !1, this.nativeInputSelected = !1, this.readyToBlockSelection = !1;
   }
@@ -6411,7 +6418,7 @@ class ii extends y {
   clearSelection(e, t = !1) {
     const { BlockManager: o, Caret: i, RectangleSelection: n } = this.Editor;
     this.needToSelectAll = !1, this.nativeInputSelected = !1, this.readyToBlockSelection = !1;
-    const r = e && e instanceof KeyboardEvent, a = r && lt(e.keyCode);
+    const r = e && e instanceof KeyboardEvent, a = r && ht(e.keyCode);
     if (this.anyBlockSelected && r && a && !b.isSelectionExists) {
       const l = o.removeSelectedBlocks();
       o.insertDefaultBlockAtIndex(l, !0), i.setToBlock(o.currentBlock), xe(() => {
@@ -6435,7 +6442,7 @@ class ii extends y {
     e.preventDefault();
     const t = c.make("div");
     this.selectedBlocks.forEach((n) => {
-      const r = X(n.holder.innerHTML, this.sanitizerConfig), a = c.make("p");
+      const r = V(n.holder.innerHTML, this.sanitizerConfig), a = c.make("p");
       a.innerHTML = r, t.appendChild(a);
     });
     const o = Array.from(t.childNodes).map((n) => n.textContent).join(`
@@ -6516,7 +6523,7 @@ class ii extends y {
     this.selection.save(), b.get().removeAllRanges(), this.allBlocksSelected = !0, this.Editor.InlineToolbar.close();
   }
 }
-class we extends y {
+class ye extends y {
   /**
    * Allowed caret positions in input
    *
@@ -6545,7 +6552,7 @@ class we extends y {
    */
   get isAtStart() {
     const { currentBlock: e } = this.Editor.BlockManager;
-    if (!e.focusable)
+    if (!(e != null && e.focusable))
       return !0;
     const t = b.get(), o = c.getDeepestNode(e.currentInput);
     let i = t.focusNode;
@@ -6733,7 +6740,7 @@ class we extends y {
    */
   createShadow(e) {
     const t = document.createElement("span");
-    t.classList.add(we.CSS.shadowCaret), e.insertAdjacentElement("beforeend", t);
+    t.classList.add(ye.CSS.shadowCaret), e.insertAdjacentElement("beforeend", t);
   }
   /**
    * Restores caret position
@@ -6741,7 +6748,7 @@ class we extends y {
    * @param {HTMLElement} element - element where caret should be restored
    */
   restoreCaret(e) {
-    const t = e.querySelector(`.${we.CSS.shadowCaret}`);
+    const t = e.querySelector(`.${ye.CSS.shadowCaret}`);
     if (!t)
       return;
     new b().expandToTag(t);
@@ -6790,7 +6797,7 @@ class we extends y {
     return i;
   }
 }
-class ni extends y {
+class ri extends y {
   constructor() {
     super(...arguments), this.onMouseUp = () => {
       this.listeners.off(document, "mouseover", this.onMouseOver), this.listeners.off(document, "mouseup", this.onMouseUp);
@@ -6828,16 +6835,17 @@ class ni extends y {
    * @param {MouseEvent} event - mouse down event
    */
   watchSelection(e) {
-    if (e.button !== Pt.LEFT)
+    if (e.button !== Ht.LEFT)
       return;
     const { BlockManager: t } = this.Editor;
     this.firstSelectedBlock = t.getBlock(e.target), this.lastSelectedBlock = this.firstSelectedBlock, this.listeners.on(document, "mouseover", this.onMouseOver), this.listeners.on(document, "mouseup", this.onMouseUp);
   }
   /**
-   * return boolean is cross block selection started
+   * Return boolean is cross block selection started:
+   * there should be at least 2 selected blocks
    */
   get isCrossBlockSelectionStarted() {
-    return !!this.firstSelectedBlock && !!this.lastSelectedBlock;
+    return !!this.firstSelectedBlock && !!this.lastSelectedBlock && this.firstSelectedBlock !== this.lastSelectedBlock;
   }
   /**
    * Change selection state of the next Block
@@ -6862,12 +6870,12 @@ class ni extends y {
     const { BlockManager: t, BlockSelection: o, Caret: i } = this.Editor, n = t.blocks.indexOf(this.firstSelectedBlock), r = t.blocks.indexOf(this.lastSelectedBlock);
     if (o.anyBlockSelected && n > -1 && r > -1 && e && e instanceof KeyboardEvent)
       switch (e.keyCode) {
-        case k.DOWN:
-        case k.RIGHT:
+        case v.DOWN:
+        case v.RIGHT:
           i.setToBlock(t.blocks[Math.max(n, r)], i.positions.END);
           break;
-        case k.UP:
-        case k.LEFT:
+        case v.UP:
+        case v.LEFT:
           i.setToBlock(t.blocks[Math.min(n, r)], i.positions.START);
           break;
         default:
@@ -6898,7 +6906,7 @@ class ni extends y {
     }
   }
 }
-class si extends y {
+class ai extends y {
   constructor() {
     super(...arguments), this.isStartedAtEditor = !1;
   }
@@ -6971,7 +6979,7 @@ class si extends y {
     e.preventDefault();
   }
 }
-class ri extends y {
+class li extends y {
   /**
    * Prepare the module
    *
@@ -6985,11 +6993,11 @@ class ri extends y {
       eventsDispatcher: t
     }), this.disabled = !1, this.batchingTimeout = null, this.batchingOnChangeQueue = /* @__PURE__ */ new Map(), this.batchTime = 400, this.mutationObserver = new MutationObserver((o) => {
       this.redactorChanged(o);
-    }), this.eventsDispatcher.on(pt, (o) => {
+    }), this.eventsDispatcher.on(bt, (o) => {
       this.particularBlockChanged(o.event);
-    }), this.eventsDispatcher.on(ft, () => {
+    }), this.eventsDispatcher.on(mt, () => {
       this.disable();
-    }), this.eventsDispatcher.on(gt, () => {
+    }), this.eventsDispatcher.on(kt, () => {
       this.enable();
     });
   }
@@ -7030,12 +7038,12 @@ class ri extends y {
    * @param mutations - mutations happened
    */
   redactorChanged(e) {
-    this.eventsDispatcher.emit(Le, {
+    this.eventsDispatcher.emit(Oe, {
       mutations: e
     });
   }
 }
-const Tt = class extends y {
+const St = class extends y {
   constructor() {
     super(...arguments), this.MIME_TYPE = "application/x-editor-js", this.toolsTags = {}, this.tagsByTool = {}, this.toolsPatterns = [], this.toolsFiles = {}, this.exceptionList = [], this.processTool = (s) => {
       try {
@@ -7048,7 +7056,7 @@ const Tt = class extends y {
           return;
         this.getTagsConfig(s), this.getFilesConfig(s), this.getPatternsConfig(s);
       } catch (e) {
-        C(
+        T(
           `Paste handling for «${s.name}» Tool hasn't been set up because of the error`,
           "warn",
           e
@@ -7094,7 +7102,7 @@ const Tt = class extends y {
       } catch {
       }
     e && r.trim() && a.trim() && (a = "<p>" + (a.trim() ? a : r) + "</p>");
-    const l = Object.keys(this.toolsTags).reduce((h, f) => (h[f.toLowerCase()] = this.toolsTags[f].sanitizationConfig ?? {}, h), {}), d = Object.assign({}, l, t.getAllInlineToolsSanitizeConfig(), { br: {} }), u = X(a, d);
+    const l = Object.keys(this.toolsTags).reduce((h, f) => (h[f.toLowerCase()] = this.toolsTags[f].sanitizationConfig ?? {}, h), {}), d = Object.assign({}, l, t.getAllInlineToolsSanitizeConfig(), { br: {} }), u = V(a, d);
     !u.trim() || u.trim() === r || !c.isHTMLString(u) ? await this.processText(r) : await this.processText(u, !0);
   }
   /**
@@ -7142,7 +7150,7 @@ const Tt = class extends y {
    * @returns {string[]} array of tags.
    */
   collectTagNames(s) {
-    return G(s) ? [s] : D(s) ? Object.keys(s) : [];
+    return q(s) ? [s] : D(s) ? Object.keys(s) : [];
   }
   /**
    * Get tags to substitute by Tool
@@ -7157,7 +7165,7 @@ const Tt = class extends y {
       const i = this.collectTagNames(o);
       t.push(...i), i.forEach((n) => {
         if (Object.prototype.hasOwnProperty.call(this.toolsTags, n)) {
-          C(
+          T(
             `Paste handler for «${s.name}» Tool on «${n}» tag is skipped because it is already used by «${this.toolsTags[n].tool.name}» Tool.`,
             "warn"
           );
@@ -7181,7 +7189,7 @@ const Tt = class extends y {
       return;
     const { files: e = {} } = s.pasteConfig;
     let { extensions: t, mimeTypes: o } = e;
-    !t && !o || (t && !Array.isArray(t) && (C(`«extensions» property of the onDrop config for «${s.name}» Tool should be an array`), t = []), o && !Array.isArray(o) && (C(`«mimeTypes» property of the onDrop config for «${s.name}» Tool should be an array`), o = []), o && (o = o.filter((i) => jt(i) ? !0 : (C(`MIME type value «${i}» for the «${s.name}» Tool is not a valid MIME type`, "warn"), !1))), this.toolsFiles[s.name] = {
+    !t && !o || (t && !Array.isArray(t) && (T(`«extensions» property of the onDrop config for «${s.name}» Tool should be an array`), t = []), o && !Array.isArray(o) && (T(`«mimeTypes» property of the onDrop config for «${s.name}» Tool should be an array`), o = []), o && (o = o.filter((i) => Wt(i) ? !0 : (T(`MIME type value «${i}» for the «${s.name}» Tool is not a valid MIME type`, "warn"), !1))), this.toolsFiles[s.name] = {
       extensions: t || [],
       mimeTypes: o || []
     });
@@ -7193,7 +7201,7 @@ const Tt = class extends y {
    */
   getPatternsConfig(s) {
     s.pasteConfig === !1 || !s.pasteConfig.patterns || K(s.pasteConfig.patterns) || Object.entries(s.pasteConfig.patterns).forEach(([e, t]) => {
-      t instanceof RegExp || C(
+      t instanceof RegExp || T(
         `Pattern ${t} for «${s.name}» Tool is skipped because it should be a Regexp instance.`,
         "warn"
       ), this.toolsPatterns.push({
@@ -7236,7 +7244,7 @@ const Tt = class extends y {
    * @param {File} file - file to process
    */
   async processFile(s) {
-    const e = Ut(s), t = Object.entries(this.toolsFiles).find(([n, { mimeTypes: r, extensions: a }]) => {
+    const e = $t(s), t = Object.entries(this.toolsFiles).find(([n, { mimeTypes: r, extensions: a }]) => {
       const [l, d] = s.type.split("/"), u = a.find((f) => f.toLowerCase() === e.toLowerCase()), h = r.find((f) => {
         const [x, p] = f.split("/");
         return x === l && (p === d || p === "*");
@@ -7276,12 +7284,12 @@ const Tt = class extends y {
         f[m.toLowerCase()] = L || {};
       }), f), {}), u = Object.assign({}, d, r.baseSanitizeConfig);
       if (n.tagName.toLowerCase() === "table") {
-        const f = X(n.outerHTML, u);
+        const f = V(n.outerHTML, u);
         n = c.make("div", void 0, {
           innerHTML: f
         }).firstChild;
       } else
-        n.innerHTML = X(n.innerHTML, u);
+        n.innerHTML = V(n.innerHTML, u);
       const h = this.composePasteEvent("tag", {
         data: n
       });
@@ -7344,7 +7352,7 @@ const Tt = class extends y {
    */
   async processInlinePaste(s) {
     const { BlockManager: e, Caret: t } = this.Editor, { content: o } = s;
-    if (e.currentBlock && e.currentBlock.tool.isDefault && o.textContent.length < Tt.PATTERN_PROCESSING_MAX_LENGTH) {
+    if (e.currentBlock && e.currentBlock.tool.isDefault && o.textContent.length < St.PATTERN_PROCESSING_MAX_LENGTH) {
       const n = await this.processPattern(o.textContent);
       if (n) {
         const r = e.currentBlock && e.currentBlock.tool.isDefault && e.currentBlock.isEmpty, a = e.paste(n.tool, n.event, r);
@@ -7357,7 +7365,7 @@ const Tt = class extends y {
       document.execCommand(
         "insertHTML",
         !1,
-        X(o.innerHTML, n)
+        V(o.innerHTML, n)
       );
     } else
       this.insertBlock(s);
@@ -7405,7 +7413,7 @@ const Tt = class extends y {
    */
   insertEditorJSData(s) {
     const { BlockManager: e, Caret: t, Tools: o } = this.Editor;
-    bt(
+    Ue(
       s,
       (n) => o.blockTools.get(n).sanitizeConfig
     ).forEach(({ tool: n, data: r }, a) => {
@@ -7479,9 +7487,9 @@ const Tt = class extends y {
     });
   }
 };
-let Ct = Tt;
-Ct.PATTERN_PROCESSING_MAX_LENGTH = 450;
-class ai extends y {
+let It = St;
+It.PATTERN_PROCESSING_MAX_LENGTH = 450;
+class ci extends y {
   constructor() {
     super(...arguments), this.toolsDontSupportReadOnly = [], this.readOnlyEnabled = !1;
   }
@@ -7521,7 +7529,7 @@ class ai extends y {
    * Throws an error about tools which don't support read-only mode
    */
   throwCriticalError() {
-    throw new ut(
+    throw new gt(
       `To enable read-only mode all connected tools should support it. Tools ${this.toolsDontSupportReadOnly.join(", ")} don't support read-only mode.`
     );
   }
@@ -7592,13 +7600,13 @@ class fe extends y {
     const { container: e } = this.genHTML();
     this.listeners.on(e, "mousedown", (t) => {
       this.processMouseDown(t);
-    }, !1), this.listeners.on(document.body, "mousemove", Ie((t) => {
+    }, !1), this.listeners.on(document.body, "mousemove", Me((t) => {
       this.processMouseMove(t);
     }, 10), {
       passive: !0
     }), this.listeners.on(document.body, "mouseleave", () => {
       this.processMouseLeave();
-    }), this.listeners.on(window, "scroll", Ie((t) => {
+    }), this.listeners.on(window, "scroll", Me((t) => {
       this.processScroll(t);
     }, 10), {
       passive: !0
@@ -7770,7 +7778,7 @@ class fe extends y {
       this.rectCrossesBlocks && this.Editor.BlockSelection.unSelectBlockByIndex(this.stackOfSelected[x]), this.stackOfSelected.pop(), x--;
   }
 }
-class li extends y {
+class di extends y {
   /**
    * Renders passed blocks as one batch
    *
@@ -7793,7 +7801,7 @@ class li extends y {
               tunes: l
             });
           } catch (h) {
-            C(`Block «${r}» skipped because of plugins error`, "error", {
+            T(`Block «${r}» skipped because of plugins error`, "error", {
               data: a,
               error: h
             }), a = this.composeStubDataForTool(r, a, d), r = o.stubTool, u = i.composeBlock({
@@ -7836,7 +7844,7 @@ class li extends y {
     };
   }
 }
-class ci extends y {
+class hi extends y {
   /**
    * Composes new chain of Promises to fire them alternatelly
    *
@@ -7848,7 +7856,7 @@ class ci extends y {
       o.forEach((a) => {
         i.push(this.getSavedData(a));
       });
-      const n = await Promise.all(i), r = await bt(n, (a) => t.blockTools.get(a).sanitizeConfig);
+      const n = await Promise.all(i), r = await Ue(n, (a) => t.blockTools.get(a).sanitizeConfig);
       return this.makeOutput(r);
     } catch (n) {
       W("Saving failed due to the Error %o", "error", n);
@@ -7877,7 +7885,7 @@ class ci extends y {
     const t = [];
     return e.forEach(({ id: o, tool: i, data: n, tunes: r, isValid: a }) => {
       if (!a) {
-        C(`Block «${i}» skipped because saved data is invalid`);
+        T(`Block «${i}» skipped because saved data is invalid`);
         return;
       }
       if (i === this.Editor.Tools.stubTool) {
@@ -7896,7 +7904,7 @@ class ci extends y {
     }), {
       time: +/* @__PURE__ */ new Date(),
       blocks: t,
-      version: "2.29.0"
+      version: "2.30.0-rc.2"
     };
   }
 }
@@ -7910,7 +7918,7 @@ class ci extends y {
     console.error("vite-plugin-css-injected-by-js", e);
   }
 })();
-const di = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 9V7.2C8 7.08954 8.08954 7 8.2 7L12 7M16 9V7.2C16 7.08954 15.9105 7 15.8 7L12 7M12 7L12 17M12 17H10M12 17H14"/></svg>';
+const ui = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M8 9V7.2C8 7.08954 8.08954 7 8.2 7L12 7M16 9V7.2C16 7.08954 15.9105 7 15.8 7L12 7M12 7L12 17M12 17H10M12 17H14"/></svg>';
 /**
  * Base Paragraph Block for the Editor.js.
  * Represents a regular text block
@@ -7919,7 +7927,7 @@ const di = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill=
  * @copyright CodeX 2018
  * @license The MIT License (MIT)
  */
-class Ke {
+class Xe {
   /**
    * Default placeholder for Paragraph Tool
    *
@@ -7942,7 +7950,7 @@ class Ke {
     this.api = o, this.readOnly = i, this._CSS = {
       block: this.api.styles.block,
       wrapper: "ce-paragraph"
-    }, this.readOnly || (this.onKeyUp = this.onKeyUp.bind(this)), this._placeholder = t.placeholder ? t.placeholder : Ke.DEFAULT_PLACEHOLDER, this._data = {}, this._element = null, this._preserveBlank = t.preserveBlank !== void 0 ? t.preserveBlank : !1, this.data = e;
+    }, this.readOnly || (this.onKeyUp = this.onKeyUp.bind(this)), this._placeholder = t.placeholder ? t.placeholder : Xe.DEFAULT_PLACEHOLDER, this._data = {}, this._element = null, this._preserveBlank = t.preserveBlank !== void 0 ? t.preserveBlank : !1, this.data = e;
   }
   /**
    * Check if text content is empty and set empty string to inner html.
@@ -8100,12 +8108,12 @@ class Ke {
    */
   static get toolbox() {
     return {
-      icon: di,
+      icon: ui,
       title: "Text"
     };
   }
 }
-class Ve {
+class qe {
   constructor() {
     this.commandName = "bold", this.CSS = {
       button: "ce-inline-tool",
@@ -8130,7 +8138,7 @@ class Ve {
    * Create button for Inline Toolbar
    */
   render() {
-    return this.nodes.button = document.createElement("button"), this.nodes.button.type = "button", this.nodes.button.classList.add(this.CSS.button, this.CSS.buttonModifier), this.nodes.button.innerHTML = Oo, this.nodes.button;
+    return this.nodes.button = document.createElement("button"), this.nodes.button.type = "button", this.nodes.button.classList.add(this.CSS.button, this.CSS.buttonModifier), this.nodes.button.innerHTML = _o, this.nodes.button;
   }
   /**
    * Wrap range with <b> tag
@@ -8156,9 +8164,9 @@ class Ve {
     return "CMD+B";
   }
 }
-Ve.isInline = !0;
-Ve.title = "Bold";
-class Xe {
+qe.isInline = !0;
+qe.title = "Bold";
+class Ze {
   constructor() {
     this.commandName = "italic", this.CSS = {
       button: "ce-inline-tool",
@@ -8183,7 +8191,7 @@ class Xe {
    * Create button for Inline Toolbar
    */
   render() {
-    return this.nodes.button = document.createElement("button"), this.nodes.button.type = "button", this.nodes.button.classList.add(this.CSS.button, this.CSS.buttonModifier), this.nodes.button.innerHTML = Do, this.nodes.button;
+    return this.nodes.button = document.createElement("button"), this.nodes.button.type = "button", this.nodes.button.classList.add(this.CSS.button, this.CSS.buttonModifier), this.nodes.button.innerHTML = Po, this.nodes.button;
   }
   /**
    * Wrap range with <i> tag
@@ -8205,9 +8213,9 @@ class Xe {
     return "CMD+I";
   }
 }
-Xe.isInline = !0;
-Xe.title = "Italic";
-class qe {
+Ze.isInline = !0;
+Ze.title = "Italic";
+class Ge {
   /**
    * @param api - Editor.js API
    */
@@ -8243,7 +8251,7 @@ class qe {
    * Create button for Inline Toolbar
    */
   render() {
-    return this.nodes.button = document.createElement("button"), this.nodes.button.type = "button", this.nodes.button.classList.add(this.CSS.button, this.CSS.buttonModifier), this.nodes.button.innerHTML = it, this.nodes.button;
+    return this.nodes.button = document.createElement("button"), this.nodes.button.type = "button", this.nodes.button.classList.add(this.CSS.button, this.CSS.buttonModifier), this.nodes.button.innerHTML = rt, this.nodes.button;
   }
   /**
    * Input for the link
@@ -8275,11 +8283,11 @@ class qe {
   checkState() {
     const e = this.selection.findParentTag("A");
     if (e) {
-      this.nodes.button.innerHTML = zo, this.nodes.button.classList.add(this.CSS.buttonUnlink), this.nodes.button.classList.add(this.CSS.buttonActive), this.openActions();
+      this.nodes.button.innerHTML = Uo, this.nodes.button.classList.add(this.CSS.buttonUnlink), this.nodes.button.classList.add(this.CSS.buttonActive), this.openActions();
       const t = e.getAttribute("href");
       this.nodes.input.value = t !== "null" ? t : "", this.selection.save();
     } else
-      this.nodes.button.innerHTML = it, this.nodes.button.classList.remove(this.CSS.buttonUnlink), this.nodes.button.classList.remove(this.CSS.buttonActive);
+      this.nodes.button.innerHTML = rt, this.nodes.button.classList.remove(this.CSS.buttonUnlink), this.nodes.button.classList.remove(this.CSS.buttonActive);
     return !!e;
   }
   /**
@@ -8334,7 +8342,7 @@ class qe {
       this.notifier.show({
         message: "Pasted link is not valid.",
         style: "error"
-      }), C("Incorrect Link pasted", "warn", t);
+      }), T("Incorrect Link pasted", "warn", t);
       return;
     }
     t = this.prepareLink(t), this.selection.restore(), this.selection.removeFakeBackground(), this.insertLink(t), e.preventDefault(), e.stopPropagation(), e.stopImmediatePropagation(), this.selection.collapseToEnd(), this.inlineToolbar.close();
@@ -8385,9 +8393,9 @@ class qe {
     document.execCommand(this.commandUnlink);
   }
 }
-qe.isInline = !0;
-qe.title = "Link";
-class St {
+Ge.isInline = !0;
+Ge.title = "Link";
+class Mt {
   /**
    * @param options - constructor options
    * @param options.data - stub tool data
@@ -8423,7 +8431,7 @@ class St {
    * @returns {HTMLElement}
    */
   make() {
-    const e = c.make("div", this.CSS.wrapper), t = Uo, o = c.make("div", this.CSS.info), i = c.make("div", this.CSS.title, {
+    const e = c.make("div", this.CSS.wrapper), t = jo, o = c.make("div", this.CSS.info), i = c.make("div", this.CSS.title, {
       textContent: this.title
     }), n = c.make("div", this.CSS.subtitle, {
       textContent: this.subtitle
@@ -8431,16 +8439,16 @@ class St {
     return e.innerHTML = t, o.appendChild(i), o.appendChild(n), e.appendChild(o), e;
   }
 }
-St.isReadOnlySupported = !0;
-class hi extends Ye {
+Mt.isReadOnlySupported = !0;
+class pi extends Ve {
   constructor() {
-    super(...arguments), this.type = Be.Inline;
+    super(...arguments), this.type = Ce.Inline;
   }
   /**
    * Returns title for Inline Tool if specified by user
    */
   get title() {
-    return this.constructable[We.Title];
+    return this.constructable[Ke.Title];
   }
   /**
    * Constructs new InlineTool instance from constructable
@@ -8452,9 +8460,9 @@ class hi extends Ye {
     });
   }
 }
-class ui extends Ye {
+class fi extends Ve {
   constructor() {
-    super(...arguments), this.type = Be.Tune;
+    super(...arguments), this.type = Ce.Tune;
   }
   /**
    * Constructs new BlockTune instance from constructable
@@ -8508,14 +8516,14 @@ class P extends Map {
     return new P(e);
   }
 }
-var pi = Object.defineProperty, fi = Object.getOwnPropertyDescriptor, It = (s, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? fi(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+var gi = Object.defineProperty, bi = Object.getOwnPropertyDescriptor, At = (s, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? bi(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && pi(e, t, i), i;
+  return o && i && gi(e, t, i), i;
 };
-class Ze extends Ye {
+class Je extends Ve {
   constructor() {
-    super(...arguments), this.type = Be.Block, this.inlineTools = new P(), this.tunes = new P();
+    super(...arguments), this.type = Ce.Block, this.inlineTools = new P(), this.tunes = new P();
   }
   /**
    * Creates new Tool instance
@@ -8615,13 +8623,13 @@ class Ze extends Ye {
     return Array.from(this.inlineTools.values()).forEach((t) => Object.assign(e, t.sanitizeConfig)), Array.from(this.tunes.values()).forEach((t) => Object.assign(e, t.sanitizeConfig)), e;
   }
 }
-It([
+At([
   le
-], Ze.prototype, "sanitizeConfig", 1);
-It([
+], Je.prototype, "sanitizeConfig", 1);
+At([
   le
-], Ze.prototype, "baseSanitizeConfig", 1);
-class gi {
+], Je.prototype, "baseSanitizeConfig", 1);
+class mi {
   /**
    * @class
    * @param config - tools config
@@ -8655,16 +8663,16 @@ class gi {
    */
   getConstructor(e) {
     switch (!0) {
-      case e[We.IsInline]:
-        return hi;
-      case e[Bt.IsTune]:
-        return ui;
+      case e[Ke.IsInline]:
+        return pi;
+      case e[Tt.IsTune]:
+        return fi;
       default:
-        return Ze;
+        return Je;
     }
   }
 }
-class Mt {
+class Lt {
   /**
    * MoveDownTune constructor
    *
@@ -8680,7 +8688,7 @@ class Mt {
    */
   render() {
     return {
-      icon: kt,
+      icon: xt,
       title: this.api.i18n.t("Move down"),
       onActivate: () => this.handleClick(),
       name: "move-down"
@@ -8698,8 +8706,8 @@ class Mt {
     i.top < window.innerHeight && (n = window.scrollY + o.offsetHeight), window.scrollTo(0, n), this.api.blocks.move(e + 1), this.api.toolbar.toggleBlockSettings(!0);
   }
 }
-Mt.isTune = !0;
-class At {
+Lt.isTune = !0;
+class Ot {
   /**
    * DeleteTune constructor
    *
@@ -8713,7 +8721,7 @@ class At {
    */
   render() {
     return {
-      icon: No,
+      icon: Ro,
       title: this.api.i18n.t("Delete"),
       name: "delete",
       confirmation: {
@@ -8729,8 +8737,8 @@ class At {
     this.api.blocks.delete();
   }
 }
-At.isTune = !0;
-class Lt {
+Ot.isTune = !0;
+class _t {
   /**
    * MoveUpTune constructor
    *
@@ -8746,7 +8754,7 @@ class Lt {
    */
   render() {
     return {
-      icon: _o,
+      icon: No,
       title: this.api.i18n.t("Move up"),
       onActivate: () => this.handleClick(),
       name: "move-up"
@@ -8764,13 +8772,13 @@ class Lt {
     a.top > 0 ? l = Math.abs(r.top) - Math.abs(a.top) : l = Math.abs(r.top) + a.height, window.scrollBy(0, -1 * l), this.api.blocks.move(e - 1), this.api.toolbar.toggleBlockSettings(!0);
   }
 }
-Lt.isTune = !0;
-var bi = Object.defineProperty, mi = Object.getOwnPropertyDescriptor, ki = (s, e, t, o) => {
-  for (var i = o > 1 ? void 0 : o ? mi(e, t) : e, n = s.length - 1, r; n >= 0; n--)
+_t.isTune = !0;
+var ki = Object.defineProperty, vi = Object.getOwnPropertyDescriptor, xi = (s, e, t, o) => {
+  for (var i = o > 1 ? void 0 : o ? vi(e, t) : e, n = s.length - 1, r; n >= 0; n--)
     (r = s[n]) && (i = (o ? r(e, t, i) : r(i)) || i);
-  return o && i && bi(e, t, i), i;
+  return o && i && ki(e, t, i), i;
 };
-class Ot extends y {
+class Nt extends y {
   constructor() {
     super(...arguments), this.stubTool = "stub", this.toolsAvailable = new P(), this.toolsUnavailable = new P();
   }
@@ -8824,14 +8832,14 @@ class Ot extends y {
    * @returns {Promise<void>}
    */
   async prepare() {
-    if (this.validateTools(), this.config.tools = Me({}, this.internalTools, this.config.tools), !Object.prototype.hasOwnProperty.call(this.config, "tools") || Object.keys(this.config.tools).length === 0)
+    if (this.validateTools(), this.config.tools = Ae({}, this.internalTools, this.config.tools), !Object.prototype.hasOwnProperty.call(this.config, "tools") || Object.keys(this.config.tools).length === 0)
       throw Error("Can't start without tools");
     const e = this.prepareConfig();
-    this.factory = new gi(e, this.config, this.Editor.API);
+    this.factory = new mi(e, this.config, this.Editor.API);
     const t = this.getListOfPrepareFunctions(e);
     if (t.length === 0)
       return Promise.resolve();
-    await zt(t, (o) => {
+    await jt(t, (o) => {
       this.toolPrepareMethodSuccess(o);
     }, (o) => {
       this.toolPrepareMethodFallback(o);
@@ -8858,36 +8866,36 @@ class Ot extends y {
   get internalTools() {
     return {
       bold: {
-        class: Ve,
-        isInternal: !0
-      },
-      italic: {
-        class: Xe,
-        isInternal: !0
-      },
-      link: {
         class: qe,
         isInternal: !0
       },
+      italic: {
+        class: Ze,
+        isInternal: !0
+      },
+      link: {
+        class: Ge,
+        isInternal: !0
+      },
       paragraph: {
-        class: Ke,
+        class: Xe,
         inlineToolbar: !0,
         isInternal: !0
       },
       stub: {
-        class: St,
+        class: Mt,
         isInternal: !0
       },
       moveUp: {
-        class: Lt,
+        class: _t,
         isInternal: !0
       },
       delete: {
-        class: At,
+        class: Ot,
         isInternal: !0
       },
       moveDown: {
-        class: Mt,
+        class: Lt,
         isInternal: !0
       }
     };
@@ -8902,7 +8910,7 @@ class Ot extends y {
     if (t.isInline()) {
       const i = ["render", "surround", "checkState"].filter((n) => !t.create()[n]);
       if (i.length) {
-        C(
+        T(
           `Incorrect Inline Tool: ${t.name}. Some of required methods is not implemented %o`,
           "warn",
           i
@@ -9015,14 +9023,14 @@ class Ot extends y {
     return e;
   }
 }
-ki([
+xi([
   le
-], Ot.prototype, "getAllInlineToolsSanitizeConfig", 1);
-const vi = `:root{--selectionColor: #e1f2ff;--inlineSelectionColor: #d4ecff;--bg-light: #eff2f5;--grayText: #707684;--color-dark: #1D202B;--color-active-icon: #388AE5;--color-gray-border: rgba(201, 201, 204, .48);--content-width: 650px;--narrow-mode-right-padding: 50px;--toolbox-buttons-size: 26px;--toolbox-buttons-size--mobile: 36px;--icon-size: 20px;--icon-size--mobile: 28px;--block-padding-vertical: .4em;--color-line-gray: #EFF0F1 }.codex-editor{position:relative;-webkit-box-sizing:border-box;box-sizing:border-box;z-index:1}.codex-editor .hide{display:none}.codex-editor__redactor [contenteditable]:empty:after{content:"\\feff"}@media (min-width: 651px){.codex-editor--narrow .codex-editor__redactor{margin-right:50px}}@media (min-width: 651px){.codex-editor--narrow.codex-editor--rtl .codex-editor__redactor{margin-left:50px;margin-right:0}}@media (min-width: 651px){.codex-editor--narrow .ce-toolbar__actions{right:-5px}}.codex-editor-copyable{position:absolute;height:1px;width:1px;top:-400%;opacity:.001}.codex-editor-overlay{position:fixed;top:0px;left:0px;right:0px;bottom:0px;z-index:999;pointer-events:none;overflow:hidden}.codex-editor-overlay__container{position:relative;pointer-events:auto;z-index:0}.codex-editor-overlay__rectangle{position:absolute;pointer-events:none;background-color:#2eaadc33;border:1px solid transparent}.codex-editor svg{max-height:100%}.codex-editor path{stroke:currentColor}.codex-editor ::-moz-selection{background-color:#d4ecff}.codex-editor ::selection{background-color:#d4ecff}.codex-editor--toolbox-opened [contentEditable=true][data-placeholder]:focus:before{opacity:0!important}.ce-scroll-locked{overflow:hidden}.ce-scroll-locked--hard{overflow:hidden;top:calc(-1 * var(--window-scroll-offset));position:fixed;width:100%}.ce-toolbar{position:absolute;left:0;right:0;top:0;-webkit-transition:opacity .1s ease;transition:opacity .1s ease;will-change:opacity,top;display:none}.ce-toolbar--opened{display:block}.ce-toolbar__content{max-width:650px;margin:0 auto;position:relative}.ce-toolbar__plus{color:#1d202b;cursor:pointer;width:26px;height:26px;border-radius:7px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-ms-flex-negative:0;flex-shrink:0}@media (max-width: 650px){.ce-toolbar__plus{width:36px;height:36px}}@media (hover: hover){.ce-toolbar__plus:hover{background-color:#eff2f5}}.ce-toolbar__plus--active{background-color:#eff2f5;-webkit-animation:bounceIn .75s 1;animation:bounceIn .75s 1;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}.ce-toolbar__plus-shortcut{opacity:.6;word-spacing:-2px;margin-top:5px}@media (max-width: 650px){.ce-toolbar__plus{position:absolute;background-color:#fff;border:1px solid #E8E8EB;-webkit-box-shadow:0 3px 15px -3px rgba(13,20,33,.13);box-shadow:0 3px 15px -3px #0d142121;border-radius:6px;z-index:2;position:static}.ce-toolbar__plus--left-oriented:before{left:15px;margin-left:0}.ce-toolbar__plus--right-oriented:before{left:auto;right:15px;margin-left:0}}.ce-toolbar__actions{position:absolute;right:100%;opacity:0;display:-webkit-box;display:-ms-flexbox;display:flex;padding-right:5px}.ce-toolbar__actions--opened{opacity:1}@media (max-width: 650px){.ce-toolbar__actions{right:auto}}.ce-toolbar__settings-btn{color:#1d202b;width:26px;height:26px;border-radius:7px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;margin-left:3px;cursor:pointer;user-select:none}@media (max-width: 650px){.ce-toolbar__settings-btn{width:36px;height:36px}}@media (hover: hover){.ce-toolbar__settings-btn:hover{background-color:#eff2f5}}.ce-toolbar__settings-btn--active{background-color:#eff2f5;-webkit-animation:bounceIn .75s 1;animation:bounceIn .75s 1;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}@media (min-width: 651px){.ce-toolbar__settings-btn{width:24px}}.ce-toolbar__settings-btn--hidden{display:none}@media (max-width: 650px){.ce-toolbar__settings-btn{position:absolute;background-color:#fff;border:1px solid #E8E8EB;-webkit-box-shadow:0 3px 15px -3px rgba(13,20,33,.13);box-shadow:0 3px 15px -3px #0d142121;border-radius:6px;z-index:2;position:static}.ce-toolbar__settings-btn--left-oriented:before{left:15px;margin-left:0}.ce-toolbar__settings-btn--right-oriented:before{left:auto;right:15px;margin-left:0}}.ce-toolbar__plus svg,.ce-toolbar__settings-btn svg{width:24px;height:24px}@media (min-width: 651px){.codex-editor--narrow .ce-toolbar__plus{left:5px}}@media (min-width: 651px){.codex-editor--narrow .ce-toolbox .ce-popover{right:0;left:auto;left:initial}}.ce-inline-toolbar{--y-offset: 8px;position:absolute;background-color:#fff;border:1px solid #E8E8EB;-webkit-box-shadow:0 3px 15px -3px rgba(13,20,33,.13);box-shadow:0 3px 15px -3px #0d142121;border-radius:6px;z-index:2;opacity:0;visibility:hidden;-webkit-transition:opacity .25s ease;transition:opacity .25s ease;will-change:opacity,left,top;top:0;left:0;z-index:3}.ce-inline-toolbar--left-oriented:before{left:15px;margin-left:0}.ce-inline-toolbar--right-oriented:before{left:auto;right:15px;margin-left:0}.ce-inline-toolbar--showed{opacity:1;visibility:visible}.ce-inline-toolbar [hidden]{display:none!important}.ce-inline-toolbar__toggler-and-button-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;padding:0 6px}.ce-inline-toolbar__buttons{display:-webkit-box;display:-ms-flexbox;display:flex}.ce-inline-toolbar__dropdown{display:-webkit-box;display:-ms-flexbox;display:flex;padding:6px;margin:0 6px 0 -6px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;cursor:pointer;border-right:1px solid rgba(201,201,204,.48);-webkit-box-sizing:border-box;box-sizing:border-box}@media (hover: hover){.ce-inline-toolbar__dropdown:hover{background:#eff2f5}}.ce-inline-toolbar__dropdown--hidden{display:none}.ce-inline-toolbar__dropdown-content,.ce-inline-toolbar__dropdown-arrow{display:-webkit-box;display:-ms-flexbox;display:flex}.ce-inline-toolbar__dropdown-content svg,.ce-inline-toolbar__dropdown-arrow svg{width:20px;height:20px}.ce-inline-toolbar__shortcut{opacity:.6;word-spacing:-3px;margin-top:3px}.ce-inline-tool{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:6px 1px;cursor:pointer;border:0;outline:none;background-color:transparent;vertical-align:bottom;color:inherit;margin:0;border-radius:0;line-height:normal}.ce-inline-tool svg{width:20px;height:20px}@media (max-width: 650px){.ce-inline-tool svg{width:28px;height:28px}}@media (hover: hover){.ce-inline-tool:hover{background-color:#eff2f5}}.ce-inline-tool--active{color:#388ae5}.ce-inline-tool--focused{background:rgba(34,186,255,.08)!important}.ce-inline-tool--focused{-webkit-box-shadow:inset 0 0 0px 1px rgba(7,161,227,.08);box-shadow:inset 0 0 0 1px #07a1e314}.ce-inline-tool--focused-animated{-webkit-animation-name:buttonClicked;animation-name:buttonClicked;-webkit-animation-duration:.25s;animation-duration:.25s}.ce-inline-tool--link .icon--unlink,.ce-inline-tool--unlink .icon--link{display:none}.ce-inline-tool--unlink .icon--unlink{display:inline-block;margin-bottom:-1px}.ce-inline-tool-input{outline:none;border:0;border-radius:0 0 4px 4px;margin:0;font-size:13px;padding:10px;width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;display:none;font-weight:500;border-top:1px solid rgba(201,201,204,.48);-webkit-appearance:none;font-family:inherit}@media (max-width: 650px){.ce-inline-tool-input{font-size:15px;font-weight:500}}.ce-inline-tool-input::-webkit-input-placeholder{color:#707684}.ce-inline-tool-input::-moz-placeholder{color:#707684}.ce-inline-tool-input:-ms-input-placeholder{color:#707684}.ce-inline-tool-input::-ms-input-placeholder{color:#707684}.ce-inline-tool-input::placeholder{color:#707684}.ce-inline-tool-input--showed{display:block}.ce-conversion-toolbar{position:absolute;background-color:#fff;border:1px solid #E8E8EB;-webkit-box-shadow:0 3px 15px -3px rgba(13,20,33,.13);box-shadow:0 3px 15px -3px #0d142121;border-radius:6px;z-index:2;opacity:0;visibility:hidden;will-change:transform,opacity;-webkit-transition:opacity .1s ease,-webkit-transform .1s ease;transition:opacity .1s ease,-webkit-transform .1s ease;transition:transform .1s ease,opacity .1s ease;transition:transform .1s ease,opacity .1s ease,-webkit-transform .1s ease;-webkit-transform:translateY(-8px);transform:translateY(-8px);left:-1px;width:190px;margin-top:5px;-webkit-box-sizing:content-box;box-sizing:content-box}.ce-conversion-toolbar--left-oriented:before{left:15px;margin-left:0}.ce-conversion-toolbar--right-oriented:before{left:auto;right:15px;margin-left:0}.ce-conversion-toolbar--showed{opacity:1;visibility:visible;-webkit-transform:none;transform:none}.ce-conversion-toolbar [hidden]{display:none!important}.ce-conversion-toolbar__buttons{display:-webkit-box;display:-ms-flexbox;display:flex}.ce-conversion-toolbar__label{color:#707684;font-size:11px;font-weight:500;letter-spacing:.33px;padding:10px 10px 5px;text-transform:uppercase}.ce-conversion-tool{display:-webkit-box;display:-ms-flexbox;display:flex;padding:5px 10px;font-size:14px;line-height:20px;font-weight:500;cursor:pointer;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.ce-conversion-tool--hidden{display:none}.ce-conversion-tool--focused{background:rgba(34,186,255,.08)!important}.ce-conversion-tool--focused{-webkit-box-shadow:inset 0 0 0px 1px rgba(7,161,227,.08);box-shadow:inset 0 0 0 1px #07a1e314}.ce-conversion-tool--focused-animated{-webkit-animation-name:buttonClicked;animation-name:buttonClicked;-webkit-animation-duration:.25s;animation-duration:.25s}.ce-conversion-tool:hover{background:#eff2f5}.ce-conversion-tool__icon{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;width:26px;height:26px;-webkit-box-shadow:0 0 0 1px rgba(201,201,204,.48);box-shadow:0 0 0 1px #c9c9cc7a;border-radius:5px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background:#fff;-webkit-box-sizing:content-box;box-sizing:content-box;-ms-flex-negative:0;flex-shrink:0;margin-right:10px}.ce-conversion-tool__icon svg{width:20px;height:20px}@media (max-width: 650px){.ce-conversion-tool__icon{width:36px;height:36px;border-radius:8px}.ce-conversion-tool__icon svg{width:28px;height:28px}}.ce-conversion-tool--last{margin-right:0!important}.ce-conversion-tool--active{color:#388ae5!important}.ce-conversion-tool--active{-webkit-animation:bounceIn .75s 1;animation:bounceIn .75s 1;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}.ce-conversion-tool__secondary-label{color:#707684;font-size:12px;margin-left:auto;white-space:nowrap;letter-spacing:-.1em;padding-right:5px;margin-bottom:-2px;opacity:.6}@media (max-width: 650px){.ce-conversion-tool__secondary-label{display:none}}.ce-settings__button{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:6px 1px;border-radius:3px;cursor:pointer;border:0;outline:none;background-color:transparent;vertical-align:bottom;color:inherit;margin:0;line-height:32px}.ce-settings__button svg{width:20px;height:20px}@media (max-width: 650px){.ce-settings__button svg{width:28px;height:28px}}@media (hover: hover){.ce-settings__button:hover{background-color:#eff2f5}}.ce-settings__button--active{color:#388ae5}.ce-settings__button--focused{background:rgba(34,186,255,.08)!important}.ce-settings__button--focused{-webkit-box-shadow:inset 0 0 0px 1px rgba(7,161,227,.08);box-shadow:inset 0 0 0 1px #07a1e314}.ce-settings__button--focused-animated{-webkit-animation-name:buttonClicked;animation-name:buttonClicked;-webkit-animation-duration:.25s;animation-duration:.25s}.ce-settings__button:not(:nth-child(3n+3)){margin-right:3px}.ce-settings__button:nth-child(n+4){margin-top:3px}.ce-settings__button--disabled{cursor:not-allowed!important}.ce-settings__button--disabled{opacity:.3}.ce-settings__button--selected{color:#388ae5}@media (min-width: 651px){.codex-editor--narrow .ce-settings .ce-popover{right:0;left:auto;left:initial}}@-webkit-keyframes fade-in{0%{opacity:0}to{opacity:1}}@keyframes fade-in{0%{opacity:0}to{opacity:1}}.ce-block{-webkit-animation:fade-in .3s ease;animation:fade-in .3s ease;-webkit-animation-fill-mode:none;animation-fill-mode:none;-webkit-animation-fill-mode:initial;animation-fill-mode:initial}.ce-block:first-of-type{margin-top:0}.ce-block--selected .ce-block__content{background:#e1f2ff}.ce-block--selected .ce-block__content [contenteditable]{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.ce-block--selected .ce-block__content img,.ce-block--selected .ce-block__content .ce-stub{opacity:.55}.ce-block--stretched .ce-block__content{max-width:none}.ce-block__content{position:relative;max-width:650px;margin:0 auto;-webkit-transition:background-color .15s ease;transition:background-color .15s ease}.ce-block--drop-target .ce-block__content:before{content:"";position:absolute;top:100%;left:-20px;margin-top:-1px;height:8px;width:8px;border:solid #388AE5;border-width:1px 1px 0 0;-webkit-transform-origin:right;transform-origin:right;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.ce-block--drop-target .ce-block__content:after{content:"";position:absolute;top:100%;height:1px;width:100%;color:#388ae5;background:repeating-linear-gradient(90deg,#388AE5,#388AE5 1px,#fff 1px,#fff 6px)}.ce-block a{cursor:pointer;-webkit-text-decoration:underline;text-decoration:underline}.ce-block b{font-weight:700}.ce-block i{font-style:italic}@-webkit-keyframes bounceIn{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:scale3d(.9,.9,.9);transform:scale3d(.9,.9,.9)}20%{-webkit-transform:scale3d(1.03,1.03,1.03);transform:scale3d(1.03,1.03,1.03)}60%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@keyframes bounceIn{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:scale3d(.9,.9,.9);transform:scale3d(.9,.9,.9)}20%{-webkit-transform:scale3d(1.03,1.03,1.03);transform:scale3d(1.03,1.03,1.03)}60%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@-webkit-keyframes selectionBounce{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}50%{-webkit-transform:scale3d(1.01,1.01,1.01);transform:scale3d(1.01,1.01,1.01)}70%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@keyframes selectionBounce{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}50%{-webkit-transform:scale3d(1.01,1.01,1.01);transform:scale3d(1.01,1.01,1.01)}70%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@-webkit-keyframes buttonClicked{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:scale3d(.95,.95,.95);transform:scale3d(.95,.95,.95)}60%{-webkit-transform:scale3d(1.02,1.02,1.02);transform:scale3d(1.02,1.02,1.02)}80%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@keyframes buttonClicked{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:scale3d(.95,.95,.95);transform:scale3d(.95,.95,.95)}60%{-webkit-transform:scale3d(1.02,1.02,1.02);transform:scale3d(1.02,1.02,1.02)}80%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}.cdx-block{padding:.4em 0}.cdx-block::-webkit-input-placeholder{line-height:normal!important}.cdx-input{border:1px solid rgba(201,201,204,.48);-webkit-box-shadow:inset 0 1px 2px 0 rgba(35,44,72,.06);box-shadow:inset 0 1px 2px #232c480f;border-radius:3px;padding:10px 12px;outline:none;width:100%;-webkit-box-sizing:border-box;box-sizing:border-box}.cdx-input[data-placeholder]:before{position:static!important}.cdx-input[data-placeholder]:before{display:inline-block;width:0;white-space:nowrap;pointer-events:none}.cdx-settings-button{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:6px 1px;border-radius:3px;cursor:pointer;border:0;outline:none;background-color:transparent;vertical-align:bottom;color:inherit;margin:0;min-width:26px;min-height:26px}.cdx-settings-button svg{width:20px;height:20px}@media (max-width: 650px){.cdx-settings-button svg{width:28px;height:28px}}@media (hover: hover){.cdx-settings-button:hover{background-color:#eff2f5}}.cdx-settings-button--focused{background:rgba(34,186,255,.08)!important}.cdx-settings-button--focused{-webkit-box-shadow:inset 0 0 0px 1px rgba(7,161,227,.08);box-shadow:inset 0 0 0 1px #07a1e314}.cdx-settings-button--focused-animated{-webkit-animation-name:buttonClicked;animation-name:buttonClicked;-webkit-animation-duration:.25s;animation-duration:.25s}.cdx-settings-button--active{color:#388ae5}.cdx-settings-button svg{width:auto;height:auto}@media (max-width: 650px){.cdx-settings-button{width:36px;height:36px;border-radius:8px}}.cdx-loader{position:relative;border:1px solid rgba(201,201,204,.48)}.cdx-loader:before{content:"";position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-11px 0 0 -11px;border:2px solid rgba(201,201,204,.48);border-left-color:#388ae5;border-radius:50%;-webkit-animation:cdxRotation 1.2s infinite linear;animation:cdxRotation 1.2s infinite linear}@-webkit-keyframes cdxRotation{0%{-webkit-transform:rotate(0deg);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes cdxRotation{0%{-webkit-transform:rotate(0deg);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.cdx-button{padding:13px;border-radius:3px;border:1px solid rgba(201,201,204,.48);font-size:14.9px;background:#fff;-webkit-box-shadow:0 2px 2px 0 rgba(18,30,57,.04);box-shadow:0 2px 2px #121e390a;color:#707684;text-align:center;cursor:pointer}@media (hover: hover){.cdx-button:hover{background:#FBFCFE;-webkit-box-shadow:0 1px 3px 0 rgba(18,30,57,.08);box-shadow:0 1px 3px #121e3914}}.cdx-button svg{height:20px;margin-right:.2em;margin-top:-2px}.ce-stub{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:12px 18px;margin:10px 0;border-radius:10px;background:#eff2f5;border:1px solid #EFF0F1;color:#707684;font-size:14px}.ce-stub svg{width:20px;height:20px}.ce-stub__info{margin-left:14px}.ce-stub__title{font-weight:500;text-transform:capitalize}.codex-editor.codex-editor--rtl{direction:rtl}.codex-editor.codex-editor--rtl .cdx-list{padding-left:0;padding-right:40px}.codex-editor.codex-editor--rtl .ce-toolbar__plus{right:-26px;left:auto}.codex-editor.codex-editor--rtl .ce-toolbar__actions{right:auto;left:-26px}@media (max-width: 650px){.codex-editor.codex-editor--rtl .ce-toolbar__actions{margin-left:0;margin-right:auto;padding-right:0;padding-left:10px}}.codex-editor.codex-editor--rtl .ce-settings{left:5px;right:auto}.codex-editor.codex-editor--rtl .ce-settings:before{right:auto;left:25px}.codex-editor.codex-editor--rtl .ce-settings__button:not(:nth-child(3n+3)){margin-left:3px;margin-right:0}.codex-editor.codex-editor--rtl .ce-conversion-tool__icon{margin-right:0;margin-left:10px}.codex-editor.codex-editor--rtl .ce-inline-toolbar__dropdown{border-right:0px solid transparent;border-left:1px solid rgba(201,201,204,.48);margin:0 -6px 0 6px}.codex-editor.codex-editor--rtl .ce-inline-toolbar__dropdown .icon--toggler-down{margin-left:0;margin-right:4px}@media (min-width: 651px){.codex-editor--narrow.codex-editor--rtl .ce-toolbar__plus{left:0px;right:5px}}@media (min-width: 651px){.codex-editor--narrow.codex-editor--rtl .ce-toolbar__actions{left:-5px}}.cdx-search-field{--icon-margin-right: 10px;background:rgba(232,232,235,.49);border:1px solid rgba(226,226,229,.2);border-radius:6px;padding:2px;display:grid;grid-template-columns:auto auto 1fr;grid-template-rows:auto}.cdx-search-field__icon{width:26px;height:26px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:var(--icon-margin-right)}.cdx-search-field__icon svg{width:20px;height:20px;color:#707684}.cdx-search-field__input{font-size:14px;outline:none;font-weight:500;font-family:inherit;border:0;background:transparent;margin:0;padding:0;line-height:22px;min-width:calc(100% - 26px - var(--icon-margin-right))}.cdx-search-field__input::-webkit-input-placeholder{color:#707684;font-weight:500}.cdx-search-field__input::-moz-placeholder{color:#707684;font-weight:500}.cdx-search-field__input:-ms-input-placeholder{color:#707684;font-weight:500}.cdx-search-field__input::-ms-input-placeholder{color:#707684;font-weight:500}.cdx-search-field__input::placeholder{color:#707684;font-weight:500}.ce-popover{--border-radius: 6px;--width: 200px;--max-height: 270px;--padding: 6px;--offset-from-target: 8px;--color-border: #e8e8eb;--color-shadow: rgba(13,20,33,.13);--color-background: white;--color-text-primary: black;--color-text-secondary: #707684;--color-border-icon: rgba(201, 201, 204, .48);--color-border-icon-disabled: #EFF0F1;--color-text-icon-active: #388AE5;--color-background-icon-active: rgba(56, 138, 229, .1);--color-background-item-focus: rgba(34, 186, 255, .08);--color-shadow-item-focus: rgba(7, 161, 227, .08);--color-background-item-hover: #eff2f5;--color-background-item-confirm: #E24A4A;--color-background-item-confirm-hover: #CE4343;min-width:var(--width);width:var(--width);max-height:var(--max-height);border-radius:var(--border-radius);overflow:hidden;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-shadow:0 3px 15px -3px var(--color-shadow);box-shadow:0 3px 15px -3px var(--color-shadow);position:absolute;left:0;top:calc(100% + var(--offset-from-target));background:var(--color-background);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;z-index:4;opacity:0;max-height:0;pointer-events:none;padding:0;border:none}.ce-popover--opened{opacity:1;padding:var(--padding);max-height:var(--max-height);pointer-events:auto;-webkit-animation:panelShowing .1s ease;animation:panelShowing .1s ease;border:1px solid var(--color-border)}@media (max-width: 650px){.ce-popover--opened{-webkit-animation:panelShowingMobile .25s ease;animation:panelShowingMobile .25s ease}}.ce-popover__items{overflow-y:auto;-ms-scroll-chaining:none;overscroll-behavior:contain}@media (max-width: 650px){.ce-popover__overlay{position:fixed;top:0;bottom:0;left:0;right:0;background:#1D202B;z-index:3;opacity:.5;-webkit-transition:opacity .12s ease-in;transition:opacity .12s ease-in;will-change:opacity;visibility:visible}}.ce-popover__overlay--hidden{display:none}.ce-popover--open-top{top:calc(-1 * (var(--offset-from-target) + var(--popover-height)))}@media (max-width: 650px){.ce-popover{--offset: 5px;position:fixed;max-width:none;min-width:calc(100% - var(--offset) * 2);left:var(--offset);right:var(--offset);bottom:calc(var(--offset) + env(safe-area-inset-bottom));top:auto;border-radius:10px}.ce-popover .ce-popover__search{display:none}}.ce-popover__search,.ce-popover__custom-content:not(:empty){margin-bottom:5px}.ce-popover__nothing-found-message{color:#707684;display:none;cursor:default;padding:3px;font-size:14px;line-height:20px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ce-popover__nothing-found-message--displayed{display:block}.ce-popover__custom-content:not(:empty){padding:4px}@media (min-width: 651px){.ce-popover__custom-content:not(:empty){padding:0}}.ce-popover__custom-content--hidden{display:none}.ce-popover-item{--border-radius: 6px;--icon-size: 20px;--icon-size-mobile: 28px;border-radius:var(--border-radius);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:3px;color:var(--color-text-primary);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}@media (max-width: 650px){.ce-popover-item{padding:4px}}.ce-popover-item:not(:last-of-type){margin-bottom:1px}.ce-popover-item__icon{border-radius:5px;width:26px;height:26px;-webkit-box-shadow:0 0 0 1px var(--color-border-icon);box-shadow:0 0 0 1px var(--color-border-icon);background:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:10px}.ce-popover-item__icon svg{width:20px;height:20px}@media (max-width: 650px){.ce-popover-item__icon{width:36px;height:36px;border-radius:8px}.ce-popover-item__icon svg{width:var(--icon-size-mobile);height:var(--icon-size-mobile)}}.ce-popover-item__title{font-size:14px;line-height:20px;font-weight:500;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}@media (max-width: 650px){.ce-popover-item__title{font-size:16px}}.ce-popover-item__secondary-title{color:var(--color-text-secondary);font-size:12px;margin-left:auto;white-space:nowrap;letter-spacing:-.1em;padding-right:5px;margin-bottom:-2px;opacity:.6}@media (max-width: 650px){.ce-popover-item__secondary-title{display:none}}.ce-popover-item--active{background:var(--color-background-icon-active);color:var(--color-text-icon-active)}.ce-popover-item--active .ce-popover-item__icon{-webkit-box-shadow:none;box-shadow:none}.ce-popover-item--disabled{color:var(--color-text-secondary);cursor:default;pointer-events:none}.ce-popover-item--disabled .ce-popover-item__icon{-webkit-box-shadow:0 0 0 1px var(--color-border-icon-disabled);box-shadow:0 0 0 1px var(--color-border-icon-disabled)}.ce-popover-item--focused:not(.ce-popover-item--no-focus){background:var(--color-background-item-focus)!important}.ce-popover-item--focused:not(.ce-popover-item--no-focus){-webkit-box-shadow:inset 0 0 0px 1px var(--color-shadow-item-focus);box-shadow:inset 0 0 0 1px var(--color-shadow-item-focus)}.ce-popover-item--hidden{display:none}@media (hover: hover){.ce-popover-item:hover{cursor:pointer}.ce-popover-item:hover:not(.ce-popover-item--no-hover){background-color:var(--color-background-item-hover)}.ce-popover-item:hover .ce-popover-item__icon{-webkit-box-shadow:none;box-shadow:none}}.ce-popover-item--confirmation{background:var(--color-background-item-confirm)}.ce-popover-item--confirmation .ce-popover-item__icon{color:var(--color-background-item-confirm)}.ce-popover-item--confirmation .ce-popover-item__title{color:#fff}@media (hover: hover){.ce-popover-item--confirmation:not(.ce-popover-item--no-hover):hover{background:var(--color-background-item-confirm-hover)}}.ce-popover-item--confirmation:not(.ce-popover-item--no-focus).ce-popover-item--focused{background:var(--color-background-item-confirm-hover)!important}.ce-popover-item--confirmation .ce-popover-item__icon,.ce-popover-item--active .ce-popover-item__icon,.ce-popover-item--focused .ce-popover-item__icon{-webkit-box-shadow:none;box-shadow:none}@-webkit-keyframes panelShowing{0%{opacity:0;-webkit-transform:translateY(-8px) scale(.9);transform:translateY(-8px) scale(.9)}70%{opacity:1;-webkit-transform:translateY(2px);transform:translateY(2px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes panelShowing{0%{opacity:0;-webkit-transform:translateY(-8px) scale(.9);transform:translateY(-8px) scale(.9)}70%{opacity:1;-webkit-transform:translateY(2px);transform:translateY(2px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes panelShowingMobile{0%{opacity:0;-webkit-transform:translateY(14px) scale(.98);transform:translateY(14px) scale(.98)}70%{opacity:1;-webkit-transform:translateY(-4px);transform:translateY(-4px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes panelShowingMobile{0%{opacity:0;-webkit-transform:translateY(14px) scale(.98);transform:translateY(14px) scale(.98)}70%{opacity:1;-webkit-transform:translateY(-4px);transform:translateY(-4px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.wobble{-webkit-animation-name:wobble;animation-name:wobble;-webkit-animation-duration:.4s;animation-duration:.4s}@-webkit-keyframes wobble{0%{-webkit-transform:translate3d(0,0,0);transform:translateZ(0)}15%{-webkit-transform:translate3d(-9%,0,0);transform:translate3d(-9%,0,0)}30%{-webkit-transform:translate3d(9%,0,0);transform:translate3d(9%,0,0)}45%{-webkit-transform:translate3d(-4%,0,0);transform:translate3d(-4%,0,0)}60%{-webkit-transform:translate3d(4%,0,0);transform:translate3d(4%,0,0)}75%{-webkit-transform:translate3d(-1%,0,0);transform:translate3d(-1%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translateZ(0)}}@keyframes wobble{0%{-webkit-transform:translate3d(0,0,0);transform:translateZ(0)}15%{-webkit-transform:translate3d(-9%,0,0);transform:translate3d(-9%,0,0)}30%{-webkit-transform:translate3d(9%,0,0);transform:translate3d(9%,0,0)}45%{-webkit-transform:translate3d(-4%,0,0);transform:translate3d(-4%,0,0)}60%{-webkit-transform:translate3d(4%,0,0);transform:translate3d(4%,0,0)}75%{-webkit-transform:translate3d(-1%,0,0);transform:translate3d(-1%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translateZ(0)}}
-`;
-class xi extends y {
+], Nt.prototype, "getAllInlineToolsSanitizeConfig", 1);
+const wi = `:root{--selectionColor: #e1f2ff;--inlineSelectionColor: #d4ecff;--bg-light: #eff2f5;--grayText: #707684;--color-dark: #1D202B;--color-active-icon: #388AE5;--color-gray-border: rgba(201, 201, 204, .48);--content-width: 650px;--narrow-mode-right-padding: 50px;--toolbox-buttons-size: 26px;--toolbox-buttons-size--mobile: 36px;--icon-size: 20px;--icon-size--mobile: 28px;--block-padding-vertical: .4em;--color-line-gray: #EFF0F1 }.codex-editor{position:relative;-webkit-box-sizing:border-box;box-sizing:border-box;z-index:1}.codex-editor .hide{display:none}.codex-editor__redactor [contenteditable]:empty:after{content:"\\feff"}@media (min-width: 651px){.codex-editor--narrow .codex-editor__redactor{margin-right:50px}}@media (min-width: 651px){.codex-editor--narrow.codex-editor--rtl .codex-editor__redactor{margin-left:50px;margin-right:0}}@media (min-width: 651px){.codex-editor--narrow .ce-toolbar__actions{right:-5px}}.codex-editor-copyable{position:absolute;height:1px;width:1px;top:-400%;opacity:.001}.codex-editor-overlay{position:fixed;top:0px;left:0px;right:0px;bottom:0px;z-index:999;pointer-events:none;overflow:hidden}.codex-editor-overlay__container{position:relative;pointer-events:auto;z-index:0}.codex-editor-overlay__rectangle{position:absolute;pointer-events:none;background-color:#2eaadc33;border:1px solid transparent}.codex-editor svg{max-height:100%}.codex-editor path{stroke:currentColor}.codex-editor ::-moz-selection{background-color:#d4ecff}.codex-editor ::selection{background-color:#d4ecff}.codex-editor--toolbox-opened [contentEditable=true][data-placeholder]:focus:before{opacity:0!important}.ce-scroll-locked{overflow:hidden}.ce-scroll-locked--hard{overflow:hidden;top:calc(-1 * var(--window-scroll-offset));position:fixed;width:100%}.ce-toolbar{position:absolute;left:0;right:0;top:0;-webkit-transition:opacity .1s ease;transition:opacity .1s ease;will-change:opacity,top;display:none}.ce-toolbar--opened{display:block}.ce-toolbar__content{max-width:650px;margin:0 auto;position:relative}.ce-toolbar__plus{color:#1d202b;cursor:pointer;width:26px;height:26px;border-radius:7px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-ms-flex-negative:0;flex-shrink:0}@media (max-width: 650px){.ce-toolbar__plus{width:36px;height:36px}}@media (hover: hover){.ce-toolbar__plus:hover{background-color:#eff2f5}}.ce-toolbar__plus--active{background-color:#eff2f5;-webkit-animation:bounceIn .75s 1;animation:bounceIn .75s 1;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}.ce-toolbar__plus-shortcut{opacity:.6;word-spacing:-2px;margin-top:5px}@media (max-width: 650px){.ce-toolbar__plus{position:absolute;background-color:#fff;border:1px solid #E8E8EB;-webkit-box-shadow:0 3px 15px -3px rgba(13,20,33,.13);box-shadow:0 3px 15px -3px #0d142121;border-radius:6px;z-index:2;position:static}.ce-toolbar__plus--left-oriented:before{left:15px;margin-left:0}.ce-toolbar__plus--right-oriented:before{left:auto;right:15px;margin-left:0}}.ce-toolbar__actions{position:absolute;right:100%;opacity:0;display:-webkit-box;display:-ms-flexbox;display:flex;padding-right:5px}.ce-toolbar__actions--opened{opacity:1}@media (max-width: 650px){.ce-toolbar__actions{right:auto}}.ce-toolbar__settings-btn{color:#1d202b;width:26px;height:26px;border-radius:7px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;margin-left:3px;cursor:pointer;user-select:none}@media (max-width: 650px){.ce-toolbar__settings-btn{width:36px;height:36px}}@media (hover: hover){.ce-toolbar__settings-btn:hover{background-color:#eff2f5}}.ce-toolbar__settings-btn--active{background-color:#eff2f5;-webkit-animation:bounceIn .75s 1;animation:bounceIn .75s 1;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}@media (min-width: 651px){.ce-toolbar__settings-btn{width:24px}}.ce-toolbar__settings-btn--hidden{display:none}@media (max-width: 650px){.ce-toolbar__settings-btn{position:absolute;background-color:#fff;border:1px solid #E8E8EB;-webkit-box-shadow:0 3px 15px -3px rgba(13,20,33,.13);box-shadow:0 3px 15px -3px #0d142121;border-radius:6px;z-index:2;position:static}.ce-toolbar__settings-btn--left-oriented:before{left:15px;margin-left:0}.ce-toolbar__settings-btn--right-oriented:before{left:auto;right:15px;margin-left:0}}.ce-toolbar__plus svg,.ce-toolbar__settings-btn svg{width:24px;height:24px}@media (min-width: 651px){.codex-editor--narrow .ce-toolbar__plus{left:5px}}@media (min-width: 651px){.codex-editor--narrow .ce-toolbox .ce-popover{right:0;left:auto;left:initial}}.ce-inline-toolbar{--y-offset: 8px;position:absolute;background-color:#fff;border:1px solid #E8E8EB;-webkit-box-shadow:0 3px 15px -3px rgba(13,20,33,.13);box-shadow:0 3px 15px -3px #0d142121;border-radius:6px;z-index:2;opacity:0;visibility:hidden;-webkit-transition:opacity .25s ease;transition:opacity .25s ease;will-change:opacity,left,top;top:0;left:0;z-index:3}.ce-inline-toolbar--left-oriented:before{left:15px;margin-left:0}.ce-inline-toolbar--right-oriented:before{left:auto;right:15px;margin-left:0}.ce-inline-toolbar--showed{opacity:1;visibility:visible}.ce-inline-toolbar [hidden]{display:none!important}.ce-inline-toolbar__toggler-and-button-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;padding:0 6px}.ce-inline-toolbar__buttons{display:-webkit-box;display:-ms-flexbox;display:flex}.ce-inline-toolbar__dropdown{display:-webkit-box;display:-ms-flexbox;display:flex;padding:6px;margin:0 6px 0 -6px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;cursor:pointer;border-right:1px solid rgba(201,201,204,.48);-webkit-box-sizing:border-box;box-sizing:border-box}@media (hover: hover){.ce-inline-toolbar__dropdown:hover{background:#eff2f5}}.ce-inline-toolbar__dropdown--hidden{display:none}.ce-inline-toolbar__dropdown-content,.ce-inline-toolbar__dropdown-arrow{display:-webkit-box;display:-ms-flexbox;display:flex}.ce-inline-toolbar__dropdown-content svg,.ce-inline-toolbar__dropdown-arrow svg{width:20px;height:20px}.ce-inline-toolbar__shortcut{opacity:.6;word-spacing:-3px;margin-top:3px}.ce-inline-tool{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:6px 1px;cursor:pointer;border:0;outline:none;background-color:transparent;vertical-align:bottom;color:inherit;margin:0;border-radius:0;line-height:normal}.ce-inline-tool svg{width:20px;height:20px}@media (max-width: 650px){.ce-inline-tool svg{width:28px;height:28px}}@media (hover: hover){.ce-inline-tool:hover{background-color:#eff2f5}}.ce-inline-tool--active{color:#388ae5}.ce-inline-tool--focused{background:rgba(34,186,255,.08)!important}.ce-inline-tool--focused{-webkit-box-shadow:inset 0 0 0px 1px rgba(7,161,227,.08);box-shadow:inset 0 0 0 1px #07a1e314}.ce-inline-tool--focused-animated{-webkit-animation-name:buttonClicked;animation-name:buttonClicked;-webkit-animation-duration:.25s;animation-duration:.25s}.ce-inline-tool--link .icon--unlink,.ce-inline-tool--unlink .icon--link{display:none}.ce-inline-tool--unlink .icon--unlink{display:inline-block;margin-bottom:-1px}.ce-inline-tool-input{outline:none;border:0;border-radius:0 0 4px 4px;margin:0;font-size:13px;padding:10px;width:100%;-webkit-box-sizing:border-box;box-sizing:border-box;display:none;font-weight:500;border-top:1px solid rgba(201,201,204,.48);-webkit-appearance:none;font-family:inherit}@media (max-width: 650px){.ce-inline-tool-input{font-size:15px;font-weight:500}}.ce-inline-tool-input::-webkit-input-placeholder{color:#707684}.ce-inline-tool-input::-moz-placeholder{color:#707684}.ce-inline-tool-input:-ms-input-placeholder{color:#707684}.ce-inline-tool-input::-ms-input-placeholder{color:#707684}.ce-inline-tool-input::placeholder{color:#707684}.ce-inline-tool-input--showed{display:block}.ce-conversion-toolbar{position:absolute;background-color:#fff;border:1px solid #E8E8EB;-webkit-box-shadow:0 3px 15px -3px rgba(13,20,33,.13);box-shadow:0 3px 15px -3px #0d142121;border-radius:6px;z-index:2;opacity:0;visibility:hidden;will-change:transform,opacity;-webkit-transition:opacity .1s ease,-webkit-transform .1s ease;transition:opacity .1s ease,-webkit-transform .1s ease;transition:transform .1s ease,opacity .1s ease;transition:transform .1s ease,opacity .1s ease,-webkit-transform .1s ease;-webkit-transform:translateY(-8px);transform:translateY(-8px);left:-1px;width:190px;margin-top:5px;-webkit-box-sizing:content-box;box-sizing:content-box}.ce-conversion-toolbar--left-oriented:before{left:15px;margin-left:0}.ce-conversion-toolbar--right-oriented:before{left:auto;right:15px;margin-left:0}.ce-conversion-toolbar--showed{opacity:1;visibility:visible;-webkit-transform:none;transform:none}.ce-conversion-toolbar [hidden]{display:none!important}.ce-conversion-toolbar__buttons{display:-webkit-box;display:-ms-flexbox;display:flex}.ce-conversion-toolbar__label{color:#707684;font-size:11px;font-weight:500;letter-spacing:.33px;padding:10px 10px 5px;text-transform:uppercase}.ce-conversion-tool{display:-webkit-box;display:-ms-flexbox;display:flex;padding:5px 10px;font-size:14px;line-height:20px;font-weight:500;cursor:pointer;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.ce-conversion-tool--hidden{display:none}.ce-conversion-tool--focused{background:rgba(34,186,255,.08)!important}.ce-conversion-tool--focused{-webkit-box-shadow:inset 0 0 0px 1px rgba(7,161,227,.08);box-shadow:inset 0 0 0 1px #07a1e314}.ce-conversion-tool--focused-animated{-webkit-animation-name:buttonClicked;animation-name:buttonClicked;-webkit-animation-duration:.25s;animation-duration:.25s}.ce-conversion-tool:hover{background:#eff2f5}.ce-conversion-tool__icon{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;width:26px;height:26px;-webkit-box-shadow:0 0 0 1px rgba(201,201,204,.48);box-shadow:0 0 0 1px #c9c9cc7a;border-radius:5px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background:#fff;-webkit-box-sizing:content-box;box-sizing:content-box;-ms-flex-negative:0;flex-shrink:0;margin-right:10px}.ce-conversion-tool__icon svg{width:20px;height:20px}@media (max-width: 650px){.ce-conversion-tool__icon{width:36px;height:36px;border-radius:8px}.ce-conversion-tool__icon svg{width:28px;height:28px}}.ce-conversion-tool--last{margin-right:0!important}.ce-conversion-tool--active{color:#388ae5!important}.ce-conversion-tool--active{-webkit-animation:bounceIn .75s 1;animation:bounceIn .75s 1;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}.ce-conversion-tool__secondary-label{color:#707684;font-size:12px;margin-left:auto;white-space:nowrap;letter-spacing:-.1em;padding-right:5px;margin-bottom:-2px;opacity:.6}@media (max-width: 650px){.ce-conversion-tool__secondary-label{display:none}}.ce-settings__button{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:6px 1px;border-radius:3px;cursor:pointer;border:0;outline:none;background-color:transparent;vertical-align:bottom;color:inherit;margin:0;line-height:32px}.ce-settings__button svg{width:20px;height:20px}@media (max-width: 650px){.ce-settings__button svg{width:28px;height:28px}}@media (hover: hover){.ce-settings__button:hover{background-color:#eff2f5}}.ce-settings__button--active{color:#388ae5}.ce-settings__button--focused{background:rgba(34,186,255,.08)!important}.ce-settings__button--focused{-webkit-box-shadow:inset 0 0 0px 1px rgba(7,161,227,.08);box-shadow:inset 0 0 0 1px #07a1e314}.ce-settings__button--focused-animated{-webkit-animation-name:buttonClicked;animation-name:buttonClicked;-webkit-animation-duration:.25s;animation-duration:.25s}.ce-settings__button:not(:nth-child(3n+3)){margin-right:3px}.ce-settings__button:nth-child(n+4){margin-top:3px}.ce-settings__button--disabled{cursor:not-allowed!important}.ce-settings__button--disabled{opacity:.3}.ce-settings__button--selected{color:#388ae5}@media (min-width: 651px){.codex-editor--narrow .ce-settings .ce-popover{right:0;left:auto;left:initial}}@-webkit-keyframes fade-in{0%{opacity:0}to{opacity:1}}@keyframes fade-in{0%{opacity:0}to{opacity:1}}.ce-block{-webkit-animation:fade-in .3s ease;animation:fade-in .3s ease;-webkit-animation-fill-mode:none;animation-fill-mode:none;-webkit-animation-fill-mode:initial;animation-fill-mode:initial}.ce-block:first-of-type{margin-top:0}.ce-block--selected .ce-block__content{background:#e1f2ff}.ce-block--selected .ce-block__content [contenteditable]{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.ce-block--selected .ce-block__content img,.ce-block--selected .ce-block__content .ce-stub{opacity:.55}.ce-block--stretched .ce-block__content{max-width:none}.ce-block__content{position:relative;max-width:650px;margin:0 auto;-webkit-transition:background-color .15s ease;transition:background-color .15s ease}.ce-block--drop-target .ce-block__content:before{content:"";position:absolute;top:100%;left:-20px;margin-top:-1px;height:8px;width:8px;border:solid #388AE5;border-width:1px 1px 0 0;-webkit-transform-origin:right;transform-origin:right;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.ce-block--drop-target .ce-block__content:after{content:"";position:absolute;top:100%;height:1px;width:100%;color:#388ae5;background:repeating-linear-gradient(90deg,#388AE5,#388AE5 1px,#fff 1px,#fff 6px)}.ce-block a{cursor:pointer;-webkit-text-decoration:underline;text-decoration:underline}.ce-block b{font-weight:700}.ce-block i{font-style:italic}@-webkit-keyframes bounceIn{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:scale3d(.9,.9,.9);transform:scale3d(.9,.9,.9)}20%{-webkit-transform:scale3d(1.03,1.03,1.03);transform:scale3d(1.03,1.03,1.03)}60%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@keyframes bounceIn{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:scale3d(.9,.9,.9);transform:scale3d(.9,.9,.9)}20%{-webkit-transform:scale3d(1.03,1.03,1.03);transform:scale3d(1.03,1.03,1.03)}60%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@-webkit-keyframes selectionBounce{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}50%{-webkit-transform:scale3d(1.01,1.01,1.01);transform:scale3d(1.01,1.01,1.01)}70%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@keyframes selectionBounce{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}50%{-webkit-transform:scale3d(1.01,1.01,1.01);transform:scale3d(1.01,1.01,1.01)}70%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@-webkit-keyframes buttonClicked{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:scale3d(.95,.95,.95);transform:scale3d(.95,.95,.95)}60%{-webkit-transform:scale3d(1.02,1.02,1.02);transform:scale3d(1.02,1.02,1.02)}80%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}@keyframes buttonClicked{0%,20%,40%,60%,80%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{-webkit-transform:scale3d(.95,.95,.95);transform:scale3d(.95,.95,.95)}60%{-webkit-transform:scale3d(1.02,1.02,1.02);transform:scale3d(1.02,1.02,1.02)}80%{-webkit-transform:scale3d(1,1,1);transform:scaleZ(1)}}.cdx-block{padding:.4em 0}.cdx-block::-webkit-input-placeholder{line-height:normal!important}.cdx-input{border:1px solid rgba(201,201,204,.48);-webkit-box-shadow:inset 0 1px 2px 0 rgba(35,44,72,.06);box-shadow:inset 0 1px 2px #232c480f;border-radius:3px;padding:10px 12px;outline:none;width:100%;-webkit-box-sizing:border-box;box-sizing:border-box}.cdx-input[data-placeholder]:before{position:static!important}.cdx-input[data-placeholder]:before{display:inline-block;width:0;white-space:nowrap;pointer-events:none}.cdx-settings-button{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding:6px 1px;border-radius:3px;cursor:pointer;border:0;outline:none;background-color:transparent;vertical-align:bottom;color:inherit;margin:0;min-width:26px;min-height:26px}.cdx-settings-button svg{width:20px;height:20px}@media (max-width: 650px){.cdx-settings-button svg{width:28px;height:28px}}@media (hover: hover){.cdx-settings-button:hover{background-color:#eff2f5}}.cdx-settings-button--focused{background:rgba(34,186,255,.08)!important}.cdx-settings-button--focused{-webkit-box-shadow:inset 0 0 0px 1px rgba(7,161,227,.08);box-shadow:inset 0 0 0 1px #07a1e314}.cdx-settings-button--focused-animated{-webkit-animation-name:buttonClicked;animation-name:buttonClicked;-webkit-animation-duration:.25s;animation-duration:.25s}.cdx-settings-button--active{color:#388ae5}.cdx-settings-button svg{width:auto;height:auto}@media (max-width: 650px){.cdx-settings-button{width:36px;height:36px;border-radius:8px}}.cdx-loader{position:relative;border:1px solid rgba(201,201,204,.48)}.cdx-loader:before{content:"";position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-11px 0 0 -11px;border:2px solid rgba(201,201,204,.48);border-left-color:#388ae5;border-radius:50%;-webkit-animation:cdxRotation 1.2s infinite linear;animation:cdxRotation 1.2s infinite linear}@-webkit-keyframes cdxRotation{0%{-webkit-transform:rotate(0deg);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes cdxRotation{0%{-webkit-transform:rotate(0deg);transform:rotate(0)}to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.cdx-button{padding:13px;border-radius:3px;border:1px solid rgba(201,201,204,.48);font-size:14.9px;background:#fff;-webkit-box-shadow:0 2px 2px 0 rgba(18,30,57,.04);box-shadow:0 2px 2px #121e390a;color:#707684;text-align:center;cursor:pointer}@media (hover: hover){.cdx-button:hover{background:#FBFCFE;-webkit-box-shadow:0 1px 3px 0 rgba(18,30,57,.08);box-shadow:0 1px 3px #121e3914}}.cdx-button svg{height:20px;margin-right:.2em;margin-top:-2px}.ce-stub{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:12px 18px;margin:10px 0;border-radius:10px;background:#eff2f5;border:1px solid #EFF0F1;color:#707684;font-size:14px}.ce-stub svg{width:20px;height:20px}.ce-stub__info{margin-left:14px}.ce-stub__title{font-weight:500;text-transform:capitalize}.codex-editor.codex-editor--rtl{direction:rtl}.codex-editor.codex-editor--rtl .cdx-list{padding-left:0;padding-right:40px}.codex-editor.codex-editor--rtl .ce-toolbar__plus{right:-26px;left:auto}.codex-editor.codex-editor--rtl .ce-toolbar__actions{right:auto;left:-26px}@media (max-width: 650px){.codex-editor.codex-editor--rtl .ce-toolbar__actions{margin-left:0;margin-right:auto;padding-right:0;padding-left:10px}}.codex-editor.codex-editor--rtl .ce-settings{left:5px;right:auto}.codex-editor.codex-editor--rtl .ce-settings:before{right:auto;left:25px}.codex-editor.codex-editor--rtl .ce-settings__button:not(:nth-child(3n+3)){margin-left:3px;margin-right:0}.codex-editor.codex-editor--rtl .ce-conversion-tool__icon{margin-right:0;margin-left:10px}.codex-editor.codex-editor--rtl .ce-inline-toolbar__dropdown{border-right:0px solid transparent;border-left:1px solid rgba(201,201,204,.48);margin:0 -6px 0 6px}.codex-editor.codex-editor--rtl .ce-inline-toolbar__dropdown .icon--toggler-down{margin-left:0;margin-right:4px}@media (min-width: 651px){.codex-editor--narrow.codex-editor--rtl .ce-toolbar__plus{left:0px;right:5px}}@media (min-width: 651px){.codex-editor--narrow.codex-editor--rtl .ce-toolbar__actions{left:-5px}}.cdx-search-field{--icon-margin-right: 10px;background:rgba(232,232,235,.49);border:1px solid rgba(226,226,229,.2);border-radius:6px;padding:2px;display:grid;grid-template-columns:auto auto 1fr;grid-template-rows:auto}.cdx-search-field__icon{width:26px;height:26px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:var(--icon-margin-right)}.cdx-search-field__icon svg{width:20px;height:20px;color:#707684}.cdx-search-field__input{font-size:14px;outline:none;font-weight:500;font-family:inherit;border:0;background:transparent;margin:0;padding:0;line-height:22px;min-width:calc(100% - 26px - var(--icon-margin-right))}.cdx-search-field__input::-webkit-input-placeholder{color:#707684;font-weight:500}.cdx-search-field__input::-moz-placeholder{color:#707684;font-weight:500}.cdx-search-field__input:-ms-input-placeholder{color:#707684;font-weight:500}.cdx-search-field__input::-ms-input-placeholder{color:#707684;font-weight:500}.cdx-search-field__input::placeholder{color:#707684;font-weight:500}.ce-popover{--border-radius: 6px;--width: 200px;--max-height: 270px;--padding: 6px;--offset-from-target: 8px;--color-border: #e8e8eb;--color-shadow: rgba(13,20,33,.13);--color-background: white;--color-text-primary: black;--color-text-secondary: #707684;--color-border-icon: rgba(201, 201, 204, .48);--color-border-icon-disabled: #EFF0F1;--color-text-icon-active: #388AE5;--color-background-icon-active: rgba(56, 138, 229, .1);--color-background-item-focus: rgba(34, 186, 255, .08);--color-shadow-item-focus: rgba(7, 161, 227, .08);--color-background-item-hover: #eff2f5;--color-background-item-confirm: #E24A4A;--color-background-item-confirm-hover: #CE4343;min-width:var(--width);width:var(--width);max-height:var(--max-height);border-radius:var(--border-radius);overflow:hidden;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-shadow:0 3px 15px -3px var(--color-shadow);box-shadow:0 3px 15px -3px var(--color-shadow);position:absolute;left:0;top:calc(100% + var(--offset-from-target));background:var(--color-background);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;z-index:4;opacity:0;max-height:0;pointer-events:none;padding:0;border:none}.ce-popover--opened{opacity:1;padding:var(--padding);max-height:var(--max-height);pointer-events:auto;-webkit-animation:panelShowing .1s ease;animation:panelShowing .1s ease;border:1px solid var(--color-border)}@media (max-width: 650px){.ce-popover--opened{-webkit-animation:panelShowingMobile .25s ease;animation:panelShowingMobile .25s ease}}.ce-popover__items{overflow-y:auto;-ms-scroll-chaining:none;overscroll-behavior:contain}@media (max-width: 650px){.ce-popover__overlay{position:fixed;top:0;bottom:0;left:0;right:0;background:#1D202B;z-index:3;opacity:.5;-webkit-transition:opacity .12s ease-in;transition:opacity .12s ease-in;will-change:opacity;visibility:visible}}.ce-popover__overlay--hidden{display:none}.ce-popover--open-top{top:calc(-1 * (var(--offset-from-target) + var(--popover-height)))}@media (max-width: 650px){.ce-popover{--offset: 5px;position:fixed;max-width:none;min-width:calc(100% - var(--offset) * 2);left:var(--offset);right:var(--offset);bottom:calc(var(--offset) + env(safe-area-inset-bottom));top:auto;border-radius:10px}.ce-popover .ce-popover__search{display:none}}.ce-popover__search,.ce-popover__custom-content:not(:empty){margin-bottom:5px}.ce-popover__nothing-found-message{color:#707684;display:none;cursor:default;padding:3px;font-size:14px;line-height:20px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ce-popover__nothing-found-message--displayed{display:block}.ce-popover__custom-content:not(:empty){padding:4px}@media (min-width: 651px){.ce-popover__custom-content:not(:empty){padding:0}}.ce-popover__custom-content--hidden{display:none}.ce-popover-item{--border-radius: 6px;--icon-size: 20px;--icon-size-mobile: 28px;border-radius:var(--border-radius);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:3px;color:var(--color-text-primary);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}@media (max-width: 650px){.ce-popover-item{padding:4px}}.ce-popover-item:not(:last-of-type){margin-bottom:1px}.ce-popover-item__icon{border-radius:5px;width:26px;height:26px;-webkit-box-shadow:0 0 0 1px var(--color-border-icon);box-shadow:0 0 0 1px var(--color-border-icon);background:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-right:10px}.ce-popover-item__icon svg{width:20px;height:20px}@media (max-width: 650px){.ce-popover-item__icon{width:36px;height:36px;border-radius:8px}.ce-popover-item__icon svg{width:var(--icon-size-mobile);height:var(--icon-size-mobile)}}.ce-popover-item__title{font-size:14px;line-height:20px;font-weight:500;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}@media (max-width: 650px){.ce-popover-item__title{font-size:16px}}.ce-popover-item__secondary-title{color:var(--color-text-secondary);font-size:12px;margin-left:auto;white-space:nowrap;letter-spacing:-.1em;padding-right:5px;margin-bottom:-2px;opacity:.6}@media (max-width: 650px){.ce-popover-item__secondary-title{display:none}}.ce-popover-item--active{background:var(--color-background-icon-active);color:var(--color-text-icon-active)}.ce-popover-item--active .ce-popover-item__icon{-webkit-box-shadow:none;box-shadow:none}.ce-popover-item--disabled{color:var(--color-text-secondary);cursor:default;pointer-events:none}.ce-popover-item--disabled .ce-popover-item__icon{-webkit-box-shadow:0 0 0 1px var(--color-border-icon-disabled);box-shadow:0 0 0 1px var(--color-border-icon-disabled)}.ce-popover-item--focused:not(.ce-popover-item--no-focus){background:var(--color-background-item-focus)!important}.ce-popover-item--focused:not(.ce-popover-item--no-focus){-webkit-box-shadow:inset 0 0 0px 1px var(--color-shadow-item-focus);box-shadow:inset 0 0 0 1px var(--color-shadow-item-focus)}.ce-popover-item--hidden{display:none}@media (hover: hover){.ce-popover-item:hover{cursor:pointer}.ce-popover-item:hover:not(.ce-popover-item--no-hover){background-color:var(--color-background-item-hover)}.ce-popover-item:hover .ce-popover-item__icon{-webkit-box-shadow:none;box-shadow:none}}.ce-popover-item--confirmation{background:var(--color-background-item-confirm)}.ce-popover-item--confirmation .ce-popover-item__icon{color:var(--color-background-item-confirm)}.ce-popover-item--confirmation .ce-popover-item__title{color:#fff}@media (hover: hover){.ce-popover-item--confirmation:not(.ce-popover-item--no-hover):hover{background:var(--color-background-item-confirm-hover)}}.ce-popover-item--confirmation:not(.ce-popover-item--no-focus).ce-popover-item--focused{background:var(--color-background-item-confirm-hover)!important}.ce-popover-item--confirmation .ce-popover-item__icon,.ce-popover-item--active .ce-popover-item__icon,.ce-popover-item--focused .ce-popover-item__icon{-webkit-box-shadow:none;box-shadow:none}@-webkit-keyframes panelShowing{0%{opacity:0;-webkit-transform:translateY(-8px) scale(.9);transform:translateY(-8px) scale(.9)}70%{opacity:1;-webkit-transform:translateY(2px);transform:translateY(2px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes panelShowing{0%{opacity:0;-webkit-transform:translateY(-8px) scale(.9);transform:translateY(-8px) scale(.9)}70%{opacity:1;-webkit-transform:translateY(2px);transform:translateY(2px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes panelShowingMobile{0%{opacity:0;-webkit-transform:translateY(14px) scale(.98);transform:translateY(14px) scale(.98)}70%{opacity:1;-webkit-transform:translateY(-4px);transform:translateY(-4px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes panelShowingMobile{0%{opacity:0;-webkit-transform:translateY(14px) scale(.98);transform:translateY(14px) scale(.98)}70%{opacity:1;-webkit-transform:translateY(-4px);transform:translateY(-4px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.wobble{-webkit-animation-name:wobble;animation-name:wobble;-webkit-animation-duration:.4s;animation-duration:.4s}@-webkit-keyframes wobble{0%{-webkit-transform:translate3d(0,0,0);transform:translateZ(0)}15%{-webkit-transform:translate3d(-9%,0,0);transform:translate3d(-9%,0,0)}30%{-webkit-transform:translate3d(9%,0,0);transform:translate3d(9%,0,0)}45%{-webkit-transform:translate3d(-4%,0,0);transform:translate3d(-4%,0,0)}60%{-webkit-transform:translate3d(4%,0,0);transform:translate3d(4%,0,0)}75%{-webkit-transform:translate3d(-1%,0,0);transform:translate3d(-1%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translateZ(0)}}@keyframes wobble{0%{-webkit-transform:translate3d(0,0,0);transform:translateZ(0)}15%{-webkit-transform:translate3d(-9%,0,0);transform:translate3d(-9%,0,0)}30%{-webkit-transform:translate3d(9%,0,0);transform:translate3d(9%,0,0)}45%{-webkit-transform:translate3d(-4%,0,0);transform:translate3d(-4%,0,0)}60%{-webkit-transform:translate3d(4%,0,0);transform:translate3d(4%,0,0)}75%{-webkit-transform:translate3d(-1%,0,0);transform:translate3d(-1%,0,0)}to{-webkit-transform:translate3d(0,0,0);transform:translateZ(0)}}
+`, yi = 180;
+class Ei extends y {
   constructor() {
-    super(...arguments), this.isMobile = !1, this.contentRectCache = void 0, this.resizeDebouncer = et(() => {
+    super(...arguments), this.isMobile = !1, this.contentRectCache = void 0, this.resizeDebouncer = ot(() => {
       this.windowResize();
     }, 200);
   }
@@ -9101,7 +9109,7 @@ class xi extends y {
    * Check for some Flipper-buttons is under focus
    */
   get someFlipperButtonFocused() {
-    return this.Editor.Toolbar.toolbox.hasFocus() ? !0 : Object.entries(this.Editor).filter(([e, t]) => t.flipper instanceof q).some(([e, t]) => t.flipper.hasFocus());
+    return this.Editor.Toolbar.toolbox.hasFocus() ? !0 : Object.entries(this.Editor).filter(([e, t]) => t.flipper instanceof Z).some(([e, t]) => t.flipper.hasFocus());
   }
   /**
    * Clean editor`s UI
@@ -9120,7 +9128,7 @@ class xi extends y {
    * Check for mobile mode and cache a result
    */
   checkIsMobile() {
-    this.isMobile = window.innerWidth < dt;
+    this.isMobile = window.innerWidth < pt;
   }
   /**
    * Makes Editor.js interface
@@ -9140,7 +9148,7 @@ class xi extends y {
       return;
     const t = c.make("style", null, {
       id: e,
-      textContent: vi.toString()
+      textContent: wi.toString()
     });
     this.config.style && !K(this.config.style) && this.config.style.nonce && t.setAttribute("nonce", this.config.style.nonce), c.prepend(document.head, t);
   }
@@ -9148,27 +9156,27 @@ class xi extends y {
    * Bind events on the Editor.js interface
    */
   enableModuleBindings() {
-    this.readOnlyMutableListeners.on(this.nodes.redactor, "click", (o) => {
-      this.redactorClicked(o);
-    }, !1), this.readOnlyMutableListeners.on(this.nodes.redactor, "mousedown", (o) => {
-      this.documentTouched(o);
+    this.readOnlyMutableListeners.on(this.nodes.redactor, "click", (t) => {
+      this.redactorClicked(t);
+    }, !1), this.readOnlyMutableListeners.on(this.nodes.redactor, "mousedown", (t) => {
+      this.documentTouched(t);
     }, {
       capture: !0,
       passive: !0
-    }), this.readOnlyMutableListeners.on(this.nodes.redactor, "touchstart", (o) => {
-      this.documentTouched(o);
+    }), this.readOnlyMutableListeners.on(this.nodes.redactor, "touchstart", (t) => {
+      this.documentTouched(t);
     }, {
       capture: !0,
       passive: !0
-    }), this.readOnlyMutableListeners.on(document, "keydown", (o) => {
-      this.documentKeydown(o);
-    }, !0), this.readOnlyMutableListeners.on(document, "mousedown", (o) => {
-      this.documentClicked(o);
+    }), this.readOnlyMutableListeners.on(document, "keydown", (t) => {
+      this.documentKeydown(t);
+    }, !0), this.readOnlyMutableListeners.on(document, "mousedown", (t) => {
+      this.documentClicked(t);
     }, !0);
-    const t = et(() => {
+    const e = ot(() => {
       this.selectionChanged();
-    }, 180);
-    this.readOnlyMutableListeners.on(document, "selectionchange", t, !0), this.readOnlyMutableListeners.on(window, "resize", () => {
+    }, yi);
+    this.readOnlyMutableListeners.on(document, "selectionchange", e, !0), this.readOnlyMutableListeners.on(window, "resize", () => {
       this.resizeDebouncer();
     }, {
       passive: !0
@@ -9179,9 +9187,9 @@ class xi extends y {
    */
   watchBlockHoveredEvents() {
     let e;
-    this.readOnlyMutableListeners.on(this.nodes.redactor, "mousemove", Ie((t) => {
+    this.readOnlyMutableListeners.on(this.nodes.redactor, "mousemove", Me((t) => {
       const o = t.target.closest(".ce-block");
-      this.Editor.BlockSelection.anyBlockSelected || o && e !== o && (e = o, this.eventsDispatcher.emit(yt, {
+      this.Editor.BlockSelection.anyBlockSelected || o && e !== o && (e = o, this.eventsDispatcher.emit(Bt, {
         block: this.Editor.BlockManager.getBlockByChildNode(o)
       }));
     }, 20), {
@@ -9207,14 +9215,14 @@ class xi extends y {
    */
   documentKeydown(e) {
     switch (e.keyCode) {
-      case k.ENTER:
+      case v.ENTER:
         this.enterPressed(e);
         break;
-      case k.BACKSPACE:
-      case k.DELETE:
+      case v.BACKSPACE:
+      case v.DELETE:
         this.backspacePressed(e);
         break;
-      case k.ESC:
+      case v.ESC:
         this.escapePressed(e);
         break;
       default:
@@ -9260,14 +9268,17 @@ class xi extends y {
    * @param {KeyboardEvent} event - keyboard event
    */
   enterPressed(e) {
-    const { BlockManager: t, BlockSelection: o } = this.Editor, i = t.currentBlockIndex >= 0;
+    const { BlockManager: t, BlockSelection: o } = this.Editor;
+    if (this.someToolbarOpened)
+      return;
+    const i = t.currentBlockIndex >= 0;
     if (o.anyBlockSelected && !b.isSelectionExists) {
       o.clearSelection(e), e.preventDefault(), e.stopImmediatePropagation(), e.stopPropagation();
       return;
     }
     if (!this.someToolbarOpened && i && e.target.tagName === "BODY") {
       const n = this.Editor.BlockManager.insert();
-      this.Editor.Caret.setToBlock(n), this.Editor.Toolbar.moveAndOpen(n);
+      e.preventDefault(), this.Editor.Caret.setToBlock(n), this.Editor.Toolbar.moveAndOpen(n);
     }
     this.Editor.BlockSelection.clearSelection(e);
   }
@@ -9329,8 +9340,8 @@ class xi extends y {
     const t = e.target, o = e.metaKey || e.ctrlKey;
     if (c.isAnchor(t) && o) {
       e.stopImmediatePropagation(), e.stopPropagation();
-      const i = t.getAttribute("href"), n = Wt(i);
-      Kt(n);
+      const i = t.getAttribute("href"), n = Kt(i);
+      Xt(n);
       return;
     }
     this.processBottomZoneClick(e);
@@ -9374,51 +9385,51 @@ class xi extends y {
     this.Editor.InlineToolbar.tryToShow(!0, n);
   }
 }
-const wi = {
+const Bi = {
   // API Modules
-  BlocksAPI: oo,
-  CaretAPI: io,
-  EventsAPI: no,
-  I18nAPI: He,
-  API: so,
-  InlineToolbarAPI: ro,
-  ListenersAPI: ao,
-  NotifierAPI: uo,
-  ReadOnlyAPI: po,
-  SanitizerAPI: xo,
-  SaverAPI: wo,
-  SelectionAPI: yo,
-  StylesAPI: Eo,
-  ToolbarAPI: Bo,
-  TooltipAPI: Mo,
-  UiAPI: Ao,
+  BlocksAPI: io,
+  CaretAPI: no,
+  EventsAPI: so,
+  I18nAPI: ze,
+  API: ro,
+  InlineToolbarAPI: ao,
+  ListenersAPI: lo,
+  NotifierAPI: po,
+  ReadOnlyAPI: fo,
+  SanitizerAPI: wo,
+  SaverAPI: yo,
+  SelectionAPI: Eo,
+  StylesAPI: Bo,
+  ToolbarAPI: Co,
+  TooltipAPI: Ao,
+  UiAPI: Lo,
   // Toolbar Modules
-  BlockSettings: Yo,
+  BlockSettings: Ko,
   ConversionToolbar: $,
-  Toolbar: Go,
-  InlineToolbar: Jo,
+  Toolbar: Qo,
+  InlineToolbar: ei,
   // Modules
-  BlockEvents: Qo,
-  BlockManager: oi,
-  BlockSelection: ii,
-  Caret: we,
-  CrossBlockSelection: ni,
-  DragNDrop: si,
-  ModificationsObserver: ri,
-  Paste: Ct,
-  ReadOnly: ai,
+  BlockEvents: ti,
+  BlockManager: ni,
+  BlockSelection: si,
+  Caret: ye,
+  CrossBlockSelection: ri,
+  DragNDrop: ai,
+  ModificationsObserver: li,
+  Paste: It,
+  ReadOnly: ci,
   RectangleSelection: fe,
-  Renderer: li,
-  Saver: ci,
-  Tools: Ot,
-  UI: xi
+  Renderer: di,
+  Saver: hi,
+  Tools: Nt,
+  UI: Ei
 };
-class yi {
+class Ci {
   /**
    * @param {EditorConfig} config - user configuration
    */
   constructor(e) {
-    this.moduleInstances = {}, this.eventsDispatcher = new Ee();
+    this.moduleInstances = {}, this.eventsDispatcher = new Be();
     let t, o;
     this.isReady = new Promise((i, n) => {
       t = i, o = n;
@@ -9427,7 +9438,7 @@ class yi {
       const { BlockManager: i, Caret: n, UI: r, ModificationsObserver: a } = this.moduleInstances;
       r.checkEmptiness(), a.enable(), this.configuration.autofocus && n.setToBlock(i.blocks[0], n.positions.START), t();
     }).catch((i) => {
-      C(`Editor.js is not ready because of ${i}`, "error"), o(i);
+      T(`Editor.js is not ready because of ${i}`, "error"), o(i);
     });
   }
   /**
@@ -9441,7 +9452,7 @@ class yi {
       ...e
     } : this.config = {
       holder: e
-    }, Ae(!!this.config.holderId, "config.holderId", "config.holder"), this.config.holderId && !this.config.holder && (this.config.holder = this.config.holderId, this.config.holderId = null), this.config.holder == null && (this.config.holder = "editorjs"), this.config.logLevel || (this.config.logLevel = at.VERBOSE), Ft(this.config.logLevel), Ae(!!this.config.initialBlock, "config.initialBlock", "config.defaultBlock"), this.config.defaultBlock = this.config.defaultBlock || this.config.initialBlock || "paragraph", this.config.minHeight = this.config.minHeight !== void 0 ? this.config.minHeight : 300;
+    }, Le(!!this.config.holderId, "config.holderId", "config.holder"), this.config.holderId && !this.config.holder && (this.config.holder = this.config.holderId, this.config.holderId = null), this.config.holder == null && (this.config.holder = "editorjs"), this.config.logLevel || (this.config.logLevel = dt.VERBOSE), zt(this.config.logLevel), Le(!!this.config.initialBlock, "config.initialBlock", "config.defaultBlock"), this.config.defaultBlock = this.config.defaultBlock || this.config.initialBlock || "paragraph", this.config.minHeight = this.config.minHeight !== void 0 ? this.config.minHeight : 300;
     const t = {
       type: this.config.defaultBlock,
       data: {}
@@ -9469,7 +9480,7 @@ class yi {
     const { holderId: e, holder: t } = this.config;
     if (e && t)
       throw Error("«holderId» and «holder» param can't assign at the same time.");
-    if (G(t) && !c.get(t))
+    if (q(t) && !c.get(t))
       throw Error(`element with ID «${t}» is missing. Pass correct holder's ID.`);
     if (t && D(t) && !c.isElement(t))
       throw Error("«holder» value must be an Element node");
@@ -9504,9 +9515,9 @@ class yi {
         try {
           await this.moduleInstances[o].prepare();
         } catch (i) {
-          if (i instanceof ut)
+          if (i instanceof gt)
             throw new Error(i.message);
-          C(`Module ${o} was skipped because of %o`, "warn", i);
+          T(`Module ${o} was skipped because of %o`, "warn", i);
         }
       }),
       Promise.resolve()
@@ -9522,14 +9533,14 @@ class yi {
    * Make modules instances and save it to the @property this.moduleInstances
    */
   constructModules() {
-    Object.entries(wi).forEach(([e, t]) => {
+    Object.entries(Bi).forEach(([e, t]) => {
       try {
         this.moduleInstances[e] = new t({
           config: this.configuration,
           eventsDispatcher: this.eventsDispatcher
         });
       } catch (o) {
-        C("[constructModules]", `Module ${e} skipped because`, "error", o);
+        T("[constructModules]", `Module ${e} skipped because`, "error", o);
       }
     });
   }
@@ -9561,10 +9572,10 @@ class yi {
  * @see Editor.js <https://editorjs.io>
  * @author CodeX Team <https://codex.so>
  */
-class Ei {
+class Ti {
   /** Editor version */
   static get version() {
-    return "2.29.0";
+    return "2.30.0-rc.2";
   }
   /**
    * @param {EditorConfig|string|undefined} [configuration] - user configuration
@@ -9573,7 +9584,7 @@ class Ei {
     let t = () => {
     };
     D(e) && M(e.onReady) && (t = e.onReady);
-    const o = new yi(e);
+    const o = new Ci(e);
     this.isReady = o.isReady.then(() => {
       this.exportAPI(o), t();
     });
@@ -9587,7 +9598,7 @@ class Ei {
     const t = ["configuration"], o = () => {
       Object.values(e.moduleInstances).forEach((n) => {
         M(n.destroy) && n.destroy(), n.listeners.removeAll();
-      }), Io(), e = null;
+      }), Mo(), e = null;
       for (const n in this)
         Object.prototype.hasOwnProperty.call(this, n) && delete this[n];
       Object.setPrototypeOf(this, null);
@@ -9618,5 +9629,5 @@ class Ei {
   }
 }
 export {
-  Ei as default
+  Ti as default
 };
