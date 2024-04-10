@@ -1,0 +1,31 @@
+From ff3c7a7b0f34ed6e6d3c5957007eaf2b3b749764 Mon Sep 17 00:00:00 2001
+From: vishal pradhan <vishal.pradhan@aalda.in>
+Date: Mon, 1 Apr 2024 15:32:19 +0530
+Subject: [PATCH 6/7] changes for the toggle
+
+---
+ src/components/utils/popover/index.ts | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/src/components/utils/popover/index.ts b/src/components/utils/popover/index.ts
+index e6991f8..cc88b92 100644
+--- a/src/components/utils/popover/index.ts
++++ b/src/components/utils/popover/index.ts
+@@ -544,12 +544,9 @@ export default class Popover extends EventsDispatcher<PopoverEventMap> {
+   private toggleItemActivenessIfNeeded(clickedItem: PopoverItem): void {
+     if (typeof clickedItem.toggle === 'function') {
+       clickedItem.toggleActive(clickedItem.toggle());
+-    }
+-    if (clickedItem.toggle === true) {
++    } else if (clickedItem.toggle === true) {
+       clickedItem.toggleActive();
+-    }
+-
+-    if (typeof clickedItem.toggle === 'string') {
++    } else if (typeof clickedItem.toggle === 'string') {
+       const itemsInToggleGroup = this.items.filter(item => item.toggle === clickedItem.toggle);
+ 
+       /** If there's only one item in toggle group, toggle it */
+-- 
+2.39.3 (Apple Git-145)
+

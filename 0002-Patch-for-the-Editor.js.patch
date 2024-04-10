@@ -1,7 +1,7 @@
 From bb006cd2aa6bde26acc3b2dae23fdd215d16c3d9 Mon Sep 17 00:00:00 2001
 From: Vishal Pradhan <vishal.pradhan@aalda.in>
 Date: Thu, 25 Jan 2024 18:17:51 +0530
-Subject: [PATCH 1/7] Patch for the Editor.js
+Subject: [PATCH 2/7] Patch for the Editor.js
 
 ---
  0001-Changes-for-toggleBlockById.patch | 99 ++++++++++++++++++++++++++

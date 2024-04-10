@@ -1,0 +1,246 @@
+From b1d30306ac3a31e840cdfc5ceb987e4d1ee5fa3e Mon Sep 17 00:00:00 2001
+From: vishal pradhan <vishal.pradhan@aalda.in>
+Date: Fri, 22 Mar 2024 17:41:25 +0530
+Subject: [PATCH 5/7] Changes for medical section
+
+---
+ src/components/ui/toolbox.ts                 |  9 ++--
+ src/components/utils/popover/index.ts        | 51 ++++++++++++++++++--
+ src/components/utils/popover/popover-item.ts | 17 ++++---
+ types/configs/popover.d.ts                   |  4 ++
+ types/tools/block-tool.d.ts                  |  2 +
+ 5 files changed, 65 insertions(+), 18 deletions(-)
+
+diff --git a/src/components/ui/toolbox.ts b/src/components/ui/toolbox.ts
+index 318275c..1b9ffeb 100644
+--- a/src/components/ui/toolbox.ts
++++ b/src/components/ui/toolbox.ts
+@@ -122,7 +122,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEventMap> {
+    * @param options.api - Editor API methods
+    * @param options.tools - Tools available to check whether some of them should be displayed at the Toolbox or not
+    */
+-  constructor({ api, tools, i18nLabels }: {api: API; tools: ToolsCollection<BlockTool>; i18nLabels: Record<ToolboxTextLabelsKeys, string>}) {
++  constructor({ api, tools, i18nLabels }: { api: API; tools: ToolsCollection<BlockTool>; i18nLabels: Record<ToolboxTextLabelsKeys, string> }) {
+     super();
+ 
+     this.api = api;
+@@ -240,10 +240,8 @@ export default class Toolbox extends EventsDispatcher<ToolboxEventMap> {
+   @_.cacheable
+   private get toolsToBeDisplayed(): BlockTool[] {
+     const result: BlockTool[] = [];
+-
+     this.tools.forEach((tool) => {
+       const toolToolboxSettings = tool.toolbox;
+-
+       if (toolToolboxSettings) {
+         result.push(tool);
+       }
+@@ -268,6 +266,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEventMap> {
+         onActivate: (): void => {
+           this.toolButtonActivated(tool.name, toolboxItem.data);
+         },
++        type: tool.type,
+         secondaryLabel: tool.shortcut ? _.beautifyShortcut(tool.shortcut) : '',
+       };
+     };
+@@ -278,7 +277,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEventMap> {
+           tool.toolbox.forEach(item => {
+             result.push(toPopoverItem(item, tool));
+           });
+-        } else if (tool.toolbox !== undefined)  {
++        } else if (tool.toolbox !== undefined) {
+           result.push(toPopoverItem(tool.toolbox, tool));
+         }
+ 
+@@ -328,7 +327,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEventMap> {
+             });
+ 
+             return;
+-          } catch (error) {}
++          } catch (error) { }
+         }
+ 
+         this.insertNewBlock(toolName);
+diff --git a/src/components/utils/popover/index.ts b/src/components/utils/popover/index.ts
+index e305afd..e6991f8 100644
+--- a/src/components/utils/popover/index.ts
++++ b/src/components/utils/popover/index.ts
+@@ -7,6 +7,8 @@ import SearchInput from './search-input';
+ import EventsDispatcher from '../events';
+ import Listeners from '../listeners';
+ import ScrollLocker from '../scroll-locker';
++import I18n from '../../i18n';
++import { I18nInternalNS } from '../../i18n/namespace-internal';
+ 
+ /**
+  * Params required to render popover
+@@ -127,7 +129,7 @@ export default class Popover extends EventsDispatcher<PopoverEventMap> {
+     items: string;
+     overlay: string;
+     overlayHidden: string;
+-    } {
++  } {
+     return {
+       popover: 'ce-popover',
+       popoverOpenTop: 'ce-popover--open-top',
+@@ -178,7 +180,43 @@ export default class Popover extends EventsDispatcher<PopoverEventMap> {
+   constructor(params: PopoverParams) {
+     super();
+ 
+-    this.items = params.items.map(item => new PopoverItem(item));
++    const isFirst = (params.items?.[0]?.type === 0)
++    const medicineUsed = [
++      "Key Vitals",
++      "PE/ROS",
++      "Test & Report",
++      "Internal Documents",
++      "Procedures",
++      "Vaccination",
++      "Anti-Parasitic",
++      "Medicine",
++      "Soap"
++    ];
++    const medicines = [], common = [];
++
++    if (isFirst) {
++      medicines.push(new PopoverItem({
++        name: 'Medical Section',
++        title: I18n.t(I18nInternalNS.toolNames, 'Medical Section'),
++        isActive: false,
++        onActivate: () => { },
++        icon: ''
++      }));
++      common.push(new PopoverItem({
++        name: 'Basic Block',
++        title: I18n.t(I18nInternalNS.toolNames, 'Basic Block'),
++        isActive: false,
++        onActivate: () => { },
++        icon: ''
++      }));
++    }
++    params.items.map(item => {
++      if (medicineUsed.includes(item.name))
++        medicines.push(new PopoverItem(item))
++      else
++        common.push(new PopoverItem(item))
++    });
++    this.items = medicines.concat(...common);
+ 
+     if (params.scopeElement !== undefined) {
+       this.scopeElement = params.scopeElement;
+@@ -284,14 +322,14 @@ export default class Popover extends EventsDispatcher<PopoverEventMap> {
+    * Constructs HTML element corresponding to popover
+    */
+   private make(): void {
+-    this.nodes.popover = Dom.make('div', [ Popover.CSS.popover ]);
++    this.nodes.popover = Dom.make('div', [Popover.CSS.popover]);
+ 
+-    this.nodes.nothingFoundMessage = Dom.make('div', [ Popover.CSS.nothingFoundMessage ], {
++    this.nodes.nothingFoundMessage = Dom.make('div', [Popover.CSS.nothingFoundMessage], {
+       textContent: this.messages.nothingFound,
+     });
+ 
+     this.nodes.popover.appendChild(this.nodes.nothingFoundMessage);
+-    this.nodes.items = Dom.make('div', [ Popover.CSS.items ]);
++    this.nodes.items = Dom.make('div', [Popover.CSS.items]);
+ 
+     this.items.forEach(item => {
+       this.nodes.items.appendChild(item.getElement());
+@@ -504,6 +542,9 @@ export default class Popover extends EventsDispatcher<PopoverEventMap> {
+    * @param clickedItem - popover item that was clicked
+    */
+   private toggleItemActivenessIfNeeded(clickedItem: PopoverItem): void {
++    if (typeof clickedItem.toggle === 'function') {
++      clickedItem.toggleActive(clickedItem.toggle());
++    }
+     if (clickedItem.toggle === true) {
+       clickedItem.toggleActive();
+     }
+diff --git a/src/components/utils/popover/popover-item.ts b/src/components/utils/popover/popover-item.ts
+index 9513a2c..f2e6ae0 100644
+--- a/src/components/utils/popover/popover-item.ts
++++ b/src/components/utils/popover/popover-item.ts
+@@ -16,7 +16,7 @@ export class PopoverItem {
+   /**
+    * Exposes popover item toggle parameter
+    */
+-  public get toggle(): boolean | string | undefined {
++  public get toggle(): boolean | (() => boolean) | string | undefined {
+     return this.params.toggle;
+   }
+ 
+@@ -85,7 +85,7 @@ export class PopoverItem {
+     noHover: string,
+     noFocus: string,
+     wobbleAnimation: string
+-    } {
++  } {
+     return {
+       container: 'ce-popover-item',
+       title: 'ce-popover-item__title',
+@@ -178,12 +178,13 @@ export class PopoverItem {
+       el.dataset.itemName = params.name;
+     }
+ 
+-    this.nodes.icon = Dom.make('div', PopoverItem.CSS.icon, {
+-      innerHTML: params.icon || IconDotCircle,
+-    });
+-
+-    el.appendChild(this.nodes.icon);
++    if (params?.icon) {
++      this.nodes.icon = Dom.make('div', PopoverItem.CSS.icon, {
++        innerHTML: params.icon || IconDotCircle,
++      });
+ 
++      el.appendChild(this.nodes.icon);
++    }
+     el.appendChild(Dom.make('div', PopoverItem.CSS.title, {
+       innerHTML: params.title || '',
+     }));
+@@ -254,7 +255,7 @@ export class PopoverItem {
+   /**
+    * Disables special focus and hover behavior
+    */
+-  private disableSpecialHoverAndFocusBehavior(): void  {
++  private disableSpecialHoverAndFocusBehavior(): void {
+     this.removeSpecialFocusBehavior();
+     this.removeSpecialHoverBehavior();
+ 
+diff --git a/types/configs/popover.d.ts b/types/configs/popover.d.ts
+index 6689fce..4c07f1c 100644
+--- a/types/configs/popover.d.ts
++++ b/types/configs/popover.d.ts
+@@ -57,6 +57,8 @@ export interface PopoverItemWithConfirmation extends PopoverItemBase {
+   confirmation: PopoverItem;
+ 
+   onActivate?: never;
++
++  type?:number;
+ }
+ 
+ /**
+@@ -72,6 +74,8 @@ export interface PopoverItemWithoutConfirmation extends PopoverItemBase {
+    * @param event - event that initiated item activation
+    */
+   onActivate: (item: PopoverItem, event?: PointerEvent) => void;
++
++  type?:number;
+ }
+ 
+ /**
+diff --git a/types/tools/block-tool.d.ts b/types/tools/block-tool.d.ts
+index 8c9bb85..a88122c 100644
+--- a/types/tools/block-tool.d.ts
++++ b/types/tools/block-tool.d.ts
+@@ -78,6 +78,8 @@ export interface BlockTool extends BaseTool {
+    * Called after block was moved
+    */
+   moved?(event: MoveEvent): void;
++
++  config?:ToolConfig;
+ }
+ 
+ /**
+-- 
+2.39.3 (Apple Git-145)
+
